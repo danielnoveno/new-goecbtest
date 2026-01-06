@@ -1,0 +1,104 @@
+2026-01-05T14:47:14.633+0700	[34mINFO[0m	cmd/main.go:56	Failed to initialize database: dial tcp: lookup komodo.kencang.com: no such host
+2026-01-05T14:50:45.120+0700	[34mINFO[0m	cmd/main.go:56	Failed to initialize database: Error 1045 (28000): Access denied for user 'pengstud_goecbtest'@'114.79.17.163' (using password: YES)
+2026-01-05T14:51:35.714+0700	[34mINFO[0m	db/db.go:142	DB: Successfully connected!
+2026-01-05T14:53:33.992+0700	[34mINFO[0m	cmd/main.go:56	Failed to initialize database: dial tcp: lookup komodo.kencang.com: no such host
+2026-01-05T14:54:18.442+0700	[34mINFO[0m	db/db.go:142	DB: Successfully connected!
+2026-01-05T14:54:22.325+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.85.209
+2026-01-05T14:54:22.441+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.85.209
+2026-01-05T14:54:23.240+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: L1] showInstruction step=0 label="SCAN NOMOR SERI"
+2026-01-05T14:54:23.268+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: L1] refocusInput request
+2026-01-05T14:54:23.269+0700	[34mINFO[0m	ecb/line_components.go:1074	[Line: L1] focus skipped inputEntry not on canvas (retry 0)
+2026-01-05T14:54:23.273+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: L2] showInstruction step=0 label="SCAN NOMOR SERI"
+2026-01-05T14:54:23.402+0700	[34mINFO[0m	views/main.go:886	[window] size initial 1024x700
+2026-01-05T14:54:23.405+0700	[34mINFO[0m	task/scheduler.go:34	[scheduler] disable SIMO/BServ jobs: simoprd ping failed: dial tcp 127.0.0.1:3306: connectex: No connection could be made because the target machine actively refused it.
+2026-01-05T14:54:23.473+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: L1] refocusInput request
+2026-01-05T14:54:25.406+0700	[34mINFO[0m	views/main.go:892	[window] size changed 1025x700
+2026-01-05T14:54:26.106+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: L1] focus attempt
+2026-01-05T14:54:26.403+0700	[34mINFO[0m	views/main.go:892	[window] size changed 1477x831
+2026-01-05T15:21:28.268+0700	[34mINFO[0m	db/db.go:118	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-05T15:21:28.789+0700	[34mINFO[0m	db/db.go:154	DB: Successfully connected!
+2026-01-05T15:21:28.790+0700	[34mINFO[0m	monitor/monitor.go:217	[Monitor] System Info:
+2026-01-05T15:21:28.790+0700	[34mINFO[0m	monitor/monitor.go:218	[Monitor]   - OS/Arch: windows/amd64
+2026-01-05T15:21:28.791+0700	[34mINFO[0m	monitor/monitor.go:219	[Monitor]   - CPUs: 8
+2026-01-05T15:21:28.791+0700	[34mINFO[0m	monitor/monitor.go:220	[Monitor]   - Go Version: go1.25.1
+2026-01-05T15:21:28.791+0700	[34mINFO[0m	monitor/monitor.go:225	[Monitor]   - Platform: Desktop/Server
+2026-01-05T15:21:29.193+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.85.209
+2026-01-05T15:21:29.297+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.85.209
+2026-01-05T15:21:29.894+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-05T15:21:29.910+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-05T15:21:29.912+0700	[34mINFO[0m	ecb/line_components.go:1074	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-05T15:21:29.913+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-05T15:21:29.982+0700	[34mINFO[0m	views/main.go:886	[window] size initial 1024x700
+2026-01-05T15:21:30.112+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-05T15:21:34.982+0700	[34mINFO[0m	task/scheduler.go:43	[scheduler] disable SIMO/BServ jobs: simoprd ping failed: dial tcp 192.168.1.100:3306: i/o timeout
+2026-01-05T15:21:35.983+0700	[34mINFO[0m	views/main.go:892	[window] size changed 1477x831
+2026-01-05T15:21:36.118+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-05T15:21:47.902+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="ewqeq"
+2026-01-05T15:21:47.902+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="ewqeq" currentStep=0 testRunning=false
+2026-01-05T15:21:47.905+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="ewqeq"
+2026-01-05T15:21:47.906+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="ewqeq"
+2026-01-05T15:21:47.906+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="ewqeq"
+2026-01-05T15:21:47.906+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
+2026-01-05T15:21:47.906+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-05T15:21:47.936+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-05T15:21:48.485+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="ewqeq"
+2026-01-05T15:21:48.486+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="ewqeq" currentStep=0 testRunning=false
+2026-01-05T15:21:48.487+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="ewqeq"
+2026-01-05T15:21:48.487+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="ewqeq"
+2026-01-05T15:21:48.487+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="ewqeq"
+2026-01-05T15:21:48.489+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
+2026-01-05T15:21:48.489+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-05T15:21:48.492+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-05T15:21:49.152+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="eqweq"
+2026-01-05T15:21:49.152+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="eqweq" currentStep=0 testRunning=false
+2026-01-05T15:21:49.153+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="eqweq"
+2026-01-05T15:21:49.154+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="eqweq"
+2026-01-05T15:21:49.154+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="eqweq"
+2026-01-05T15:21:49.154+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
+2026-01-05T15:21:49.154+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-05T15:21:49.158+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-05T15:21:49.653+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="eqweq"
+2026-01-05T15:21:49.653+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="eqweq" currentStep=0 testRunning=false
+2026-01-05T15:21:49.654+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="eqweq"
+2026-01-05T15:21:49.655+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="eqweq"
+2026-01-05T15:21:49.655+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="eqweq"
+2026-01-05T15:21:49.655+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
+2026-01-05T15:21:49.655+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-05T15:21:49.659+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-05T15:21:49.907+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-05T15:21:50.221+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="eqeqwe"
+2026-01-05T15:21:50.221+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="eqeqwe" currentStep=0 testRunning=false
+2026-01-05T15:21:50.222+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="eqeqwe"
+2026-01-05T15:21:50.223+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="eqeqwe"
+2026-01-05T15:21:50.223+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="eqeqwe"
+2026-01-05T15:21:50.223+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
+2026-01-05T15:21:50.224+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-05T15:21:50.242+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-05T15:21:50.490+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-05T15:21:50.852+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="qweqweqw"
+2026-01-05T15:21:50.853+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="qweqweqw" currentStep=0 testRunning=false
+2026-01-05T15:21:50.854+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="qweqweqw"
+2026-01-05T15:21:50.854+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="qweqweqw"
+2026-01-05T15:21:50.854+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="qweqweqw"
+2026-01-05T15:21:50.855+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
+2026-01-05T15:21:50.855+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-05T15:21:50.866+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-05T15:21:51.086+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="e"
+2026-01-05T15:21:51.086+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="e" currentStep=0 testRunning=false
+2026-01-05T15:21:51.089+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="e"
+2026-01-05T15:21:51.089+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="e"
+2026-01-05T15:21:51.089+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="e"
+2026-01-05T15:21:51.090+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
+2026-01-05T15:21:51.090+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-05T15:21:51.093+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-05T15:21:51.154+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-05T15:21:51.286+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text=""
+2026-01-05T15:21:51.286+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="" currentStep=0 testRunning=false
+2026-01-05T15:21:51.287+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Input Kosong" revert=1.5s
+2026-01-05T15:21:51.287+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-05T15:21:51.297+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-05T15:21:51.656+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-05T15:21:52.224+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-05T15:21:52.788+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-05T15:21:52.855+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-05T15:21:53.090+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
