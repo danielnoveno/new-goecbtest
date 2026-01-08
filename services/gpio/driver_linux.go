@@ -55,9 +55,6 @@ func normalizePinName(pin string) string {
 		return trimmed
 	}
 
-	// if bcm, err := WiringPiToBCM(trimmed); err == nil {
-	// 	return bcm
-	// }
 	if _, err := strconv.Atoi(trimmed); err == nil {
 		return "GPIO" + trimmed
 	}
@@ -77,7 +74,6 @@ func (d *periphDriver) Read(pin string) (Level, error) {
 	if err != nil {
 		return LevelLow, err
 	}
-	// Enable internal pull-up for buttons (active low logic)
 	if err := p.In(gpio.PullUp, gpio.NoEdge); err != nil {
 		return LevelLow, err
 	}
@@ -92,7 +88,6 @@ func (d *periphDriver) SetMode(pin string, mode PinMode) error {
 	if mode == ModeOutput {
 		return p.Out(gpio.Low)
 	}
-	// Use internal pull-up for all input modes to simplify demo wiring
 	return p.In(gpio.PullUp, gpio.NoEdge)
 }
 

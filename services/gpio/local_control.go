@@ -38,12 +38,9 @@ func InitializeControl() {
 		if strings.TrimSpace(pin.name) == "" {
 			continue
 		}
-		configureMode(pin.name, pin.mode)
+	configureMode(pin.name, pin.mode)
 	}
 
-	writeLevel(layout.Pass, LevelHigh)
-	writeLevel(layout.Fail, LevelHigh)
-	writeLevel(layout.UnderTest, LevelHigh)
 	writeLevel(layout.ResetAlt, LevelHigh)
 	writeLevel(layout.StartAlt, LevelHigh)
 
