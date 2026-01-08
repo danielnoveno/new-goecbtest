@@ -8,6 +8,7 @@ package gpio
 
 import (
 	"fmt"
+	"strings"
 	"sync"
 	"time"
 
@@ -57,6 +58,10 @@ func runEcbStateUpdater(dbmap *gorp.DbMap) {
 			continue
 		}
 		
+		if current != lastState && lastState != "" {
+			logStateChange(lastState, current)
+		}
+
 		if current == lastState {
 			unchangedCount++
 			
@@ -105,4 +110,31 @@ func insertEcbState(dbmap *gorp.DbMap, value string) error {
 		ON DUPLICATE KEY UPDATE ecbstate = VALUES(ecbstate), readstate = '', updated_at = VALUES(updated_at)
 	`, now, value, now, now)
 	return err
+}
+
+func logStateChange(oldState, newState string) {
+	oldParts := strings.Split(oldState, ".")
+	newParts := strings.Split(newState, ".")
+	if len(oldParts) < 4 || len(newParts) < 4 {
+		return
+	}
+
+	labels := []string{"UNDERTEST", "PASS", "FAIL", "LINE"}
+	layout := GetPinLayout()
+	pins := []string{layout.UnderTest, layout.Pass, layout.Fail, layout.LineSelect}
+
+	for i := 0; i < 3; i++ { // Only log for buttons (0-2)
+		if oldParts[i] != newParts[i] {
+			action := "RELEASED (HIGH)"
+			if newParts[i] == "0" {
+				action = "PRESSED (LOW)"
+			}
+			phys := WiringPiToPhysical(pins[i])
+			logging.Logger().Infof("[GPIO Input] Button %s (Pin %s, Phys %s) %s", labels[i], pins[i], phys, action)
+		}
+	}
+
+	if oldParts[3] != newParts[3] {
+		logging.Logger().Infof("[GPIO Input] LINE SELECT changed to %s", newParts[3])
+	}
 }

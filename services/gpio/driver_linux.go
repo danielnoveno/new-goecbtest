@@ -25,6 +25,7 @@ func init() {
 		SetDriver(newNoopDriver())
 		return
 	}
+	logging.Logger().Infof("GPIO hardware driver (periph) initialized successfully")
 	SetDriver(&periphDriver{pins: make(map[string]gpio.PinIO)})
 }
 

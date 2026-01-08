@@ -20,7 +20,14 @@ func readLevel(pin string) string {
 func writeLevel(pin string, level Level) {
 	if err := WritePin(pin, level); err != nil {
 		logging.Logger().Warnf("gpio write %s=%s failed: %v", pin, level.String(), err)
+		return
 	}
+	phys := WiringPiToPhysical(pin)
+	status := "OFF"
+	if level == LevelHigh {
+		status = "ON"
+	}
+	logging.Logger().Infof("[GPIO Output] Pin %s (Phys %s) set to %s", pin, phys, status)
 }
 
 func configureMode(pin string, mode PinMode) {
