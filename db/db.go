@@ -8,7 +8,6 @@ package db
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -25,7 +24,6 @@ var DB *gorp.DbMap
 var sqlLogger *log.Logger
 var sqlLogEnabled bool
 
-// queryLogger enriches gorp trace output with a duration in milliseconds.
 type queryLogger struct {
 	logger *log.Logger
 }
@@ -48,52 +46,7 @@ func (l queryLogger) Printf(format string, v ...interface{}) {
 	l.logger.Printf(format, v...)
 }
 
-func logSQL(prefix, query string, args []interface{}, duration time.Duration) {
-	if !sqlLogEnabled || sqlLogger == nil {
-		return
-	}
-	argsText := fmt.Sprint(args)
-	label := strings.TrimSpace(prefix)
-	if label != "" {
-		label += " "
-	}
-	sqlLogger.Printf("%squery=%s args=%s took=%.2fms", label, query, argsText, duration.Seconds()*1000)
-}
 
-func QueryWith(conn *sql.DB, query string, args ...interface{}) (*sql.Rows, error) {
-	start := time.Now()
-	rows, err := conn.Query(query, args...)
-	logSQL("SQL Query", query, args, time.Since(start))
-	return rows, err
-}
-
-func Query(query string, args ...interface{}) (*sql.Rows, error) {
-	return QueryWith(DB.Db, query, args...)
-}
-
-func QueryRowWith(conn *sql.DB, query string, args ...interface{}) *sql.Row {
-	start := time.Now()
-	row := conn.QueryRow(query, args...)
-	logSQL("SQL QueryRow", query, args, time.Since(start))
-	return row
-}
-
-func QueryRow(query string, args ...interface{}) *sql.Row {
-	return QueryRowWith(DB.Db, query, args...)
-}
-
-func ExecWith(conn *sql.DB, query string, args ...interface{}) (sql.Result, error) {
-	start := time.Now()
-	res, err := conn.Exec(query, args...)
-	logSQL("SQL Exec", query, args, time.Since(start))
-	return res, err
-}
-
-func Exec(query string, args ...interface{}) (sql.Result, error) {
-	return ExecWith(DB.Db, query, args...)
-}
-
-// InitDb adalah fungsi untuk inisialisasi db.
 func InitDb() (*gorp.DbMap, error) {
 	cfg := configs.LoadConfig()
 	dsn := cfg.DBUser + ":" + cfg.DBPassword + "@tcp(" + cfg.DBAddress + ")/" + cfg.DBName + "?parseTime=true"
@@ -102,16 +55,13 @@ func InitDb() (*gorp.DbMap, error) {
 		return nil, err
 	}
 
-	// Optimasi connection pool berdasarkan platform
 	isRPi := configs.IsRaspberryPi()
 	if isRPi {
-		// Raspberry Pi: lebih konservatif untuk menghemat memory
 		db.SetMaxOpenConns(3)
 		db.SetMaxIdleConns(1)
 		db.SetConnMaxLifetime(5 * time.Minute)
 		log.Println("DB: Raspberry Pi mode detected, using optimized connection pool (max:3, idle:1)")
 	} else {
-		// Desktop/Server: setting default
 		db.SetMaxOpenConns(5)
 		db.SetMaxIdleConns(2)
 		db.SetConnMaxLifetime(2 * time.Minute)
@@ -141,10 +91,9 @@ func InitDb() (*gorp.DbMap, error) {
 	dbmap.AddTableWithName(types.Compressor{}, "compressors").SetKeys(true, "ID")
 	dbmap.AddTableWithName(types.Comprefg{}, "comprefgs").SetKeys(true, "ID")
 	dbmap.AddTableWithName(types.EcbStation{}, "ecbstations").SetKeys(true, "ID")
-	// dbmap.AddTableWithName(types.AccessGroup{}, "access_groups").SetKeys(true, "ID")
-	// dbmap.AddTableWithName(types.NavigationAccess{}, "navigation_accesses").SetKeys(true, "ID")
-	// dbmap.AddTableWithName(types.HelpCategory{}, "help_categories").SetKeys(true, "ID")
 	dbmap.AddTableWithName(types.Theme{}, "themes").SetKeys(true, "ID")
+	dbmap.AddTableWithName(types.EcbConfig{}, "ecbconfigs").SetKeys(true, "ID")
+	dbmap.AddTableWithName(types.Navigation{}, "navigations").SetKeys(true, "ID")
 
 	err = dbmap.CreateTablesIfNotExists()
 	if err != nil {

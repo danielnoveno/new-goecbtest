@@ -13,7 +13,6 @@ import (
 	"go-ecb/configs"
 )
 
-// InitializeHardware adalah fungsi untuk initialize hardware.
 func InitializeHardware() {
 	simoCfg := configs.LoadSimoConfig()
 	ecbMode := simoCfg.EcbMode

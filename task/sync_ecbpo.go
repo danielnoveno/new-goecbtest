@@ -17,7 +17,7 @@ import (
 
 // SyncEcbPo menyinkronkan catatan PO dari SIMO ke database lokal secara berkala.
 func SyncEcbPo() {
-	fmt.Println("[SyncEcbPo] Start syncing ecbpos...")
+	log.Println("[SyncEcbPo] Start syncing ecbpos...")
 
 	cfg := configs.LoadConfig()
 	localDB, err := sql.Open("mysql", buildDSN(
@@ -58,7 +58,7 @@ func SyncEcbPo() {
 
 // syncEcbPoRecords melakukan workcenter-aware sync tanpa membuka koneksi lagi.
 func syncEcbPoRecords(simo, local *sql.DB) {
-	fmt.Println("[syncEcbPoRecords] Syncing ecbpos...")
+	log.Println("[syncEcbPoRecords] Syncing ecbpos...")
 	simoCfg := configs.LoadSimoConfig()
 	workcenters := resolveWorkcenters(local, simoCfg)
 	if len(workcenters) == 0 {
@@ -144,5 +144,5 @@ func syncEcbPoRecords(simo, local *sql.DB) {
 		}
 	}
 
-	fmt.Printf("[syncEcbPoRecords] Done. imported=%d pushedScanned=%d\n", imported, len(scannedIDs))
+	log.Printf("[syncEcbPoRecords] Done. imported=%d pushedScanned=%d\n", imported, len(scannedIDs))
 }

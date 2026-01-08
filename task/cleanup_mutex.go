@@ -14,7 +14,6 @@ import (
 	"time"
 )
 
-// CleanMutex adalah fungsi untuk membersihkan mutex.
 func CleanMutex() {
 	mutexDir := "./storage/framework"
 	fmt.Println("[CleanMutex] Scanning:", mutexDir)

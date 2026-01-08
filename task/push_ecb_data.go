@@ -20,7 +20,6 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-// PostEcbData adalah fungsi untuk mengirim ecb data.
 func PostEcbData() {
 	fmt.Println("[PostEcbData] Start pushing pending ecbdatas...")
 	start := time.Now()

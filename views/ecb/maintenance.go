@@ -1,7 +1,7 @@
 /*
-    file:           views/ecb/maintenance.go
-    description:    Layar ECB untuk maintenance
-    created:        220711663@students.uajy.ac.id 04-11-2025
+   file:           views/ecb/maintenance.go
+   description:    Layar ECB untuk maintenance
+   created:        220711663@students.uajy.ac.id 04-11-2025
 */
 
 package ecb
@@ -192,9 +192,9 @@ func (s *maintenanceState) applyStateString(value string) {
 	if len(parts) < 4 {
 		return
 	}
-	s.setString(s.pass, parts[0])
-	s.setString(s.fail, parts[1])
-	s.setString(s.undertest, parts[2])
+	s.setString(s.undertest, parts[0])
+	s.setString(s.pass, parts[1])
+	s.setString(s.fail, parts[2])
 	s.setString(s.lineSelect, parts[3])
 	if line, err := strconv.Atoi(parts[3]); err == nil {
 		s.mu.Lock()
@@ -210,13 +210,13 @@ func deriveHasil(state string) string {
 	if strings.HasPrefix(state, "1.1.1") {
 		return "IDLE"
 	}
-	if strings.HasPrefix(state, "0.1.1") {
+	if strings.HasPrefix(state, "1.0.1") {
 		return "PASS"
 	}
-	if strings.HasPrefix(state, "1.0.1") {
+	if strings.HasPrefix(state, "1.1.0") {
 		return "FAIL"
 	}
-	if strings.HasPrefix(state, "1.1.0") {
+	if strings.HasPrefix(state, "0.1.1") {
 		return "UNDERTEST"
 	}
 	return "RUSAK"
@@ -376,16 +376,21 @@ func MaintenanceUI(onModeChange func(string), currentMode string, w fyne.Window,
 		widget.NewLabelWithStyle("Nilai", fyne.TextAlignLeading, fyne.TextStyle{Bold: true}),
 	)
 
+	underTestRefLabel := widget.NewLabel(physicalReference(pinLayout.UnderTest))
+	passRefLabel := widget.NewLabel(physicalReference(pinLayout.Pass))
+	failRefLabel := widget.NewLabel(physicalReference(pinLayout.Fail))
+	lineRefLabel := widget.NewLabel(physicalReference(pinLayout.LineSelect))
+
 	pinGrid := container.NewVBox(
 		headerRow,
 		container.NewGridWithColumns(4,
-			widget.NewLabel("UNDERTEST"), widget.NewLabel(physicalReference("UNDERTEST")), underTestPinValue, undertestLabel),
+			widget.NewLabel("UNDERTEST"), underTestRefLabel, underTestPinValue, undertestLabel),
 		container.NewGridWithColumns(4,
-			widget.NewLabel("PASS"), widget.NewLabel(physicalReference("PASS")), passPinValue, passLabel),
+			widget.NewLabel("PASS"), passRefLabel, passPinValue, passLabel),
 		container.NewGridWithColumns(4,
-			widget.NewLabel("FAIL"), widget.NewLabel(physicalReference("FAIL")), failPinValue, failLabel),
+			widget.NewLabel("FAIL"), failRefLabel, failPinValue, failLabel),
 		container.NewGridWithColumns(4,
-			widget.NewLabel("LINESELECT"), widget.NewLabel(physicalReference("LINESELECT")), linePinValue, lineLabel),
+			widget.NewLabel("LINESELECT"), lineRefLabel, linePinValue, lineLabel),
 	)
 
 	configInfo := "Ubah wiringPi sesuai kebutuhan; referensi pin fisik ada di tabel di atas."
@@ -408,12 +413,18 @@ func MaintenanceUI(onModeChange func(string), currentMode string, w fyne.Window,
 			dialog.ShowError(err, w)
 			return
 		}
-		dialog.ShowInformation("Konfigurasi pin tersimpan", "Perubahan tersimpan; jalankan RE-INIT untuk menerapkan pada hardware.", w)
+		dialog.ShowInformation("Konfigurasi pin tersimpan", "Perubahan tersimpan.", w)
 		updated := pinController.GetPins()
 		underTestPinValue.SetText(updated.UnderTest)
 		passPinValue.SetText(updated.Pass)
 		failPinValue.SetText(updated.Fail)
 		linePinValue.SetText(updated.LineSelect)
+		
+		underTestRefLabel.SetText(physicalReference(updated.UnderTest))
+		passRefLabel.SetText(physicalReference(updated.Pass))
+		failRefLabel.SetText(physicalReference(updated.Fail))
+		lineRefLabel.SetText(physicalReference(updated.LineSelect))
+		
 		pinForm.update(updated)
 	})
 
@@ -436,10 +447,10 @@ func MaintenanceUI(onModeChange func(string), currentMode string, w fyne.Window,
 				makeFormRow("FAIL (WiringPi)", pinForm.failEntry),
 				makeFormRow("PASS (WiringPi)", pinForm.passEntry),
 				makeFormRow("LINE SELECT (WiringPi)", pinForm.lineSelectEntry),
-				makeFormRow("RESET (WiringPi)", pinForm.resetEntry),
-				makeFormRow("RESET (alt) (WiringPi)", pinForm.resetAltEntry),
-				makeFormRow("START (WiringPi)", pinForm.startEntry),
-				makeFormRow("START (alt) (WiringPi)", pinForm.startAltEntry),
+				// makeFormRow("RESET (WiringPi)", pinForm.resetEntry),
+				// makeFormRow("RESET (alt) (WiringPi)", pinForm.resetAltEntry),
+				// makeFormRow("START (WiringPi)", pinForm.startEntry),
+				// makeFormRow("START (alt) (WiringPi)", pinForm.startAltEntry),
 			),
 			container.NewHBox(saveButton, resetButton),
 		),
@@ -462,19 +473,9 @@ func MaintenanceUI(onModeChange func(string), currentMode string, w fyne.Window,
 	return container.NewVScroll(container.NewPadded(content))
 }
 
-var pinPhysicalReference = map[string]string{
-	"UNDERTEST":  "31",
-	"PASS":       "13",
-	"FAIL":       "29",
-	"LINESELECT": "37",
-}
-
-// physicalReference adalah fungsi untuk physical reference.
-func physicalReference(name string) string {
-	if val, ok := pinPhysicalReference[name]; ok {
-		return val
-	}
-	return "-"
+// physicalReference is a function to get physical reference.
+func physicalReference(wiringPiPin string) string {
+	return gpio.WiringPiToPhysical(wiringPiPin)
 }
 
 type pinConfigForm struct {

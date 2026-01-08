@@ -1,7 +1,7 @@
 /*
-    file:           app/types/station_definition.go
-    description:    Model dan helper UI untuk ecbstation
-    created:        220711663@students.uajy.ac.id 04-11-2025
+   file:           app/types/station_definition.go
+   description:    Model dan helper UI untuk ecbstation
+   created:        220711663@students.uajy.ac.id 04-11-2025
 */
 
 package types

@@ -33,12 +33,11 @@ func Init(appDebug bool) *zap.SugaredLogger {
 		LineEnding:     zapcore.DefaultLineEnding,
 		EncodeLevel:    zapcore.CapitalColorLevelEncoder,
 		EncodeTime:     zapcore.ISO8601TimeEncoder,
-		EncodeDuration: zapcore.StringDurationEncoder,
-		EncodeCaller:   zapcore.ShortCallerEncoder,
 	}
 
 	outputPaths := []string{"stdout"}
 	logDir := filepath.Join("storage", "logs")
+
 	if err := os.MkdirAll(logDir, 0o755); err == nil {
 		outputPaths = append(outputPaths, filepath.Join(logDir, "app.log"))
 	} else {
@@ -51,7 +50,7 @@ func Init(appDebug bool) *zap.SugaredLogger {
 		Encoding:         "console",
 		EncoderConfig:    encoderConfig,
 		OutputPaths:      outputPaths,
-		ErrorOutputPaths: []string{"stderr"},
+		// ErrorOutputPaths: []string{"stderr"},
 	}
 
 	logger, err := cfg.Build(zap.AddStacktrace(zapcore.ErrorLevel))
@@ -66,12 +65,10 @@ func Init(appDebug bool) *zap.SugaredLogger {
 	return sugaredLogger
 }
 
-// Logger returns the initialized sugared logger.
 func Logger() *zap.SugaredLogger {
 	return sugaredLogger
 }
 
-// Sync flushes buffered log entries.
 func Sync() {
 	if zapLogger != nil {
 		_ = zapLogger.Sync()

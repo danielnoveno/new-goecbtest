@@ -1,7 +1,7 @@
 /*
-    file:           views/components/floating_fields.go
-    description:    Komponen UI umum untuk floating fields
-    created:        220711663@students.uajy.ac.id 04-11-2025
+   file:           views/components/floating_fields.go
+   description:    Komponen UI umum untuk floating fields
+   created:        220711663@students.uajy.ac.id 04-11-2025
 */
 
 package components
@@ -20,7 +20,6 @@ type floatingEntry struct {
 	onStateChanged func()
 }
 
-// newFloatingEntry adalah fungsi untuk baru floating entry.
 func newFloatingEntry(password bool, onStateChanged func()) *floatingEntry {
 	entry := &floatingEntry{onStateChanged: onStateChanged}
 	entry.Password = password
@@ -28,7 +27,6 @@ func newFloatingEntry(password bool, onStateChanged func()) *floatingEntry {
 	return entry
 }
 
-// FocusGained adalah fungsi untuk focus gained.
 func (e *floatingEntry) FocusGained() {
 	e.Entry.FocusGained()
 	e.focused = true
@@ -37,7 +35,6 @@ func (e *floatingEntry) FocusGained() {
 	}
 }
 
-// FocusLost adalah fungsi untuk focus lost.
 func (e *floatingEntry) FocusLost() {
 	e.Entry.FocusLost()
 	e.focused = false
@@ -46,7 +43,6 @@ func (e *floatingEntry) FocusLost() {
 	}
 }
 
-// TypedRune adalah fungsi untuk typed rune.
 func (e *floatingEntry) TypedRune(r rune) {
 	e.Entry.TypedRune(r)
 	if e.onStateChanged != nil {
@@ -54,7 +50,6 @@ func (e *floatingEntry) TypedRune(r rune) {
 	}
 }
 
-// TypedKey adalah fungsi untuk typed key.
 func (e *floatingEntry) TypedKey(k *fyne.KeyEvent) {
 	e.Entry.TypedKey(k)
 	if e.onStateChanged != nil {
@@ -68,7 +63,6 @@ type floatingLabelLayout struct {
 	shouldFloat func() bool
 }
 
-// Layout adalah fungsi untuk layout.
 func (l *floatingLabelLayout) Layout(objects []fyne.CanvasObject, size fyne.Size) {
 	floatUp := l.shouldFloat()
 	if floatUp {
@@ -99,7 +93,6 @@ func (l *floatingLabelLayout) Layout(objects []fyne.CanvasObject, size fyne.Size
 	}
 }
 
-// MinSize adalah fungsi untuk min size.
 func (l *floatingLabelLayout) MinSize(objects []fyne.CanvasObject) fyne.Size {
 	labelSize := l.label.MinSize()
 	inputSize := l.input.MinSize()
@@ -111,7 +104,6 @@ type FloatingEntryField struct {
 	root  *fyne.Container
 }
 
-// NewFloatingEntry adalah fungsi untuk baru floating entry.
 func NewFloatingEntry(label string, password bool) *FloatingEntryField {
 	var refresh func()
 	entry := newFloatingEntry(password, func() {
@@ -140,17 +132,14 @@ func NewFloatingEntry(label string, password bool) *FloatingEntryField {
 	}
 }
 
-// Object adalah fungsi untuk object.
 func (f *FloatingEntryField) Object() fyne.CanvasObject {
 	return f.root
 }
 
-// Text adalah fungsi untuk text.
 func (f *FloatingEntryField) Text() string {
 	return f.Entry.Text
 }
 
-// SetText adalah fungsi untuk mengatur text.
 func (f *FloatingEntryField) SetText(val string) {
 	f.Entry.SetText(val)
 	f.root.Refresh()
@@ -161,7 +150,6 @@ type FloatingSelectField struct {
 	root   *fyne.Container
 }
 
-// NewFloatingSelect adalah fungsi untuk baru floating select.
 func NewFloatingSelect(label string, options []string, onChanged func(string)) *FloatingSelectField {
 	var refresh func()
 	selectWidget := widget.NewSelect(options, func(val string) {
@@ -193,7 +181,6 @@ func NewFloatingSelect(label string, options []string, onChanged func(string)) *
 	}
 }
 
-// Object adalah fungsi untuk object.
 func (f *FloatingSelectField) Object() fyne.CanvasObject {
 	return f.root
 }

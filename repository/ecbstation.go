@@ -7,67 +7,66 @@
 package repository
 
 import (
+	"database/sql"
 	"go-ecb/app/types"
-	"go-ecb/db"
-	"log"
+	"go-ecb/pkg/logging"
+
+	"github.com/go-gorp/gorp"
 )
 
-// GetEcbStation adalah fungsi untuk mengambil ecb stasiun.
-func GetEcbStation() ([]types.EcbStation, error) {
+type EcbStationRepository struct {
+	dbmap *gorp.DbMap
+}
+
+func NewEcbStationRepository(dbmap *gorp.DbMap) *EcbStationRepository {
+	return &EcbStationRepository{dbmap: dbmap}
+}
+
+func (r *EcbStationRepository) GetEcbStation() ([]types.EcbStation, error) {
 	var ecbStations []types.EcbStation
-	rows, err := db.Query("SELECT id, ipaddress, location, mode, linetype, lineids, lineactive, theme, tacktime, workcenters, status, created_at, updated_at FROM ecbstations")
+	_, err := r.dbmap.Select(&ecbStations, "SELECT * FROM ecbstations")
 	if err != nil {
-		log.Printf("Error querying ecbstations: %v", err)
+		logging.Logger().Errorf("Error querying ecbstations: %v", err)
 		return nil, err
 	}
-	defer rows.Close()
-
-	for rows.Next() {
-		var ecbStation types.EcbStation
-		if err := rows.Scan(&ecbStation.ID, &ecbStation.Ipaddress, &ecbStation.Location, &ecbStation.Mode, &ecbStation.Linetype, &ecbStation.Lineids, &ecbStation.Lineactive, &ecbStation.Theme, &ecbStation.Tacktime, &ecbStation.Workcenters, &ecbStation.Status, &ecbStation.CreatedAt, &ecbStation.UpdatedAt); err != nil {
-			log.Printf("Error scanning ecbstation row: %v", err)
-			return nil, err
-		}
-		ecbStations = append(ecbStations, ecbStation)
-	}
-
 	return ecbStations, nil
 }
 
-// CreateEcbStation adalah fungsi untuk membuat ecb stasiun.
-func CreateEcbStation(ecbStation types.EcbStation) (int, error) {
-	result, err := db.Exec("INSERT INTO ecbstations (ipaddress, location, mode, linetype, lineids, lineactive, theme, tacktime, workcenters, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-		ecbStation.Ipaddress, ecbStation.Location, ecbStation.Mode, ecbStation.Linetype, ecbStation.Lineids, ecbStation.Lineactive, ecbStation.Theme, ecbStation.Tacktime, ecbStation.Workcenters, ecbStation.Status)
+func (r *EcbStationRepository) FindEcbStationByIP(ip string) (*types.EcbStation, error) {
+	var s types.EcbStation
+	err := r.dbmap.SelectOne(&s, "SELECT * FROM ecbstations WHERE ipaddress = ? LIMIT 1", ip)
+	
 	if err != nil {
-		log.Printf("Error creating ecbstation: %v", err)
-		return 0, err
+		if err == sql.ErrNoRows {
+			return nil, nil // Return nil if not found
+		}
+		return nil, err
 	}
-
-	id, err := result.LastInsertId()
-	if err != nil {
-		log.Printf("Error getting last insert ID for ecbstation: %v", err)
-		return 0, err
-	}
-
-	return int(id), nil
+	return &s, nil
 }
 
-// UpdateEcbStation adalah fungsi untuk memperbarui ecb stasiun.
-func UpdateEcbStation(ecbStation types.EcbStation) error {
-	_, err := db.Exec("UPDATE ecbstations SET ipaddress = ?, location = ?, mode = ?, linetype = ?, lineids = ?, lineactive = ?, theme = ?, tacktime = ?, workcenters = ?, status = ? WHERE id = ?",
-		ecbStation.Ipaddress, ecbStation.Location, ecbStation.Mode, ecbStation.Linetype, ecbStation.Lineids, ecbStation.Lineactive, ecbStation.Theme, ecbStation.Tacktime, ecbStation.Workcenters, ecbStation.Status, ecbStation.ID)
+func (r *EcbStationRepository) CreateEcbStation(ecbStation types.EcbStation) (int, error) {
+	err := r.dbmap.Insert(&ecbStation)
 	if err != nil {
-		log.Printf("Error updating ecbstation: %v", err)
+		logging.Logger().Errorf("Error creating ecbstation: %v", err)
+		return 0, err
+	}
+	return ecbStation.ID, nil
+}
+
+func (r *EcbStationRepository) UpdateEcbStation(ecbStation types.EcbStation) error {
+	_, err := r.dbmap.Update(&ecbStation)
+	if err != nil {
+		logging.Logger().Errorf("Error updating ecbstation: %v", err)
 		return err
 	}
 	return nil
 }
 
-// DeleteEcbStation adalah fungsi untuk menghapus ecb stasiun.
-func DeleteEcbStation(id int) error {
-	_, err := db.Exec("DELETE FROM ecbstations WHERE id = ?", id)
+func (r *EcbStationRepository) DeleteEcbStation(id int) error {
+	_, err := r.dbmap.Exec("DELETE FROM ecbstations WHERE id = ?", id)
 	if err != nil {
-		log.Printf("Error deleting ecbstation: %v", err)
+		logging.Logger().Errorf("Error deleting ecbstation: %v", err)
 		return err
 	}
 	return nil

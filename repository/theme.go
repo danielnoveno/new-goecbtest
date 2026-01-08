@@ -6,115 +6,50 @@
 
 package repository
 
+
+
 import (
+	"database/sql"
 	"go-ecb/app/types"
-	"go-ecb/db"
-	"log"
+	"go-ecb/pkg/logging"
+	"github.com/go-gorp/gorp"
 )
 
-// GetThemes adalah fungsi untuk mengambil tema.
-func GetThemes() ([]types.Theme, error) {
-	rows, err := db.Query(`
-		SELECT id, nama, keterangan,
-		       color_background, color_foreground, color_text,
-		       color_button, color_disabled, color_error,
-		       color_focus, color_hover,
-		       color_input_background, color_placeholder, color_primary,
-		       color_scrollbar, color_selection, color_navbar, color_footer,
-		       header_start, header_end, accent,
-		       created_at, updated_at
-		FROM themes
+type ThemeRepository struct {
+	dbmap *gorp.DbMap
+}
+
+func NewThemeRepository(dbmap *gorp.DbMap) *ThemeRepository {
+	return &ThemeRepository{dbmap: dbmap}
+}
+
+func (r *ThemeRepository) GetThemes() ([]types.Theme, error) {
+	var themes []types.Theme
+	_, err := r.dbmap.Select(&themes, `
+		SELECT * FROM themes
 		ORDER BY id ASC
 	`)
 	if err != nil {
-		log.Printf("Error querying themes: %v", err)
+		logging.Logger().Warnf("Error querying themes: %v", err)
 		return nil, err
 	}
-	defer rows.Close()
-
-	var themes []types.Theme
-	for rows.Next() {
-		var theme types.Theme
-		if err := rows.Scan(
-			&theme.ID,
-			&theme.Nama,
-			&theme.Keterangan,
-			&theme.ColorBackground,
-			&theme.ColorForeground,
-			&theme.ColorText,
-			&theme.ColorButton,
-			&theme.ColorDisabled,
-			&theme.ColorError,
-			&theme.ColorFocus,
-			&theme.ColorHover,
-			&theme.ColorInputBackground,
-			&theme.ColorPlaceholder,
-			&theme.ColorPrimary,
-			&theme.ColorScrollbar,
-			&theme.ColorSelection,
-			&theme.ColorNavbar,
-			&theme.ColorFooter,
-			&theme.HeaderStart,
-			&theme.HeaderEnd,
-			&theme.Accent,
-			&theme.CreatedAt,
-			&theme.UpdatedAt,
-		); err != nil {
-			log.Printf("Error scanning theme row: %v", err)
-			return nil, err
-		}
-		themes = append(themes, theme)
-	}
-	if err := rows.Err(); err != nil {
-		return nil, err
-	}
-
 	return themes, nil
 }
 
-// GetThemeByName adalah fungsi untuk mengambil tema by name.
-func GetThemeByName(name string) (*types.Theme, error) {
-	row := db.QueryRow(`
-		SELECT id, nama, keterangan,
-		       color_background, color_foreground, color_text,
-		       color_button, color_disabled, color_error,
-		       color_focus, color_hover,
-		       color_input_background, color_placeholder, color_primary,
-		       color_scrollbar, color_selection, color_navbar, color_footer,
-		       header_start, header_end, accent,
-		       created_at, updated_at
-		FROM themes
+func (r *ThemeRepository) GetThemeByName(name string) (*types.Theme, error) {
+	var theme types.Theme
+	err := r.dbmap.SelectOne(&theme, `
+		SELECT * FROM themes
 		WHERE nama = ?
 		LIMIT 1
 	`, name)
 
-	var theme types.Theme
-	if err := row.Scan(
-		&theme.ID,
-		&theme.Nama,
-		&theme.Keterangan,
-		&theme.ColorBackground,
-		&theme.ColorForeground,
-		&theme.ColorText,
-		&theme.ColorButton,
-		&theme.ColorDisabled,
-		&theme.ColorError,
-		&theme.ColorFocus,
-		&theme.ColorHover,
-		&theme.ColorInputBackground,
-		&theme.ColorPlaceholder,
-		&theme.ColorPrimary,
-		&theme.ColorScrollbar,
-		&theme.ColorSelection,
-		&theme.ColorNavbar,
-		&theme.ColorFooter,
-		&theme.HeaderStart,
-		&theme.HeaderEnd,
-		&theme.Accent,
-		&theme.CreatedAt,
-		&theme.UpdatedAt,
-	); err != nil {
-		log.Printf("Error finding theme %s: %v", name, err)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			// logging.Logger().Warnf("Error finding theme %s: %v", name, err) // Optional: maybe distinct warning for not found vs error
+			return nil, err
+		}
+		logging.Logger().Warnf("Error finding theme %s: %v", name, err)
 		return nil, err
 	}
 	return &theme, nil

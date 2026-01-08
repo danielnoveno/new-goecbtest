@@ -8,10 +8,10 @@ package main
 
 import (
 	"embed"
-	"log"
 	"os"
 	"path/filepath"
-	"runtime/debug"
+
+	// "runtime/debug"
 	"strings"
 
 	"go-ecb/configs"
@@ -23,6 +23,7 @@ import (
 
 	// "go-ecb/services/adminer"
 	"go-ecb/services/gpio"
+	"go-ecb/services/station"
 	scheduler "go-ecb/task"
 	"go-ecb/utils"
 	"go-ecb/views"
@@ -37,53 +38,56 @@ import (
 
 var translations embed.FS
 
-// main adalah fungsi untuk utama.
 func main() {
-	defer func() {
-		if r := recover(); r != nil {
-			log.Printf("[panic] main recovered: %v\n%s", r, debug.Stack())
-		}
-	}()
-
-	// defer adminer.Stop()
+	// defer func() {
+	// 	if r := recover(); r != nil {
+	// 		log.Printf("[panic] main recovered: %v\n%s", r, debug.Stack())
+	// 	}
+	// }()
 
 	simoConfig := configs.LoadSimoConfig()
 	logger := logging.Init(simoConfig.AppDebug)
 	logger.Debugw("logger initialized for debugging", "debug", simoConfig.AppDebug)
-	defer logging.Sync()
+	// defer logging.Sync()
 
 	dbmap, err := db.InitDb()
 	if err != nil {
-		log.Fatalf("Failed to initialize database: %v", err)
+		logger.Fatalf("Failed to initialize database: %v", err)
 	}
 	defer dbmap.Db.Close()
 
-	// Print system info dan start resource monitor jika enabled
 	monitor.PrintSystemInfo()
-	monitor.Start(dbmap.Db)
+	monitor.Start()
+
+	// Initialize Station Service
+	stationRepo := repository.NewEcbStationRepository(dbmap)
+	stationService := station.NewStationService(stationRepo)
+	if _, err := stationService.Initialize(); err != nil {
+		logger.Errorf("Failed to initialize station: %v", err)
+	}
 
 	lockPath := filepath.Join(os.TempDir(), "go-ecb.lock")
 	appLock := flock.New(lockPath)
 	locked, err := appLock.TryLock()
 	if err != nil {
-		log.Fatalf("Failed to lock app: %v", err)
+		logger.Fatalf("Failed to lock app: %v", err)
 	}
 	if !locked {
-		log.Println("App already running, close the app before open it again.")
+		logger.Warnf("Aplikasi sudah berjalan")
 		return
 	}
 	defer appLock.Unlock()
 
 	a := app.New()
 
-	iconPath := strings.TrimSpace(simoConfig.Icon)
-	if iconPath == "" {
-		iconPath = filepath.Join("assets", "logo-nb.webp")
-	}
+	// iconPath := strings.TrimSpace(simoConfig.Icon)
+	// if iconPath == "" {
+	iconPath := filepath.Join("assets", "logo-nb.webp")
+	// }
 	iconPath = utils.ResolvePath(iconPath)
 	icon, err := fyne.LoadResourceFromPath(iconPath)
 	if err != nil {
-		log.Printf("Warning: error laod icon %s: %v", iconPath, err)
+		// log.Printf("Warning: error laod icon %s: %v", iconPath, err)
 		icon = theme.FyneLogo()
 	}
 	a.SetIcon(icon)
@@ -91,25 +95,26 @@ func main() {
 	if windowTitle == "" {
 		windowTitle = "Go ECB Test"
 	}
-	if simoConfig.Version != "" {
-		windowTitle = windowTitle + " " + simoConfig.Version
-	}
+	// if simoConfig.Version != "" {
+	// 	windowTitle = windowTitle + " " + simoConfig.Version
+	// }
 	w := a.NewWindow(windowTitle)
 
-	pinService := maintenance.NewPinConfigService(repository.NewEcbConfigRepository(dbmap.Db))
+	pinService := maintenance.NewPinConfigService(repository.NewEcbConfigRepository(dbmap))
 	if pinService == nil {
-		log.Println("maintenance pin service disabled")
+		logger.Warnf("maintenance pin service disabled")
 	} else if err := pinService.Refresh(); err != nil {
-		log.Printf("Failed to load maintenance pins: %v", err)
+		logger.Errorf("Failed to load maintenance pins: %v", err)
 	}
 
 	gpio.InitializeHardware()
 	gpio.StartEcbStateUpdater(dbmap)
+	
 	state := views.BuildMainWindow(a, w, dbmap, pinService)
 	scheduler.Start()
 	_ = state
 
-	w.SetFullScreen(true)
+	// w.SetFullScreen(true)
 	w.SetMaster()
 	w.ShowAndRun()
 }

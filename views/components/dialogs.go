@@ -18,7 +18,6 @@ import (
 	"fyne.io/fyne/v2/widget"
 )
 
-// ShowError adalah fungsi untuk show error.
 func ShowError(w fyne.Window, title string, err error) {
 	if w == nil || err == nil {
 		return
@@ -64,7 +63,6 @@ func ShowError(w fyne.Window, title string, err error) {
 	dialog.NewCustom(header, "Close" , card, w).Show()
 }
 
-// ShowInfo adalah fungsi untuk show informasi.
 func ShowInfo(w fyne.Window, title, message string) {
 	if w == nil {
 		return
@@ -72,7 +70,6 @@ func ShowInfo(w fyne.Window, title, message string) {
 	dialog.ShowInformation(title, message, w)
 }
 
-// Confirm adalah fungsi untuk confirm.
 func Confirm(w fyne.Window, title, message, confirmLabel, dismissLabel string, cb func(bool)) {
 	if w == nil {
 		return

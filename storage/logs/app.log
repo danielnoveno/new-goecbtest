@@ -1,104 +1,1103 @@
-2026-01-05T14:47:14.633+0700	[34mINFO[0m	cmd/main.go:56	Failed to initialize database: dial tcp: lookup komodo.kencang.com: no such host
-2026-01-05T14:50:45.120+0700	[34mINFO[0m	cmd/main.go:56	Failed to initialize database: Error 1045 (28000): Access denied for user 'pengstud_goecbtest'@'114.79.17.163' (using password: YES)
-2026-01-05T14:51:35.714+0700	[34mINFO[0m	db/db.go:142	DB: Successfully connected!
-2026-01-05T14:53:33.992+0700	[34mINFO[0m	cmd/main.go:56	Failed to initialize database: dial tcp: lookup komodo.kencang.com: no such host
-2026-01-05T14:54:18.442+0700	[34mINFO[0m	db/db.go:142	DB: Successfully connected!
-2026-01-05T14:54:22.325+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.85.209
-2026-01-05T14:54:22.441+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.85.209
-2026-01-05T14:54:23.240+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: L1] showInstruction step=0 label="SCAN NOMOR SERI"
-2026-01-05T14:54:23.268+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: L1] refocusInput request
-2026-01-05T14:54:23.269+0700	[34mINFO[0m	ecb/line_components.go:1074	[Line: L1] focus skipped inputEntry not on canvas (retry 0)
-2026-01-05T14:54:23.273+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: L2] showInstruction step=0 label="SCAN NOMOR SERI"
-2026-01-05T14:54:23.402+0700	[34mINFO[0m	views/main.go:886	[window] size initial 1024x700
-2026-01-05T14:54:23.405+0700	[34mINFO[0m	task/scheduler.go:34	[scheduler] disable SIMO/BServ jobs: simoprd ping failed: dial tcp 127.0.0.1:3306: connectex: No connection could be made because the target machine actively refused it.
-2026-01-05T14:54:23.473+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: L1] refocusInput request
-2026-01-05T14:54:25.406+0700	[34mINFO[0m	views/main.go:892	[window] size changed 1025x700
-2026-01-05T14:54:26.106+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: L1] focus attempt
-2026-01-05T14:54:26.403+0700	[34mINFO[0m	views/main.go:892	[window] size changed 1477x831
-2026-01-05T15:21:28.268+0700	[34mINFO[0m	db/db.go:118	DB: Desktop mode, using standard connection pool (max:5, idle:2)
-2026-01-05T15:21:28.789+0700	[34mINFO[0m	db/db.go:154	DB: Successfully connected!
-2026-01-05T15:21:28.790+0700	[34mINFO[0m	monitor/monitor.go:217	[Monitor] System Info:
-2026-01-05T15:21:28.790+0700	[34mINFO[0m	monitor/monitor.go:218	[Monitor]   - OS/Arch: windows/amd64
-2026-01-05T15:21:28.791+0700	[34mINFO[0m	monitor/monitor.go:219	[Monitor]   - CPUs: 8
-2026-01-05T15:21:28.791+0700	[34mINFO[0m	monitor/monitor.go:220	[Monitor]   - Go Version: go1.25.1
-2026-01-05T15:21:28.791+0700	[34mINFO[0m	monitor/monitor.go:225	[Monitor]   - Platform: Desktop/Server
-2026-01-05T15:21:29.193+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.85.209
-2026-01-05T15:21:29.297+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.85.209
-2026-01-05T15:21:29.894+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
-2026-01-05T15:21:29.910+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
-2026-01-05T15:21:29.912+0700	[34mINFO[0m	ecb/line_components.go:1074	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
-2026-01-05T15:21:29.913+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF B] showInstruction step=0 label="SCAN SPC"
-2026-01-05T15:21:29.982+0700	[34mINFO[0m	views/main.go:886	[window] size initial 1024x700
-2026-01-05T15:21:30.112+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
-2026-01-05T15:21:34.982+0700	[34mINFO[0m	task/scheduler.go:43	[scheduler] disable SIMO/BServ jobs: simoprd ping failed: dial tcp 192.168.1.100:3306: i/o timeout
-2026-01-05T15:21:35.983+0700	[34mINFO[0m	views/main.go:892	[window] size changed 1477x831
-2026-01-05T15:21:36.118+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
-2026-01-05T15:21:47.902+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="ewqeq"
-2026-01-05T15:21:47.902+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="ewqeq" currentStep=0 testRunning=false
-2026-01-05T15:21:47.905+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="ewqeq"
-2026-01-05T15:21:47.906+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="ewqeq"
-2026-01-05T15:21:47.906+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="ewqeq"
-2026-01-05T15:21:47.906+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
-2026-01-05T15:21:47.906+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
-2026-01-05T15:21:47.936+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
-2026-01-05T15:21:48.485+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="ewqeq"
-2026-01-05T15:21:48.486+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="ewqeq" currentStep=0 testRunning=false
-2026-01-05T15:21:48.487+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="ewqeq"
-2026-01-05T15:21:48.487+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="ewqeq"
-2026-01-05T15:21:48.487+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="ewqeq"
-2026-01-05T15:21:48.489+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
-2026-01-05T15:21:48.489+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
-2026-01-05T15:21:48.492+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
-2026-01-05T15:21:49.152+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="eqweq"
-2026-01-05T15:21:49.152+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="eqweq" currentStep=0 testRunning=false
-2026-01-05T15:21:49.153+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="eqweq"
-2026-01-05T15:21:49.154+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="eqweq"
-2026-01-05T15:21:49.154+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="eqweq"
-2026-01-05T15:21:49.154+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
-2026-01-05T15:21:49.154+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
-2026-01-05T15:21:49.158+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
-2026-01-05T15:21:49.653+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="eqweq"
-2026-01-05T15:21:49.653+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="eqweq" currentStep=0 testRunning=false
-2026-01-05T15:21:49.654+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="eqweq"
-2026-01-05T15:21:49.655+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="eqweq"
-2026-01-05T15:21:49.655+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="eqweq"
-2026-01-05T15:21:49.655+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
-2026-01-05T15:21:49.655+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
-2026-01-05T15:21:49.659+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
-2026-01-05T15:21:49.907+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
-2026-01-05T15:21:50.221+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="eqeqwe"
-2026-01-05T15:21:50.221+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="eqeqwe" currentStep=0 testRunning=false
-2026-01-05T15:21:50.222+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="eqeqwe"
-2026-01-05T15:21:50.223+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="eqeqwe"
-2026-01-05T15:21:50.223+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="eqeqwe"
-2026-01-05T15:21:50.223+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
-2026-01-05T15:21:50.224+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
-2026-01-05T15:21:50.242+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
-2026-01-05T15:21:50.490+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
-2026-01-05T15:21:50.852+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="qweqweqw"
-2026-01-05T15:21:50.853+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="qweqweqw" currentStep=0 testRunning=false
-2026-01-05T15:21:50.854+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="qweqweqw"
-2026-01-05T15:21:50.854+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="qweqweqw"
-2026-01-05T15:21:50.854+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="qweqweqw"
-2026-01-05T15:21:50.855+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
-2026-01-05T15:21:50.855+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
-2026-01-05T15:21:50.866+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
-2026-01-05T15:21:51.086+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="e"
-2026-01-05T15:21:51.086+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="e" currentStep=0 testRunning=false
-2026-01-05T15:21:51.089+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="e"
-2026-01-05T15:21:51.089+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="e"
-2026-01-05T15:21:51.089+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="e"
-2026-01-05T15:21:51.090+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
-2026-01-05T15:21:51.090+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
-2026-01-05T15:21:51.093+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
-2026-01-05T15:21:51.154+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
-2026-01-05T15:21:51.286+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text=""
-2026-01-05T15:21:51.286+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="" currentStep=0 testRunning=false
-2026-01-05T15:21:51.287+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Input Kosong" revert=1.5s
-2026-01-05T15:21:51.287+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
-2026-01-05T15:21:51.297+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
-2026-01-05T15:21:51.656+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
-2026-01-05T15:21:52.224+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
-2026-01-05T15:21:52.788+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
-2026-01-05T15:21:52.855+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
-2026-01-05T15:21:53.090+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-07T15:19:19.738+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T15:24:19.739+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T15:29:19.740+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T15:34:19.744+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T15:39:19.743+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T15:44:19.746+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T15:49:19.756+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T15:54:19.744+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T15:59:19.807+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T16:04:19.747+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T16:09:19.747+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T16:14:19.757+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T16:19:19.744+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T16:24:11.769+0700	[34mINFO[0m	db/db.go:113	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-07T16:24:11.785+0700	[34mINFO[0m	cmd/main.go:57	Failed to initialize database: Error 1046 (3D000): No database selected
+2026-01-07T16:29:40.819+0700	[34mINFO[0m	db/db.go:113	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-07T16:29:40.833+0700	[34mINFO[0m	cmd/main.go:57	Failed to initialize database: Error 1046 (3D000): No database selected
+2026-01-07T16:33:00.520+0700	[34mINFO[0m	db/db.go:113	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-07T16:33:00.564+0700	[34mINFO[0m	db/db.go:146	DB: Successfully connected!
+2026-01-07T16:33:00.564+0700	[34mINFO[0m	monitor/monitor.go:217	[Monitor] System Info:
+2026-01-07T16:33:00.565+0700	[34mINFO[0m	monitor/monitor.go:218	[Monitor]   - OS/Arch: windows/amd64
+2026-01-07T16:33:00.565+0700	[34mINFO[0m	monitor/monitor.go:219	[Monitor]   - CPUs: 8
+2026-01-07T16:33:00.565+0700	[34mINFO[0m	monitor/monitor.go:220	[Monitor]   - Go Version: go1.25.1
+2026-01-07T16:33:00.565+0700	[34mINFO[0m	monitor/monitor.go:225	[Monitor]   - Platform: Desktop/Server
+2026-01-07T16:33:00.872+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.85.226
+2026-01-07T16:33:00.890+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.85.226
+2026-01-07T16:33:01.704+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-07T16:33:01.736+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-07T16:33:01.737+0700	[34mINFO[0m	ecb/line_components.go:1074	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-07T16:33:01.738+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-07T16:33:01.845+0700	[34mINFO[0m	views/main.go:870	[window] size initial 1024x700
+2026-01-07T16:33:01.886+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T16:33:01.938+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-07T16:33:02.846+0700	[34mINFO[0m	views/main.go:876	[window] size changed 1025x700
+2026-01-07T16:33:03.757+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-07T16:33:03.846+0700	[34mINFO[0m	views/main.go:876	[window] size changed 1477x831
+2026-01-07T16:34:55.613+0700	[34mINFO[0m	db/db.go:113	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-07T16:34:55.634+0700	[34mINFO[0m	db/db.go:146	DB: Successfully connected!
+2026-01-07T16:34:55.634+0700	[34mINFO[0m	monitor/monitor.go:217	[Monitor] System Info:
+2026-01-07T16:34:55.634+0700	[34mINFO[0m	monitor/monitor.go:218	[Monitor]   - OS/Arch: windows/amd64
+2026-01-07T16:34:55.634+0700	[34mINFO[0m	monitor/monitor.go:219	[Monitor]   - CPUs: 8
+2026-01-07T16:34:55.635+0700	[34mINFO[0m	monitor/monitor.go:220	[Monitor]   - Go Version: go1.25.1
+2026-01-07T16:34:55.635+0700	[34mINFO[0m	monitor/monitor.go:225	[Monitor]   - Platform: Desktop/Server
+2026-01-07T16:34:55.735+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.85.226
+2026-01-07T16:34:55.751+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.85.226
+2026-01-07T16:34:56.174+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-07T16:34:56.185+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-07T16:34:56.186+0700	[34mINFO[0m	ecb/line_components.go:1074	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-07T16:34:56.186+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-07T16:34:56.257+0700	[34mINFO[0m	views/main.go:870	[window] size initial 1024x700
+2026-01-07T16:34:56.286+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T16:34:56.386+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-07T16:34:56.892+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-07T16:34:57.258+0700	[34mINFO[0m	views/main.go:876	[window] size changed 1026x700
+2026-01-07T16:35:00.258+0700	[34mINFO[0m	views/main.go:876	[window] size changed 737x700
+2026-01-07T16:35:01.258+0700	[34mINFO[0m	views/main.go:876	[window] size changed 772x700
+2026-01-07T16:35:02.258+0700	[34mINFO[0m	views/main.go:876	[window] size changed 1107x700
+2026-01-07T16:35:03.258+0700	[34mINFO[0m	views/main.go:876	[window] size changed 1095x700
+2026-01-07T16:35:04.258+0700	[34mINFO[0m	views/main.go:876	[window] size changed 828x700
+2026-01-07T16:35:05.258+0700	[34mINFO[0m	views/main.go:876	[window] size changed 1062x700
+2026-01-07T16:35:06.258+0700	[34mINFO[0m	views/main.go:876	[window] size changed 1021x700
+2026-01-07T16:35:07.258+0700	[34mINFO[0m	views/main.go:876	[window] size changed 737x700
+2026-01-07T16:35:09.258+0700	[34mINFO[0m	views/main.go:876	[window] size changed 959x700
+2026-01-07T16:39:56.323+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T16:44:56.355+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T16:49:43.292+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="dsad"
+2026-01-07T16:49:43.293+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="dsad" currentStep=0 testRunning=false
+2026-01-07T16:49:43.294+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="dsad"
+2026-01-07T16:49:43.294+0700	[34mINFO[0m	ecb/line_components.go:717	[Line: REF A] step=0 kind=0 input="dsad"
+2026-01-07T16:49:43.294+0700	[34mINFO[0m	ecb/line_components.go:745	[Line: REF A] applyInput kind=0 input="dsad"
+2026-01-07T16:49:43.294+0700	[34mINFO[0m	ecb/line_components.go:921	[Line: REF A] flashStatus msg="Panjang SPC salah" revert=2s
+2026-01-07T16:49:43.295+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-07T16:49:43.303+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-07T16:49:45.295+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-07T16:49:52.726+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF A] OnSubmitted text="RIGHT12345"
+2026-01-07T16:49:52.726+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF A] handleInput start raw="RIGHT12345" currentStep=0 testRunning=false
+2026-01-07T16:49:52.727+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF A] handleKeyword text="RIGHT12345"
+2026-01-07T16:49:52.728+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF B] focus attempt
+2026-01-07T16:49:52.728+0700	[34mINFO[0m	ecb/line_components.go:1009	[Line: REF A] keyword handled RIGHT
+2026-01-07T16:49:52.729+0700	[34mINFO[0m	ecb/line_components.go:711	[Line: REF A] handleInput handled as keyword text="RIGHT12345"
+2026-01-07T16:49:56.306+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T16:50:01.226+0700	[34mINFO[0m	ecb/line_components.go:411	[Line: REF B] OnSubmitted text="RIGHT12345"
+2026-01-07T16:50:01.226+0700	[34mINFO[0m	ecb/line_components.go:688	[Line: REF B] handleInput start raw="RIGHT12345" currentStep=0 testRunning=false
+2026-01-07T16:50:01.227+0700	[34mINFO[0m	ecb/line_components.go:981	[Line: REF B] handleKeyword text="RIGHT12345"
+2026-01-07T16:50:01.227+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-07T16:50:01.228+0700	[34mINFO[0m	ecb/line_components.go:1009	[Line: REF B] keyword handled RIGHT
+2026-01-07T16:50:01.228+0700	[34mINFO[0m	ecb/line_components.go:711	[Line: REF B] handleInput handled as keyword text="RIGHT12345"
+2026-01-07T16:54:56.337+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T16:59:56.341+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T17:51:59.745+0700	[34mINFO[0m	db/db.go:113	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-07T17:51:59.759+0700	[34mINFO[0m	cmd/main.go:57	Failed to initialize database: dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+2026-01-07T17:52:12.965+0700	[34mINFO[0m	db/db.go:113	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-07T17:52:13.041+0700	[34mINFO[0m	db/db.go:146	DB: Successfully connected!
+2026-01-07T17:52:13.041+0700	[34mINFO[0m	monitor/monitor.go:217	[Monitor] System Info:
+2026-01-07T17:52:13.041+0700	[34mINFO[0m	monitor/monitor.go:218	[Monitor]   - OS/Arch: windows/amd64
+2026-01-07T17:52:13.041+0700	[34mINFO[0m	monitor/monitor.go:219	[Monitor]   - CPUs: 8
+2026-01-07T17:52:13.041+0700	[34mINFO[0m	monitor/monitor.go:220	[Monitor]   - Go Version: go1.25.1
+2026-01-07T17:52:13.041+0700	[34mINFO[0m	monitor/monitor.go:225	[Monitor]   - Platform: Desktop/Server
+2026-01-07T17:52:13.288+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 192.168.0.102
+2026-01-07T17:52:13.321+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 192.168.0.102
+2026-01-07T17:52:13.581+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-07T17:52:13.596+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-07T17:52:13.596+0700	[34mINFO[0m	ecb/line_components.go:1074	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-07T17:52:13.596+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-07T17:52:13.656+0700	[34mINFO[0m	views/main.go:871	[window] size initial 1024x700
+2026-01-07T17:52:13.692+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T17:52:13.796+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-07T17:52:14.190+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-07T17:52:14.656+0700	[34mINFO[0m	views/main.go:877	[window] size changed 1026x700
+2026-01-07T17:57:13.712+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T18:02:13.735+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T18:07:13.727+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T18:12:13.731+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T18:15:50.770+0700	[34mINFO[0m	db/db.go:113	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-07T18:15:50.810+0700	[34mINFO[0m	db/db.go:146	DB: Successfully connected!
+2026-01-07T18:15:50.810+0700	[34mINFO[0m	monitor/monitor.go:217	[Monitor] System Info:
+2026-01-07T18:15:50.810+0700	[34mINFO[0m	monitor/monitor.go:218	[Monitor]   - OS/Arch: windows/amd64
+2026-01-07T18:15:50.810+0700	[34mINFO[0m	monitor/monitor.go:219	[Monitor]   - CPUs: 8
+2026-01-07T18:15:50.810+0700	[34mINFO[0m	monitor/monitor.go:220	[Monitor]   - Go Version: go1.25.1
+2026-01-07T18:15:50.811+0700	[34mINFO[0m	monitor/monitor.go:225	[Monitor]   - Platform: Desktop/Server
+2026-01-07T18:15:51.048+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 192.168.0.102
+2026-01-07T18:15:51.063+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 192.168.0.102
+2026-01-07T18:15:51.506+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-07T18:15:51.523+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-07T18:15:51.523+0700	[34mINFO[0m	ecb/line_components.go:1074	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-07T18:15:51.524+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-07T18:15:51.593+0700	[34mINFO[0m	views/main.go:871	[window] size initial 1024x700
+2026-01-07T18:15:51.642+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T18:15:51.724+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-07T18:15:52.594+0700	[34mINFO[0m	views/main.go:877	[window] size changed 1025x700
+2026-01-07T18:15:52.766+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-07T18:15:53.594+0700	[34mINFO[0m	views/main.go:877	[window] size changed 1026x700
+2026-01-07T18:20:51.676+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T18:25:51.707+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T18:30:51.680+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T18:35:51.698+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T18:40:51.677+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T18:45:51.692+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T18:50:51.695+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T18:55:51.691+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T19:00:51.668+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T19:05:51.689+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T19:10:51.682+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T19:15:51.672+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T19:20:51.679+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T19:25:51.671+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-07T19:30:51.674+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T06:37:27.546+0700	[34mINFO[0m	db/db.go:113	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T06:37:27.627+0700	[34mINFO[0m	db/db.go:146	DB: Successfully connected!
+2026-01-08T06:37:27.628+0700	[34mINFO[0m	monitor/monitor.go:217	[Monitor] System Info:
+2026-01-08T06:37:27.628+0700	[34mINFO[0m	monitor/monitor.go:218	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T06:37:27.628+0700	[34mINFO[0m	monitor/monitor.go:219	[Monitor]   - CPUs: 8
+2026-01-08T06:37:27.628+0700	[34mINFO[0m	monitor/monitor.go:220	[Monitor]   - Go Version: go1.25.1
+2026-01-08T06:37:27.628+0700	[34mINFO[0m	monitor/monitor.go:225	[Monitor]   - Platform: Desktop/Server
+2026-01-08T06:37:27.869+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 192.168.0.102
+2026-01-08T06:37:27.881+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 192.168.0.102
+2026-01-08T06:37:28.346+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T06:37:28.364+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-08T06:37:28.365+0700	[34mINFO[0m	ecb/line_components.go:1074	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T06:37:28.365+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T06:37:28.425+0700	[34mINFO[0m	views/main.go:871	[window] size initial 1024x700
+2026-01-08T06:37:28.484+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T06:37:28.565+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-08T06:37:29.425+0700	[34mINFO[0m	views/main.go:877	[window] size changed 1025x700
+2026-01-08T06:37:29.514+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-08T06:37:30.426+0700	[34mINFO[0m	views/main.go:877	[window] size changed 1026x700
+2026-01-08T06:40:31.019+0700	[34mINFO[0m	db/db.go:113	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T06:40:31.042+0700	[34mINFO[0m	db/db.go:146	DB: Successfully connected!
+2026-01-08T06:40:31.042+0700	[34mINFO[0m	monitor/monitor.go:217	[Monitor] System Info:
+2026-01-08T06:40:31.042+0700	[34mINFO[0m	monitor/monitor.go:218	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T06:40:31.042+0700	[34mINFO[0m	monitor/monitor.go:219	[Monitor]   - CPUs: 8
+2026-01-08T06:40:31.042+0700	[34mINFO[0m	monitor/monitor.go:220	[Monitor]   - Go Version: go1.25.1
+2026-01-08T06:40:31.042+0700	[34mINFO[0m	monitor/monitor.go:225	[Monitor]   - Platform: Desktop/Server
+2026-01-08T06:40:31.195+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 192.168.0.102
+2026-01-08T06:40:31.204+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 192.168.0.102
+2026-01-08T06:40:31.451+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T06:40:31.464+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-08T06:40:31.464+0700	[34mINFO[0m	ecb/line_components.go:1074	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T06:40:31.468+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T06:40:31.514+0700	[34mINFO[0m	views/main.go:871	[window] size initial 1024x700
+2026-01-08T06:40:31.542+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T06:40:31.667+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-08T06:40:32.158+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-08T06:40:32.514+0700	[34mINFO[0m	views/main.go:877	[window] size changed 1026x700
+2026-01-08T06:40:34.514+0700	[34mINFO[0m	views/main.go:877	[window] size changed 0x0
+2026-01-08T06:41:10.184+0700	[34mINFO[0m	cmd/main.go:43	[panic] main recovered: <nil>
+goroutine 1 [running, locked to thread]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:26 +0x5e
+main.main.func1()
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/cmd/main.go:43 +0x3d
+main.main()
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/cmd/main.go:111 +0x866
+2026-01-08T06:41:18.713+0700	[34mINFO[0m	db/db.go:113	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T06:41:18.732+0700	[34mINFO[0m	db/db.go:146	DB: Successfully connected!
+2026-01-08T06:41:18.733+0700	[34mINFO[0m	monitor/monitor.go:217	[Monitor] System Info:
+2026-01-08T06:41:18.733+0700	[34mINFO[0m	monitor/monitor.go:218	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T06:41:18.733+0700	[34mINFO[0m	monitor/monitor.go:219	[Monitor]   - CPUs: 8
+2026-01-08T06:41:18.733+0700	[34mINFO[0m	monitor/monitor.go:220	[Monitor]   - Go Version: go1.25.1
+2026-01-08T06:41:18.733+0700	[34mINFO[0m	monitor/monitor.go:225	[Monitor]   - Platform: Desktop/Server
+2026-01-08T06:41:18.849+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 192.168.0.102
+2026-01-08T06:41:18.859+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 192.168.0.102
+2026-01-08T06:41:19.029+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T06:41:19.039+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-08T06:41:19.039+0700	[34mINFO[0m	ecb/line_components.go:1074	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T06:41:19.039+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T06:41:19.094+0700	[34mINFO[0m	views/main.go:871	[window] size initial 1024x700
+2026-01-08T06:41:19.115+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T06:41:19.240+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-08T06:41:19.979+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-08T06:41:20.094+0700	[34mINFO[0m	views/main.go:877	[window] size changed 1026x700
+2026-01-08T06:41:27.094+0700	[34mINFO[0m	views/main.go:877	[window] size changed 0x0
+2026-01-08T06:43:18.097+0700	[34mINFO[0m	db/db.go:113	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T06:43:18.120+0700	[34mINFO[0m	db/db.go:146	DB: Successfully connected!
+2026-01-08T06:43:18.120+0700	[34mINFO[0m	monitor/monitor.go:217	[Monitor] System Info:
+2026-01-08T06:43:18.120+0700	[34mINFO[0m	monitor/monitor.go:218	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T06:43:18.120+0700	[34mINFO[0m	monitor/monitor.go:219	[Monitor]   - CPUs: 8
+2026-01-08T06:43:18.121+0700	[34mINFO[0m	monitor/monitor.go:220	[Monitor]   - Go Version: go1.25.1
+2026-01-08T06:43:18.121+0700	[34mINFO[0m	monitor/monitor.go:225	[Monitor]   - Platform: Desktop/Server
+2026-01-08T06:43:18.231+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 192.168.0.102
+2026-01-08T06:43:18.239+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 192.168.0.102
+2026-01-08T06:43:18.397+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T06:43:18.406+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-08T06:43:18.406+0700	[34mINFO[0m	ecb/line_components.go:1074	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T06:43:18.406+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T06:43:18.468+0700	[34mINFO[0m	views/main.go:871	[window] size initial 1024x700
+2026-01-08T06:43:18.498+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T06:43:18.607+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-08T06:43:18.838+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-08T06:43:19.468+0700	[34mINFO[0m	views/main.go:877	[window] size changed 1026x700
+2026-01-08T09:30:02.163+0700	[35mDEBUG[0m	cmd/main.go:50	logger initialized for debugging	{"debug": true}
+2026-01-08T09:30:02.168+0700	[34mINFO[0m	db/db.go:68	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T09:30:02.205+0700	[34mINFO[0m	db/db.go:103	DB: Successfully connected!
+2026-01-08T09:30:02.205+0700	[34mINFO[0m	monitor/monitor.go:217	[Monitor] System Info:
+2026-01-08T09:30:02.205+0700	[34mINFO[0m	monitor/monitor.go:218	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T09:30:02.205+0700	[34mINFO[0m	monitor/monitor.go:219	[Monitor]   - CPUs: 8
+2026-01-08T09:30:02.206+0700	[34mINFO[0m	monitor/monitor.go:220	[Monitor]   - Go Version: go1.25.1
+2026-01-08T09:30:02.206+0700	[34mINFO[0m	monitor/monitor.go:225	[Monitor]   - Platform: Desktop/Server
+2026-01-08T09:30:02.325+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T09:30:02.335+0700	[34mINFO[0m	core/service.go:104	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T09:30:02.507+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T09:30:02.528+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-08T09:30:02.528+0700	[34mINFO[0m	ecb/line_components.go:1074	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T09:30:02.529+0700	[34mINFO[0m	ecb/line_components.go:914	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T09:30:02.581+0700	[34mINFO[0m	views/main.go:871	[window] size initial 1024x700
+2026-01-08T09:30:02.622+0700	[34mINFO[0m	task/push_ecb_data.go:184	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T09:30:02.729+0700	[34mINFO[0m	ecb/line_components.go:1091	[Line: REF A] refocusInput request
+2026-01-08T09:30:03.059+0700	[34mINFO[0m	ecb/line_components.go:1085	[Line: REF A] focus attempt
+2026-01-08T09:30:03.580+0700	[34mINFO[0m	views/main.go:877	[window] size changed 1026x700
+2026-01-08T09:47:01.983+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T09:47:01.983+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T09:47:02.032+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T09:47:02.032+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T09:47:02.033+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T09:47:02.033+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T09:47:02.033+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T09:47:02.033+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T09:47:02.149+0700	[34mINFO[0m	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T09:47:02.157+0700	[34mINFO[0m	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T09:47:02.329+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T09:47:02.340+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T09:47:02.340+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T09:47:02.340+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T09:47:02.387+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T09:47:02.414+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T09:47:02.540+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T09:47:02.859+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T09:47:03.388+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T10:33:31.526+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T10:33:31.528+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T10:33:31.630+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T10:33:31.630+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T10:33:31.631+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T10:33:31.631+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T10:33:31.631+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T10:33:31.631+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T10:33:31.868+0700	[34mINFO[0m	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T10:33:31.880+0700	[34mINFO[0m	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T10:33:32.177+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T10:33:32.184+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T10:33:32.184+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T10:33:32.184+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T10:33:32.265+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T10:33:32.319+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T10:33:32.385+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T10:33:33.179+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T10:33:33.265+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T10:34:06.879+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T10:34:06.879+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T10:34:06.912+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T10:34:06.912+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T10:34:06.912+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T10:34:06.912+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T10:34:06.912+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T10:34:06.912+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T10:34:07.042+0700	[34mINFO[0m	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T10:34:07.049+0700	[34mINFO[0m	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T10:34:07.348+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T10:34:07.373+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T10:34:07.379+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T10:34:07.384+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T10:34:07.584+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T10:34:07.744+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T10:34:07.792+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T10:34:08.312+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T10:34:08.744+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T11:11:07.819+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T11:11:07.820+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T11:11:07.847+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T11:11:07.847+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T11:11:07.848+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T11:11:07.848+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T11:11:07.848+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T11:11:07.848+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T11:11:08.006+0700	[34mINFO[0m	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T11:11:08.021+0700	[34mINFO[0m	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T11:11:08.254+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+2026-01-08T11:11:08.258+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+2026-01-08T11:11:08.259+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+2026-01-08T11:11:08.261+0700	[34mINFO[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+2026-01-08T11:11:08.262+0700	[34mINFO[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+2026-01-08T11:11:08.264+0700	[34mINFO[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+2026-01-08T11:11:08.267+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T11:11:08.275+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T11:11:08.275+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T11:11:08.276+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T11:11:08.315+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T11:11:08.315+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T11:11:08.315+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T11:11:08.323+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T11:11:08.323+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T11:11:08.323+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T11:11:08.328+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T11:11:08.334+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T11:11:08.334+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T11:11:08.338+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T11:11:08.338+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T11:11:08.341+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T11:11:08.342+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T11:11:08.343+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T11:11:08.345+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T11:11:08.351+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T11:11:08.351+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T11:11:08.355+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T11:11:08.355+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T11:11:08.476+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T11:11:09.022+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T11:11:09.316+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T11:33:49.229+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T11:33:49.230+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T11:33:49.297+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T11:33:49.297+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T11:33:49.298+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T11:33:49.298+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T11:33:49.298+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T11:33:49.298+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T11:33:49.575+0700	[34mINFO[0m	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T11:33:49.590+0700	[34mINFO[0m	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T11:33:49.985+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+2026-01-08T11:33:49.997+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+2026-01-08T11:33:50.002+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+2026-01-08T11:33:50.012+0700	[34mINFO[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+2026-01-08T11:33:50.014+0700	[34mINFO[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+2026-01-08T11:33:50.015+0700	[34mINFO[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+2026-01-08T11:33:50.016+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T11:33:50.088+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T11:33:50.094+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T11:33:50.096+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T11:33:50.212+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T11:33:50.213+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T11:33:50.213+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T11:33:50.231+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T11:33:50.232+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T11:33:50.246+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T11:33:50.295+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T11:33:50.327+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T11:33:50.365+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T11:33:50.380+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T11:33:50.382+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T11:33:50.412+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T11:33:50.413+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T11:33:50.421+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T11:33:50.429+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T11:33:50.430+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T11:33:50.433+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T11:33:50.433+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T11:33:50.466+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T11:33:50.467+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T11:33:51.213+0700	[34mINFO[0m	[window] size changed 1025x700
+2026-01-08T11:33:51.247+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T11:33:52.212+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T11:34:40.600+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T11:34:40.601+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T11:34:40.635+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T11:34:40.637+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T11:34:40.639+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T11:34:40.639+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T11:34:40.640+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T11:34:40.642+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T11:34:40.809+0700	[34mINFO[0m	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T11:34:40.827+0700	[34mINFO[0m	No Ecbstation found for IP: 172.16.86.98
+2026-01-08T11:34:41.442+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+2026-01-08T11:34:41.443+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+2026-01-08T11:34:41.446+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+2026-01-08T11:34:41.447+0700	[34mINFO[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+2026-01-08T11:34:41.448+0700	[34mINFO[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+2026-01-08T11:34:41.449+0700	[34mINFO[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+2026-01-08T11:34:41.449+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T11:34:41.468+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T11:34:41.470+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T11:34:41.475+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T11:34:41.533+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T11:34:41.533+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T11:34:41.533+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T11:34:41.546+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T11:34:41.546+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T11:34:41.547+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T11:34:41.552+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T11:34:41.566+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T11:34:41.567+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T11:34:41.584+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T11:34:41.594+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T11:34:41.595+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T11:34:41.595+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T11:34:41.599+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T11:34:41.599+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T11:34:41.615+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T11:34:41.615+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T11:34:41.628+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T11:34:41.629+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T11:34:41.677+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T11:34:42.434+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T11:34:42.533+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T11:52:51.452+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T11:52:51.452+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T11:52:51.483+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T11:52:51.484+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T11:52:51.484+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T11:52:51.484+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T11:52:51.484+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T11:52:51.484+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T11:52:51.486+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T11:52:51.490+0700	[34mINFO[0m	[Station] New machine detected! Auto-registering from ENV...
+2026-01-08T11:52:51.502+0700	[34mINFO[0m	[Station] Registration success. ID: 3
+2026-01-08T11:52:52.137+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+2026-01-08T11:52:52.158+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+2026-01-08T11:52:52.176+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+2026-01-08T11:52:52.181+0700	[34mINFO[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+2026-01-08T11:52:52.182+0700	[34mINFO[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+2026-01-08T11:52:52.183+0700	[34mINFO[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+2026-01-08T11:52:52.184+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T11:52:52.194+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T11:52:52.199+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T11:52:52.200+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T11:52:52.253+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T11:52:52.254+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T11:52:52.254+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T11:52:52.271+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T11:52:52.274+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T11:52:52.276+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T11:52:52.299+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T11:52:52.307+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T11:52:52.318+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T11:52:52.324+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T11:52:52.325+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T11:52:52.344+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T11:52:52.349+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T11:52:52.358+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T11:52:52.359+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T11:52:52.379+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T11:52:52.382+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T11:52:52.390+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T11:52:52.390+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T11:52:52.399+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T11:52:53.103+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T11:52:53.253+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T11:56:44.695+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T11:56:44.697+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T11:56:44.896+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T11:56:44.896+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T11:56:44.897+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T11:56:44.897+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T11:56:44.897+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T11:56:44.898+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T11:56:44.899+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T11:56:44.985+0700	[34mINFO[0m	[Station] Indentity found in DB. Location: Production Line A, Line: refrig-po-double
+2026-01-08T11:56:46.243+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+2026-01-08T11:56:46.252+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+2026-01-08T11:56:46.263+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+2026-01-08T11:56:46.265+0700	[34mINFO[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+2026-01-08T11:56:46.266+0700	[34mINFO[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+2026-01-08T11:56:46.268+0700	[34mINFO[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+2026-01-08T11:56:46.269+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T11:56:46.311+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T11:56:46.317+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T11:56:46.318+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T11:56:46.442+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T11:56:46.443+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T11:56:46.443+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T11:56:46.449+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T11:56:46.449+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T11:56:46.450+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T11:56:46.460+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T11:56:46.465+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T11:56:46.466+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T11:56:46.481+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T11:56:46.483+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T11:56:46.483+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T11:56:46.486+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T11:56:46.499+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T11:56:46.499+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T11:56:46.520+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T11:56:46.534+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T11:56:46.535+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T11:56:46.635+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T11:56:46.647+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T11:56:48.446+0700	[34mINFO[0m	[window] size changed 1025x700
+2026-01-08T11:56:49.351+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T11:56:50.443+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T13:03:10.140+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T13:03:10.141+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T13:03:10.173+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T13:03:10.173+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T13:03:10.173+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T13:03:10.173+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T13:03:10.173+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T13:03:10.174+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T13:03:10.174+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T13:03:10.184+0700	[34mINFO[0m	[Station] Indentity found in DB. Location: Production Line A, Line: refrig-po-double
+2026-01-08T13:03:10.744+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+2026-01-08T13:03:10.746+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+2026-01-08T13:03:10.748+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+2026-01-08T13:03:10.749+0700	[34mINFO[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+2026-01-08T13:03:10.750+0700	[34mINFO[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+2026-01-08T13:03:10.750+0700	[34mINFO[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+2026-01-08T13:03:10.751+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T13:03:10.761+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T13:03:10.761+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T13:03:10.762+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T13:03:10.802+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T13:03:10.802+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T13:03:10.802+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T13:03:10.810+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T13:03:10.810+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T13:03:10.812+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T13:03:10.819+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T13:03:10.822+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T13:03:10.822+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T13:03:10.827+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T13:03:10.828+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T13:03:10.833+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T13:03:10.833+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T13:03:10.834+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T13:03:10.837+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T13:03:10.839+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T13:03:10.839+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T13:03:10.843+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T13:03:10.844+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T13:03:10.962+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T13:03:11.335+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T13:03:11.802+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T13:09:51.120+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T13:09:51.121+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T13:09:51.190+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T13:09:51.190+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T13:09:51.190+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T13:09:51.190+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T13:09:51.190+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T13:09:51.191+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T13:09:51.192+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T13:09:51.221+0700	[34mINFO[0m	[Station] Indentity found in DB. Location: Production Line A, Line: refrig-po-double
+2026-01-08T13:09:51.668+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+2026-01-08T13:09:51.670+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+2026-01-08T13:09:51.675+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+2026-01-08T13:09:51.677+0700	[34mINFO[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+2026-01-08T13:09:51.677+0700	[34mINFO[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+2026-01-08T13:09:51.678+0700	[34mINFO[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+2026-01-08T13:09:51.679+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T13:09:51.688+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T13:09:51.688+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T13:09:51.688+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T13:09:51.730+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T13:09:51.730+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T13:09:51.730+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T13:09:51.736+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T13:09:51.736+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T13:09:51.737+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T13:09:51.743+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T13:09:51.746+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T13:09:51.746+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T13:09:51.749+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T13:09:51.750+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T13:09:51.752+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T13:09:51.753+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T13:09:51.753+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T13:09:51.755+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T13:09:51.755+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T13:09:51.758+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T13:09:51.760+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T13:09:51.760+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T13:09:51.889+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T13:09:52.731+0700	[34mINFO[0m	[window] size changed 1025x700
+2026-01-08T13:09:52.759+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T13:09:53.731+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T15:04:23.424+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T15:04:23.425+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T15:04:23.773+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T15:04:23.775+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T15:04:23.775+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T15:04:23.775+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T15:04:23.777+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T15:04:23.778+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T15:04:23.791+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T15:04:23.871+0700	[34mINFO[0m	[Station] Indentity found in DB. Location: Production Line A, Line: refrig-po-double
+2026-01-08T15:04:24.939+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+
+2026-01-08T15:04:24.942+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+
+2026-01-08T15:04:24.945+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+
+2026-01-08T15:04:24.948+0700	[35mDEBUG[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+
+2026-01-08T15:04:24.950+0700	[35mDEBUG[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+
+2026-01-08T15:04:24.952+0700	[35mDEBUG[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+
+2026-01-08T15:04:24.953+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:04:24.972+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:04:24.973+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T15:04:24.973+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:04:25.042+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T15:04:25.042+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T15:04:25.043+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T15:04:25.056+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T15:04:25.057+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T15:04:25.058+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T15:04:25.072+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T15:04:25.073+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T15:04:25.075+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T15:04:25.094+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T15:04:25.094+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T15:04:25.100+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T15:04:25.108+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T15:04:25.108+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T15:04:25.109+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T15:04:25.114+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T15:04:25.118+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T15:04:25.125+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T15:04:25.125+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T15:04:25.173+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:04:26.043+0700	[34mINFO[0m	[window] size changed 1025x700
+2026-01-08T15:04:26.287+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T15:04:27.047+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T15:05:52.158+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:05:52.158+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:05:52.159+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:05:52.232+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T15:06:23.994+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:06:23.995+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:06:23.996+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:06:24.061+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T15:11:30.009+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T15:11:30.012+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T15:11:30.099+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T15:11:30.100+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T15:11:30.101+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T15:11:30.101+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T15:11:30.101+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T15:11:30.101+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T15:11:30.102+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T15:11:30.117+0700	[34mINFO[0m	[Station] Indentity found in DB. Location: Production Line A, Line: refrig-po-double
+2026-01-08T15:11:30.997+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+
+2026-01-08T15:11:31.004+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+
+2026-01-08T15:11:31.030+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+
+2026-01-08T15:11:31.053+0700	[35mDEBUG[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+
+2026-01-08T15:11:31.096+0700	[35mDEBUG[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+
+2026-01-08T15:11:31.138+0700	[35mDEBUG[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+
+2026-01-08T15:11:31.178+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:11:31.237+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:11:31.246+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T15:11:31.249+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:11:31.449+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:11:31.607+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T15:11:31.611+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T15:11:31.608+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T15:11:31.919+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T15:11:31.930+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T15:11:31.932+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T15:11:31.955+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T15:11:31.965+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T15:11:31.971+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T15:11:31.995+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T15:11:32.029+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T15:11:32.043+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T15:11:32.045+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T15:11:32.093+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T15:11:32.102+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T15:11:32.230+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T15:11:32.231+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T15:11:32.317+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T15:11:32.321+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T15:11:33.379+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T15:11:33.637+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T15:17:23.688+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T15:17:23.690+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T15:17:24.132+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T15:17:24.134+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T15:17:24.147+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T15:17:24.152+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T15:17:24.152+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T15:17:24.155+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T15:17:24.156+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T15:17:24.197+0700	[34mINFO[0m	[Station] Indentity found in DB. Location: Production Line A, Line: refrig-po-double
+2026-01-08T15:17:24.991+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+
+2026-01-08T15:17:24.998+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+
+2026-01-08T15:17:25.003+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+
+2026-01-08T15:17:25.005+0700	[35mDEBUG[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+
+2026-01-08T15:17:25.005+0700	[35mDEBUG[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+
+2026-01-08T15:17:25.007+0700	[35mDEBUG[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+
+2026-01-08T15:17:25.009+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:17:25.030+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:17:25.033+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T15:17:25.034+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:17:25.110+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T15:17:25.114+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T15:17:25.113+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T15:17:25.153+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T15:17:25.155+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T15:17:25.156+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T15:17:25.190+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T15:17:25.204+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T15:17:25.204+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T15:17:25.223+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T15:17:25.231+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T15:17:25.237+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T15:17:25.239+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:17:25.249+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T15:17:25.253+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T15:17:25.256+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T15:17:25.274+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T15:17:25.274+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T15:17:25.321+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T15:17:25.321+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T15:17:26.118+0700	[34mINFO[0m	[window] size changed 1025x700
+2026-01-08T15:17:26.550+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T15:17:27.113+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T15:17:31.113+0700	[34mINFO[0m	[window] size changed 0x0
+2026-01-08T15:25:16.669+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T15:25:16.676+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T15:25:16.768+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T15:25:16.769+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T15:25:16.771+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T15:25:16.771+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T15:25:16.772+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T15:25:16.773+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T15:25:16.776+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T15:25:16.792+0700	[34mINFO[0m	[Station] Indentity found in DB. Location: Production Line A, Line: refrig-po-double
+2026-01-08T15:25:17.704+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+
+2026-01-08T15:25:17.709+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+
+2026-01-08T15:25:17.714+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+
+2026-01-08T15:25:17.717+0700	[35mDEBUG[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+
+2026-01-08T15:25:17.717+0700	[35mDEBUG[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+
+2026-01-08T15:25:17.733+0700	[35mDEBUG[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+
+2026-01-08T15:25:17.761+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:25:17.808+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:25:17.811+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T15:25:17.813+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:25:17.930+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T15:25:17.931+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T15:25:17.931+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T15:25:17.943+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T15:25:17.944+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T15:25:17.944+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T15:25:17.957+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T15:25:17.978+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T15:25:17.981+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T15:25:17.988+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T15:25:18.004+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T15:25:18.008+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T15:25:18.013+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:25:18.028+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T15:25:18.035+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T15:25:18.035+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T15:25:18.050+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T15:25:18.050+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T15:25:18.066+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T15:25:18.066+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T15:25:19.935+0700	[34mINFO[0m	[window] size changed 1025x700
+2026-01-08T15:25:20.694+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T15:25:20.931+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T15:25:45.931+0700	[34mINFO[0m	[window] size changed 0x0
+2026-01-08T15:30:18.035+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T15:31:37.931+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T15:41:04.655+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T15:41:04.655+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T15:41:04.694+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T15:41:04.694+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T15:41:04.695+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T15:41:04.695+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T15:41:04.695+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T15:41:04.695+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T15:41:04.696+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T15:41:04.701+0700	[34mINFO[0m	[Station] Indentity found in DB. Location: Production Line A, Line: refrig-po-double
+2026-01-08T15:41:05.423+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+
+2026-01-08T15:41:05.449+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+
+2026-01-08T15:41:05.476+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+
+2026-01-08T15:41:05.478+0700	[35mDEBUG[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+
+2026-01-08T15:41:05.479+0700	[35mDEBUG[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+
+2026-01-08T15:41:05.480+0700	[35mDEBUG[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+
+2026-01-08T15:41:05.482+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:41:05.501+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:41:05.501+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T15:41:05.502+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:41:05.586+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T15:41:05.586+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T15:41:05.586+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T15:41:05.595+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T15:41:05.596+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T15:41:05.596+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T15:41:05.602+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T15:41:05.607+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T15:41:05.608+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T15:41:05.619+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T15:41:05.620+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T15:41:05.620+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T15:41:05.624+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T15:41:05.624+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T15:41:05.629+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T15:41:05.629+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T15:41:05.631+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T15:41:05.634+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T15:41:05.634+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T15:41:05.702+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:41:06.485+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T15:41:06.587+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T15:48:56.646+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T15:48:56.647+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T15:48:56.674+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T15:48:56.674+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T15:48:56.674+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T15:48:56.674+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T15:48:56.674+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T15:48:56.674+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T15:48:56.675+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T15:48:56.677+0700	[34mINFO[0m	[Station] Indentity found in DB. Location: Production Line A, Line: refrig-po-double
+2026-01-08T15:48:56.959+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+
+2026-01-08T15:48:56.961+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+
+2026-01-08T15:48:56.964+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+
+2026-01-08T15:48:56.965+0700	[35mDEBUG[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+
+2026-01-08T15:48:56.967+0700	[35mDEBUG[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+
+2026-01-08T15:48:56.970+0700	[35mDEBUG[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+
+2026-01-08T15:48:56.973+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:48:56.990+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:48:56.990+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T15:48:56.990+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:48:57.049+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T15:48:57.049+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T15:48:57.049+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T15:48:57.057+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T15:48:57.062+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T15:48:57.062+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T15:48:57.067+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T15:48:57.074+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T15:48:57.074+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T15:48:57.080+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T15:48:57.085+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T15:48:57.087+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T15:48:57.089+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T15:48:57.091+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T15:48:57.091+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T15:48:57.096+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T15:48:57.097+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T15:48:57.100+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T15:48:57.100+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T15:48:57.190+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:48:57.564+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T15:48:58.049+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T15:49:19.049+0700	[34mINFO[0m	[window] size changed 0x0
+2026-01-08T15:49:24.049+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T15:51:32.851+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T15:51:32.851+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T15:51:32.881+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T15:51:32.881+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T15:51:32.882+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T15:51:32.883+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T15:51:32.883+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T15:51:32.883+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T15:51:32.884+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T15:51:32.890+0700	[34mINFO[0m	[Station] Indentity found in DB. Location: Production Line A, Line: refrig-po-double
+2026-01-08T15:51:33.322+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+
+2026-01-08T15:51:33.324+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+
+2026-01-08T15:51:33.326+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+
+2026-01-08T15:51:33.328+0700	[35mDEBUG[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+
+2026-01-08T15:51:33.329+0700	[35mDEBUG[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+
+2026-01-08T15:51:33.330+0700	[35mDEBUG[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+
+2026-01-08T15:51:33.332+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:51:33.342+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:51:33.342+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T15:51:33.343+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:51:33.394+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T15:51:33.394+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T15:51:33.394+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T15:51:33.401+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T15:51:33.401+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T15:51:33.401+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T15:51:33.406+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T15:51:33.408+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T15:51:33.408+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T15:51:33.414+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T15:51:33.414+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T15:51:33.415+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T15:51:33.418+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T15:51:33.418+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T15:51:33.421+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T15:51:33.422+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T15:51:33.422+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T15:51:33.424+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T15:51:33.425+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T15:51:33.543+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:51:33.826+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T15:51:34.394+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T15:52:04.276+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T15:52:04.278+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T15:52:04.525+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T15:52:04.525+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T15:52:04.526+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T15:52:04.526+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T15:52:04.526+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T15:52:04.526+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T15:52:04.528+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T15:52:04.542+0700	[34mINFO[0m	[Station] Indentity found in DB. Location: Production Line A, Line: refrig-po-double
+2026-01-08T15:52:04.932+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+
+2026-01-08T15:52:04.933+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+
+2026-01-08T15:52:04.936+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+
+2026-01-08T15:52:04.938+0700	[35mDEBUG[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+
+2026-01-08T15:52:04.938+0700	[35mDEBUG[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+
+2026-01-08T15:52:04.939+0700	[35mDEBUG[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+
+2026-01-08T15:52:04.941+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:52:04.952+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:52:04.952+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T15:52:04.952+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:52:04.994+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T15:52:04.994+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T15:52:04.994+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T15:52:05.001+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T15:52:05.004+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T15:52:05.004+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T15:52:05.007+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T15:52:05.010+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T15:52:05.010+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T15:52:05.018+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T15:52:05.018+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T15:52:05.018+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T15:52:05.020+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T15:52:05.020+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T15:52:05.023+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T15:52:05.025+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T15:52:05.026+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T15:52:05.028+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T15:52:05.028+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T15:52:05.152+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:52:05.442+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T15:52:05.995+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T15:52:15.995+0700	[34mINFO[0m	[window] size changed 0x0
+2026-01-08T15:52:35.995+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T15:58:33.298+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T15:58:33.299+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T15:58:33.328+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T15:58:33.328+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T15:58:33.328+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T15:58:33.329+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T15:58:33.329+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T15:58:33.329+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T15:58:33.329+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T15:58:33.332+0700	[34mINFO[0m	[Station] Indentity found in DB. Location: Production Line A, Line: refrig-po-double
+2026-01-08T15:58:33.589+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+
+2026-01-08T15:58:33.592+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+
+2026-01-08T15:58:33.595+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+
+2026-01-08T15:58:33.596+0700	[35mDEBUG[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+
+2026-01-08T15:58:33.597+0700	[35mDEBUG[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+
+2026-01-08T15:58:33.598+0700	[35mDEBUG[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+
+2026-01-08T15:58:33.600+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:58:33.615+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:58:33.615+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T15:58:33.615+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T15:58:33.663+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T15:58:33.663+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T15:58:33.663+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T15:58:33.671+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T15:58:33.671+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T15:58:33.671+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T15:58:33.676+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T15:58:33.684+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T15:58:33.684+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T15:58:33.688+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T15:58:33.688+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T15:58:33.690+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T15:58:33.690+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T15:58:33.691+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T15:58:33.691+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T15:58:33.692+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T15:58:33.693+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T15:58:33.697+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T15:58:33.698+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T15:58:33.815+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T15:58:34.018+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T15:58:34.663+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-08T16:02:23.413+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-08T16:02:23.413+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-08T16:02:23.441+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-08T16:02:23.441+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-08T16:02:23.441+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-08T16:02:23.441+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-08T16:02:23.441+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-08T16:02:23.441+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-08T16:02:23.442+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.98
+2026-01-08T16:02:23.444+0700	[34mINFO[0m	[Station] Indentity found in DB. Location: Production Line A, Line: refrig-po-double
+2026-01-08T16:02:23.806+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+
+2026-01-08T16:02:23.810+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+
+2026-01-08T16:02:23.815+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+
+2026-01-08T16:02:23.816+0700	[35mDEBUG[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+
+2026-01-08T16:02:23.818+0700	[35mDEBUG[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+
+2026-01-08T16:02:23.818+0700	[35mDEBUG[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+
+2026-01-08T16:02:23.819+0700	[34mINFO[0m	[Line: REF A] showInstruction step=0 label="SCAN SPC"
+2026-01-08T16:02:23.829+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T16:02:23.829+0700	[34mINFO[0m	[Line: REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-08T16:02:23.830+0700	[34mINFO[0m	[Line: REF B] showInstruction step=0 label="SCAN SPC"
+2026-01-08T16:02:23.885+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-08T16:02:23.885+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-08T16:02:23.885+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-08T16:02:23.891+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-08T16:02:23.891+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-08T16:02:23.891+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-08T16:02:23.896+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-08T16:02:23.899+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-08T16:02:23.899+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-08T16:02:23.903+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-08T16:02:23.903+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-08T16:02:23.905+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-08T16:02:23.910+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-08T16:02:23.910+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-08T16:02:23.912+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-08T16:02:23.912+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-08T16:02:23.913+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-08T16:02:23.916+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-08T16:02:23.917+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-08T16:02:24.030+0700	[34mINFO[0m	[Line: REF A] refocusInput request
+2026-01-08T16:02:24.355+0700	[34mINFO[0m	[Line: REF A] focus attempt
+2026-01-08T16:02:24.886+0700	[34mINFO[0m	[window] size changed 1026x700

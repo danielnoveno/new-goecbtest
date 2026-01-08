@@ -7,10 +7,8 @@
 package controllers
 
 import (
-	"database/sql"
 	"fmt"
 	"html"
-	"log"
 	"net"
 	"sort"
 	"strings"
@@ -22,7 +20,8 @@ import (
 
 	"go-ecb/app/types"
 	"go-ecb/configs"
-	"go-ecb/db"
+	"go-ecb/pkg/logging"
+	"go-ecb/repository"
 )
 
 type Controller struct {
@@ -81,30 +80,13 @@ func (c *Controller) init() {
 	var ecbstation *types.EcbStation
 
 	if serverIPAddress != "" {
-		query := "SELECT id, ipaddress, location, mode, linetype, lineids, lineactive, theme, tacktime, workcenters, status, created_at, updated_at FROM ecbstations WHERE ipaddress = ?"
-		row := c.DB.QueryRow(query, serverIPAddress)
-		ecbstation = &types.EcbStation{}
-		err := row.Scan(
-			&ecbstation.ID,
-			&ecbstation.Ipaddress,
-			&ecbstation.Location,
-			&ecbstation.Mode,
-			&ecbstation.Linetype,
-			&ecbstation.Lineids,
-			&ecbstation.Lineactive,
-			&ecbstation.Theme,
-			&ecbstation.Tacktime,
-			&ecbstation.Workcenters,
-			&ecbstation.Status,
-			&ecbstation.CreatedAt,
-			&ecbstation.UpdatedAt,
-		)
+		repo := repository.NewEcbStationRepository(c.DB)
+		var err error
+		ecbstation, err = repo.FindEcbStationByIP(serverIPAddress)
 		if err != nil {
-			if err == sql.ErrNoRows {
-				log.Printf("No Ecbstation found for IP: %s", serverIPAddress)
-			} else {
-				log.Printf("Error querying Ecbstation: %v", err)
-			}
+			logging.Logger().Warnf("Error querying Ecbstation: %v", err)
+		} else if ecbstation == nil {
+			logging.Logger().Infof("No Ecbstation found for IP: %s", serverIPAddress)
 		} else {
 			useConfig = false
 		}
@@ -147,7 +129,7 @@ func (c *Controller) init() {
 	}
 
 	if err := c.ensureNavigationCache(); err != nil {
-		log.Printf("[navigation] load failed: %v", err)
+		logging.Logger().Errorf("[navigation] load failed: %v", err)
 	}
 }
 
@@ -159,20 +141,16 @@ func (c *Controller) ensureNavigationCache() error {
 	return c.navCacheErr
 }
 
-// loadNavigationCache adalah fungsi untuk memuat navigasi cache.
 func (c *Controller) loadNavigationCache() error {
-	if c.DB == nil || c.DB.Db == nil {
+	if c.DB == nil {
 		return fmt.Errorf("database connection is not configured")
 	}
 
-	rows, err := db.QueryWith(c.DB.Db, `
-		SELECT id, parent_id, icon, title, description, url, route, mode, urutan, created_at, updated_at
-		FROM navigations
-		ORDER BY COALESCE(parent_id, 0), urutan, title`)
+	repo := repository.NewNavigationRepository(c.DB)
+	navigations, err := repo.GetAll()
 	if err != nil {
 		return err
 	}
-	defer rows.Close()
 
 	cache := &navigationCache{
 		byID:     make(map[int]*types.Navigation),
@@ -181,36 +159,19 @@ func (c *Controller) loadNavigationCache() error {
 		children: make(map[int][]*types.Navigation),
 	}
 
+	// Logic to populate navList from navigations slice
 	var navList []*types.Navigation
-	for rows.Next() {
-		nav := &types.Navigation{}
-		if err := rows.Scan(
-			&nav.ID,
-			&nav.ParentId,
-			&nav.Icon,
-			&nav.Title,
-			&nav.Description,
-			&nav.Url,
-			&nav.Route,
-			&nav.Mode,
-			&nav.Urutan,
-			&nav.CreatedAt,
-			&nav.UpdatedAt,
-		); err != nil {
-			return err
-		}
-
-		if nav.Mode <= 0 {
+	for _, nav := range navigations {
+		// Use a local copy ensuring pointer safety if needed,
+		// though nav is a value type here (Navigation struct).
+		// Creating a pointer to a loop variable is safe in newer Go but explicit copy is safer.
+		n := nav
+		if n.Mode <= 0 {
 			continue
 		}
-
-		cache.byID[nav.ID] = nav
-		cache.byURL[strings.ToLower(normalizePath(nav.Url))] = nav
-		navList = append(navList, nav)
-	}
-
-	if err := rows.Err(); err != nil {
-		return err
+		cache.byID[n.ID] = &n
+		cache.byURL[strings.ToLower(normalizePath(n.Url))] = &n
+		navList = append(navList, &n)
 	}
 
 	sort.SliceStable(navList, func(i, j int) bool {
@@ -443,7 +404,7 @@ func (c *Controller) truncateTitle(title string, limit int) string {
 func (c *Controller) GetIPAddress() string {
 	interfaces, err := net.Interfaces()
 	if err != nil {
-		log.Printf("Error enumerating network interfaces: %v", err)
+		logging.Logger().Errorf("Error enumerating network interfaces: %v", err)
 		return ""
 	}
 
@@ -504,7 +465,7 @@ func pickIPFromInterfaces(interfaces []net.Interface, allowVirtual bool) string 
 
 		addrs, addrErr := iface.Addrs()
 		if addrErr != nil {
-			log.Printf("Error getting addresses for interface %s: %v", iface.Name, addrErr)
+			logging.Logger().Warnf("Error getting addresses for interface %s: %v", iface.Name, addrErr)
 			continue
 		}
 

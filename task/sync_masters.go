@@ -35,7 +35,7 @@ func GetComprefg() { runSingleSync("[GetComprefg]", syncComprefg) }
 // GetAllMasters menjalankan seluruh sync master secara berurutan (setara simo:getallmasters Laravel; ecbpo tetap tidak disertakan).
 func GetAllMasters() {
 	start := time.Now()
-	fmt.Println("[GetAllMasters] Starting master data sync...")
+	log.Println("[GetAllMasters] Starting master data sync...")
 
 	cfg := configs.LoadConfig()
 	simoDSN := buildDSN(
@@ -72,13 +72,13 @@ func GetAllMasters() {
 	syncCompressor(simoDB, localDB)
 	syncComprefg(simoDB, localDB)
 
-	fmt.Printf("[GetAllMasters] All master data synced in %s.\n", time.Since(start).Round(time.Second))
+	log.Printf("[GetAllMasters] All master data synced in %s.\n", time.Since(start).Round(time.Second))
 }
 
 // runSingleSync membuka koneksi DB dan menjalankan satu fungsi sinkron master.
 func runSingleSync(tag string, fn func(*sql.DB, *sql.DB)) {
 	start := time.Now()
-	fmt.Println(tag, "Starting sync...")
+	log.Println(tag, "Starting sync...")
 
 	cfg := configs.LoadConfig()
 	simoDSN := buildDSN(
@@ -110,12 +110,12 @@ func runSingleSync(tag string, fn func(*sql.DB, *sql.DB)) {
 
 	fn(simoDB, localDB)
 
-	fmt.Printf("%s Done in %s.\n", tag, time.Since(start).Round(time.Second))
+	log.Printf("%s Done in %s.\n", tag, time.Since(start).Round(time.Second))
 }
 
 // syncEcbstation adalah fungsi untuk sync ecbstation.
 func syncEcbstation(simo, local *sql.DB) {
-	fmt.Println("[syncEcbstation] Syncing ecbstations...")
+	log.Println("[syncEcbstation] Syncing ecbstations...")
 	rows, err := simo.Query("SELECT id, ipaddress, location, mode, linetype, lineids, lineactive, ecbstate, theme, tacktime, workcenters, status FROM ecbstations")
 	if err != nil {
 		log.Println("[syncEcbstation]", err)
@@ -135,12 +135,12 @@ func syncEcbstation(simo, local *sql.DB) {
 			log.Println("[syncEcbstation] Insert error:", err)
 		}
 	}
-	fmt.Println("[syncEcbstation] Done.")
+	log.Println("[syncEcbstation] Done.")
 }
 
 // syncMasterfg adalah fungsi untuk sync masterfg.
 func syncMasterfg(simo, local *sql.DB) {
-	fmt.Println("[syncMasterfg] Syncing masterfgs...")
+	log.Println("[syncMasterfg] Syncing masterfgs...")
 	rows, err := simo.Query("SELECT id, fgtype, lotinv, mattype, matdesc, aging_tipes_id, kdbar, warna, attrib, category FROM masterfgs")
 	if err != nil {
 		log.Println("[syncMasterfg]", err)
@@ -161,12 +161,12 @@ func syncMasterfg(simo, local *sql.DB) {
 			log.Println("[syncMasterfg] Insert error:", err)
 		}
 	}
-	fmt.Println("[syncMasterfg] Done.")
+	log.Println("[syncMasterfg] Done.")
 }
 
 // syncMastersfg adalah fungsi untuk sync mastersfg.
 func syncMastersfg(simo, local *sql.DB) {
-	fmt.Println("[syncMastersfg] Syncing mastersfgs...")
+	log.Println("[syncMastersfg] Syncing mastersfgs...")
 	rows, err := simo.Query("SELECT id, plant, mattype, sfgtype, matdesc, sfgdesc FROM mastersfgs")
 	if err != nil {
 		log.Println("[syncMastersfg]", err)
@@ -187,12 +187,12 @@ func syncMastersfg(simo, local *sql.DB) {
 			log.Println("[syncMastersfg] Insert error:", err)
 		}
 	}
-	fmt.Println("[syncMastersfg] Done.")
+	log.Println("[syncMastersfg] Done.")
 }
 
 // syncCompressor adalah fungsi untuk sync kompresor.
 func syncCompressor(simo, local *sql.DB) {
-	fmt.Println("[syncCompressor] Syncing compressors...")
+	log.Println("[syncCompressor] Syncing compressors...")
 	rows, err := simo.Query("SELECT id, ctype, merk, type, itemcode, force_scan, familycode, status FROM compressors")
 	if err != nil {
 		log.Println("[syncCompressor]", err)
@@ -213,12 +213,12 @@ func syncCompressor(simo, local *sql.DB) {
 			log.Println("[syncCompressor] Insert error:", err)
 		}
 	}
-	fmt.Println("[syncCompressor] Done.")
+	log.Println("[syncCompressor] Done.")
 }
 
 // syncComprefg adalah fungsi untuk sync comprefg.
 func syncComprefg(simo, local *sql.DB) {
-	fmt.Println("[syncComprefg] Syncing comprefgs...")
+	log.Println("[syncComprefg] Syncing comprefgs...")
 	rows, err := simo.Query("SELECT id, ctype, barcode, status FROM comprefgs")
 	if err != nil {
 		log.Println("[syncComprefg]", err)
@@ -239,5 +239,5 @@ func syncComprefg(simo, local *sql.DB) {
 			log.Println("[syncComprefg] Insert error:", err)
 		}
 	}
-	fmt.Println("[syncComprefg] Done.")
+	log.Println("[syncComprefg] Done.")
 }

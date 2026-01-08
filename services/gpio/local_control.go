@@ -1,7 +1,7 @@
 /*
-    file:           services/gpio/local_control.go
-    description:    Driver GPIO untuk local control
-    created:        220711663@students.uajy.ac.id 04-11-2025
+   file:           services/gpio/local_control.go
+   description:    Driver GPIO untuk local control
+   created:        220711663@students.uajy.ac.id 04-11-2025
 */
 
 package gpio
@@ -14,7 +14,6 @@ import (
 	"go-ecb/configs"
 )
 
-// InitializeControl adalah fungsi untuk initialize control.
 func InitializeControl() {
 	simoCfg := configs.LoadSimoConfig()
 	ecbMode := simoCfg.EcbMode
@@ -58,7 +57,6 @@ func InitializeControl() {
 	}
 }
 
-// StartTest adalah fungsi untuk menjalankan test.
 func StartTest(line *int) {
 	if line != nil {
 		SetLineActive(clampLine(*line))
@@ -80,7 +78,6 @@ func StartTest(line *int) {
 	writeLevel(layout.StartAlt, LevelHigh)
 }
 
-// ResetTest adalah fungsi untuk reset test.
 func ResetTest(line *int) {
 	if line != nil {
 		SetLineActive(clampLine(*line))
@@ -99,18 +96,15 @@ func ResetTest(line *int) {
 	}
 }
 
-// LineToggle adalah fungsi untuk jalur mengubah.
 func LineToggle() int {
 	return ToggleLineActive()
 }
 
-// LineSet adalah fungsi untuk jalur mengatur.
 func LineSet(line int) int {
 	SetLineActive(line)
 	return GetLineActive()
 }
 
-// ReadLocalEcbState adalah fungsi untuk membaca local ecb status.
 func ReadLocalEcbState() string {
 	simoCfg := configs.LoadSimoConfig()
 	mode := simoCfg.EcbMode
@@ -122,12 +116,11 @@ func ReadLocalEcbState() string {
 	}
 }
 
-// readHardwareState adalah fungsi untuk membaca hardware status.
 func readHardwareState() string {
 	layout := GetPinLayout()
 	pass := readLevel(layout.Pass)
 	fail := readLevel(layout.Fail)
 	undertest := readLevel(layout.UnderTest)
 	line := readLevel(layout.LineSelect)
-	return fmt.Sprintf("%s.%s.%s.%s", pass, fail, undertest, line)
+	return fmt.Sprintf("%s.%s.%s.%s", undertest, pass, fail, line)
 }

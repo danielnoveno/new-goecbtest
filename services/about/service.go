@@ -20,7 +20,6 @@ type Controller struct {
 	*controllers.Controller 
 }
 
-// NewController adalah fungsi untuk baru pengendali.
 func NewController(dbMap *gorp.DbMap, simoConfig configs.SimoConfig, envConfig configs.Config, a fyne.App, w fyne.Window) *Controller {
 	return &Controller{
 		Controller: controllers.NewController(dbMap, simoConfig, envConfig, a, w),

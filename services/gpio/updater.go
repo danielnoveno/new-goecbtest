@@ -8,11 +8,11 @@ package gpio
 
 import (
 	"fmt"
-	"log"
 	"sync"
 	"time"
 
 	"go-ecb/configs"
+	"go-ecb/pkg/logging"
 
 	"github.com/go-gorp/gorp"
 )
@@ -21,7 +21,6 @@ var (
 	ecbStateUpdaterOnce sync.Once
 )
 
-// StartEcbStateUpdater adalah fungsi untuk menjalankan ecb status updater.
 func StartEcbStateUpdater(dbmap *gorp.DbMap) {
 	if dbmap == nil {
 		return
@@ -30,7 +29,7 @@ func StartEcbStateUpdater(dbmap *gorp.DbMap) {
 		go func() {
 			defer func() {
 				if r := recover(); r != nil {
-					log.Printf("[EcbStateUpdater] panic recovered: %v", r)
+					logging.Logger().Errorf("[EcbStateUpdater] panic recovered: %v", r)
 				}
 			}()
 			runEcbStateUpdater(dbmap)
@@ -38,17 +37,14 @@ func StartEcbStateUpdater(dbmap *gorp.DbMap) {
 	})
 }
 
-// runEcbStateUpdater adalah fungsi untuk menjalankan ecb status updater.
 func runEcbStateUpdater(dbmap *gorp.DbMap) {
-	// Load configuration
 	pollIntervalMs := configs.GetGpioPollIntervalMs()
 	adaptivePolling := configs.GetGpioAdaptivePolling()
 	
 	basePollInterval := time.Duration(pollIntervalMs) * time.Millisecond
 	currentPollInterval := basePollInterval
 	
-	// Adaptive polling: slow down jika tidak ada perubahan
-	maxSlowInterval := basePollInterval * 4 // Max 4x slower
+	maxSlowInterval := basePollInterval * 4
 	unchangedCount := 0
 	
 	ticker := time.NewTicker(currentPollInterval)
@@ -64,7 +60,6 @@ func runEcbStateUpdater(dbmap *gorp.DbMap) {
 		if current == lastState {
 			unchangedCount++
 			
-			// Adaptive polling: perlambat jika tidak ada perubahan
 			if adaptivePolling && unchangedCount > 4 {
 				newInterval := currentPollInterval * 2
 				if newInterval > maxSlowInterval {
@@ -79,7 +74,6 @@ func runEcbStateUpdater(dbmap *gorp.DbMap) {
 			continue
 		}
 		
-		// State berubah, reset ke normal polling interval
 		if currentPollInterval != basePollInterval {
 			currentPollInterval = basePollInterval
 			ticker.Stop()
@@ -89,12 +83,11 @@ func runEcbStateUpdater(dbmap *gorp.DbMap) {
 		lastState = current
 
 		if err := insertEcbState(dbmap, current); err != nil {
-			log.Printf("failed to insert ecbstate %q: %v", current, err)
+			logging.Logger().Errorf("failed to insert ecbstate %q: %v", current, err)
 		}
 	}
 }
 
-// readEcbStateString adalah fungsi untuk membaca ecb status string.
 func readEcbStateString() string {
 	layout := GetPinLayout()
 	pass := readLevel(layout.Pass)
@@ -104,7 +97,6 @@ func readEcbStateString() string {
 	return fmt.Sprintf("%s.%s.%s.%s", pass, fail, undertest, line)
 }
 
-// insertEcbState adalah fungsi untuk insert ecb status.
 func insertEcbState(dbmap *gorp.DbMap, value string) error {
 	now := time.Now()
 	_, err := dbmap.Exec(`

@@ -9,16 +9,16 @@ INSERT INTO ecbconfigs (section, variable, value, ordering, created_at, updated_
   ('general', 'line_select_gpio', '23', '003', NOW(), NOW()),
   ('general', 'scan_timeout_ms', '750', '004', NOW(), NOW()),
   ('general', 'line_type', 'refrig-po-double', '005', NOW(), NOW()),
-  ('display', 'theme', 'Minimal Night', '006', NOW(), NOW());
+  ('display', 'theme', 'Dark', '006', NOW(), NOW());
 
 INSERT INTO ecbstations (
   ipaddress, location, mode, linetype, lineids, lineactive,
   ecbstate, theme, tacktime, workcenters, status,
   created_at, updated_at
 ) VALUES
-  ('192.168.0.101', 'Line REF Double', 'simulateAll', 'refrig-po-double', 'REF A,REF B', 0, 'READY', 'Minimal Night', 55, 'WC-REF-A,WC-REF-B', 'ACTIVE', NOW(), NOW()),
-  ('192.168.0.102', 'Line PWM', 'simulateAll', 'sn-only-single', 'PWM 1', 0, 'READY', 'Minimal Night', 60, 'WC-PWM', 'ACTIVE', NOW(), NOW()),
-  ('192.168.0.103', 'Line REF Single', 'simulateAll', 'sn-only-single', 'REF C', 0, 'READY', 'Minimal Night', 50, 'WC-REF-C', 'ACTIVE', NOW(), NOW());
+  ('192.168.0.101', 'Line REF Double', 'simulateAll', 'refrig-po-double', 'REF A,REF B', 0, 'READY', 'Dark', 55, 'WC-REF-A,WC-REF-B', 'ACTIVE', NOW(), NOW()),
+  ('192.168.0.102', 'Line PWM', 'simulateAll', 'sn-only-single', 'PWM 1', 0, 'READY', 'Dark', 60, 'WC-PWM', 'ACTIVE', NOW(), NOW()),
+  ('192.168.0.103', 'Line REF Single', 'simulateAll', 'sn-only-single', 'REF C', 0, 'READY', 'Dark', 50, 'WC-REF-C', 'ACTIVE', NOW(), NOW());
 
 INSERT INTO ecbstates (
   tgl, readstate, ecbstate, created_at, updated_at

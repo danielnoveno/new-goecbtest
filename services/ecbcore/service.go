@@ -9,23 +9,21 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"log"
 	"strings"
 	"time"
 
 	"github.com/go-gorp/gorp"
 	"go-ecb/app/types"
 	"go-ecb/configs"
+	"go-ecb/pkg/logging"
 )
 
-// LineConfig memuat informasi jalur yang dibutuhkan untuk insert ecbdatas.
 type LineConfig struct {
 	LineID     string
 	Workcenter string
 	Category   string
 }
 
-// RemoteChecker digunakan untuk cek duplikasi di DB lain (bserv/SIMO).
 type RemoteChecker struct {
 	targets []remoteTarget
 	timeout time.Duration
@@ -38,11 +36,9 @@ type remoteTarget struct {
 	spcQuery    string
 }
 
-// NewRemoteChecker membuat pengecek remote berdasarkan konfigurasi env.
 func NewRemoteChecker(cfg configs.Config) RemoteChecker {
 	targets := []remoteTarget{}
 
-	// SIMO (ecbdatas.sn/spc)
 	if dsn := buildRemoteDSN(cfg.SimoprdUser, cfg.SimoprdPassword, fmt.Sprintf("%s:%s", cfg.SimoprdHost, cfg.SimoprdPort), cfg.SimoprdDatabase); strings.TrimSpace(dsn) != "" {
 		targets = append(targets, remoteTarget{
 			name:        "simoprd",
@@ -52,7 +48,6 @@ func NewRemoteChecker(cfg configs.Config) RemoteChecker {
 		})
 	}
 
-	// BSERV (legacy ecb.gbj/spc)
 	if dsn := buildRemoteDSN(cfg.BservUser, cfg.BservPassword, fmt.Sprintf("%s:%s", cfg.BservHost, cfg.BservPort), cfg.BservDatabase); strings.TrimSpace(dsn) != "" {
 		targets = append(targets, remoteTarget{
 			name:        "bserv",
@@ -76,12 +71,10 @@ func buildRemoteDSN(user, pass, addr, db string) string {
 	return base + "?parseTime=true&timeout=5s&readTimeout=5s&writeTimeout=5s"
 }
 
-// ExistsSerial mengembalikan true jika nomor seri ditemukan pada salah satu DB remote.
 func (r RemoteChecker) ExistsSerial(value string) (bool, error) {
 	return r.exists(value, func(t remoteTarget) string { return t.serialQuery })
 }
 
-// ExistsSpc mengembalikan true jika SPC ditemukan pada salah satu DB remote.
 func (r RemoteChecker) ExistsSpc(value string) (bool, error) {
 	return r.exists(value, func(t remoteTarget) string { return t.spcQuery })
 }
@@ -102,7 +95,7 @@ func (r RemoteChecker) exists(value string, querySelector func(remoteTarget) str
 
 		db, err := sql.Open("mysql", target.dsn)
 		if err != nil {
-			log.Printf("Remote %s open error: %v", target.name, err)
+			logging.Logger().Warnf("Remote %s open error: %v", target.name, err)
 			return false, err
 		}
 
@@ -116,7 +109,7 @@ func (r RemoteChecker) exists(value string, querySelector func(remoteTarget) str
 			continue
 		}
 		if err != nil {
-			log.Printf("Remote %s query error: %v", target.name, err)
+			logging.Logger().Warnf("Remote %s query error: %v", target.name, err)
 			return false, err
 		}
 		return true, nil
@@ -124,7 +117,6 @@ func (r RemoteChecker) exists(value string, querySelector func(remoteTarget) str
 	return false, nil
 }
 
-// ValidateSnOnlySerial menerapkan aturan lama untuk scan SN-only; mengembalikan fg type.
 func ValidateSnOnlySerial(dbmap *gorp.DbMap, remote RemoteChecker, sn string) (string, error) {
 	sn = strings.ToUpper(strings.TrimSpace(sn))
 	if sn == "" {
@@ -162,7 +154,6 @@ func ValidateSnOnlySerial(dbmap *gorp.DbMap, remote RemoteChecker, sn string) (s
 	return fg, nil
 }
 
-// SaveSnOnly menyimpan hasil scan SN-only.
 func SaveSnOnly(dbmap *gorp.DbMap, cfg LineConfig, sn, fg string) error {
 	if dbmap == nil || dbmap.Db == nil {
 		return fmt.Errorf("server terputus,scan S/N lagi")
@@ -183,7 +174,6 @@ func SaveSnOnly(dbmap *gorp.DbMap, cfg LineConfig, sn, fg string) error {
 	return nil
 }
 
-// ValidateSpc mengecek SPC untuk alur refrig.
 func ValidateSpc(dbmap *gorp.DbMap, remote RemoteChecker, spc string) error {
 	spc = strings.ToUpper(strings.TrimSpace(spc))
 	if len(spc) != 11 {
@@ -194,7 +184,7 @@ func ValidateSpc(dbmap *gorp.DbMap, remote RemoteChecker, spc string) error {
 	}
 	var count int
 	if err := dbmap.SelectOne(&count, "SELECT COUNT(*) FROM ecbdatas WHERE spc = ?", spc); err != nil {
-		log.Printf("Failed to validate SPC: %v", err)
+		logging.Logger().Errorf("Failed to validate SPC: %v", err)
 		return fmt.Errorf("server terputus,scan SPC lagi")
 	}
 	if count > 0 {
@@ -208,7 +198,6 @@ func ValidateSpc(dbmap *gorp.DbMap, remote RemoteChecker, spc string) error {
 	return nil
 }
 
-// ValidateRefrigSerial menerapkan aturan scan SN untuk alur refrig.
 func ValidateRefrigSerial(dbmap *gorp.DbMap, remote RemoteChecker, sn string) (string, error) {
 	sn = strings.ToUpper(strings.TrimSpace(sn))
 	if sn == "" {
@@ -234,7 +223,7 @@ func ValidateRefrigSerial(dbmap *gorp.DbMap, remote RemoteChecker, sn string) (s
 	}
 	var snCheck int
 	if err := dbmap.SelectOne(&snCheck, "SELECT COUNT(*) FROM ecbdatas WHERE sn = ?", sn); err != nil {
-		log.Printf("SN duplicate check failed: %v", err)
+		logging.Logger().Errorf("SN duplicate check failed: %v", err)
 		return "", fmt.Errorf("server terputus,scan S/N lagi")
 	}
 	if snCheck > 0 {
@@ -247,7 +236,6 @@ func ValidateRefrigSerial(dbmap *gorp.DbMap, remote RemoteChecker, sn string) (s
 	return fg, nil
 }
 
-// ValidateCompressorType memastikan tipe kompresor sesuai (non-PO via comprefgs, PO via ecbpos).
 func ValidateCompressorType(dbmap *gorp.DbMap, sn, comptype string, isPO bool) (*types.Compressor, *types.EcbPo, error) {
 	comptype = extractCompressorType(comptype)
 	if comptype == "" {
@@ -279,7 +267,6 @@ func ValidateCompressorType(dbmap *gorp.DbMap, sn, comptype string, isPO bool) (
 	return &compressor, &ecbpo, nil
 }
 
-// ValidateCompressorCode menerapkan aturan force_scan.
 func ValidateCompressorCode(comp *types.Compressor, code string) error {
 	if comp == nil {
 		return fmt.Errorf("type compressor belum dicek")
@@ -296,7 +283,6 @@ func ValidateCompressorCode(comp *types.Compressor, code string) error {
 	return nil
 }
 
-// SaveRefrig menyimpan data refrig (PO maupun non-PO) dan update ecbpo jika perlu.
 func SaveRefrig(dbmap *gorp.DbMap, cfg LineConfig, sn, fg, spc, compType, compCode, poVal string, isPO bool, poID *int) error {
 	if dbmap == nil || dbmap.Db == nil {
 		return fmt.Errorf("server terputus,scan S/N lagi")
@@ -316,13 +302,12 @@ func SaveRefrig(dbmap *gorp.DbMap, cfg LineConfig, sn, fg, spc, compType, compCo
 	}
 	if isPO && poID != nil {
 		if _, err := dbmap.Exec("UPDATE ecbpos SET status = 'scanned' WHERE id = ?", *poID); err != nil {
-			log.Printf("failed to update ecbpo status: %v", err)
+			logging.Logger().Errorf("failed to update ecbpo status: %v", err)
 		}
 	}
 	return nil
 }
 
-// deriveFgType fallback FG dari prefix.
 func deriveFgType(sn string) string {
 	if sn == "" {
 		return "-"
@@ -333,7 +318,6 @@ func deriveFgType(sn string) string {
 	return fmt.Sprintf("FG-%s", sn)
 }
 
-// extractCompressorType mengambil huruf/angka di depan saja.
 func extractCompressorType(raw string) string {
 	trimmed := strings.ToUpper(strings.TrimSpace(raw))
 	if trimmed == "" {
@@ -350,7 +334,6 @@ func extractCompressorType(raw string) string {
 	if clean == "" {
 		return ""
 	}
-	// Legacy: beberapa scanner mengirim kode kompresor diulang 4x; ambil seperempat pertama saja.
 	if len(clean)%4 == 0 {
 		part := clean[:len(clean)/4]
 		if len(part) > 0 && strings.Repeat(part, 4) == clean {

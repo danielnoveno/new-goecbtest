@@ -29,23 +29,17 @@ const (
 	pinVarResetAlt  = "pin_reset_alt"
 )
 
-// PinController menjabarkan operasi yang dibutuhkan UI untuk membaca dan menyimpan
-// mapping wiringPi tanpa mengandaikan cara persistensinya.
 type PinController interface {
 	GetPins() gpio.PinLayout
 	SavePins(gpio.PinLayout) error
 }
 
-// PinConfigService mengelola entri mapping pin maintenance di tabel konfigurasi ECB
-// dan menyinkronkannya dengan helper GPIO.
 type PinConfigService struct {
 	store repository.EcbConfigStore
 	mu    sync.RWMutex
 	pins  gpio.PinLayout
 }
 
-// NewPinConfigService membuat layanan dan me-load layout pin default. Panggil Refresh
-// sebelum menggunakan pin yang dimuat.
 func NewPinConfigService(store repository.EcbConfigStore) *PinConfigService {
 	if store == nil {
 		return nil
@@ -56,8 +50,6 @@ func NewPinConfigService(store repository.EcbConfigStore) *PinConfigService {
 	}
 }
 
-// Refresh memuat ulang mapping pin dari database dan memperbaruinya di helper GPIO
-// agar perintah memakai nilai terbaru.
 func (s *PinConfigService) Refresh() error {
 	if s == nil || s.store == nil {
 		return fmt.Errorf("pin config service unavailable")
@@ -96,7 +88,6 @@ func (s *PinConfigService) Refresh() error {
 	return nil
 }
 
-// GetPins mengembalikan layout pin terakhir yang dimuat.
 func (s *PinConfigService) GetPins() gpio.PinLayout {
 	if s == nil {
 		return gpio.DefaultPinLayout()
@@ -106,7 +97,6 @@ func (s *PinConfigService) GetPins() gpio.PinLayout {
 	return s.pins
 }
 
-// SavePins menyimpan layout pin ke database dan memperbarui helper GPIO bila berhasil.
 func (s *PinConfigService) SavePins(layout gpio.PinLayout) error {
 	if s == nil || s.store == nil {
 		return fmt.Errorf("pin config service unavailable")
@@ -132,7 +122,6 @@ func (s *PinConfigService) SavePins(layout gpio.PinLayout) error {
 	return nil
 }
 
-// apply adalah fungsi untuk apply.
 func (s *PinConfigService) apply(layout gpio.PinLayout) {
 	s.mu.Lock()
 	normalized := gpio.NormalizePinLayout(layout)
@@ -141,7 +130,6 @@ func (s *PinConfigService) apply(layout gpio.PinLayout) {
 	gpio.SetPinLayout(normalized)
 }
 
-// persist adalah fungsi untuk persist.
 func (s *PinConfigService) persist(variable, value string, now time.Time) error {
 	config, err := s.store.FindEcbConfigBySectionAndVariable(pinsSection, variable)
 	if err != nil {

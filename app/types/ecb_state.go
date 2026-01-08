@@ -9,8 +9,8 @@ package types
 import "time"
 
 type EcbState struct {
-	ID		  int       `gorm:"primaryKey;autoIncrement" json:"id"`	
-	Tgl       time.Time `gorm:"tgl" json:"tgl"`
-	EcbState  string    `gorm:"ecbstate" json:"ecbState"`
-	ReadState string    `gorm:"readstate" json:"readState"`
+	ID		  int       `db:"id"`	
+	Tgl       time.Time `db:"tgl"`
+	EcbState  string    `db:"ecbstate"`
+	ReadState string    `db:"readstate"`
 }

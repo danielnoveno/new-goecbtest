@@ -1,7 +1,7 @@
 /*
-    file:           services/gpio/driver_common.go
-    description:    Driver GPIO untuk driver common
-    created:        220711663@students.uajy.ac.id 04-11-2025
+   file:           services/gpio/driver_common.go
+   description:    Driver GPIO untuk driver common
+   created:        220711663@students.uajy.ac.id 04-11-2025
 */
 
 package gpio
@@ -18,15 +18,13 @@ const (
 	LevelHigh Level = true
 )
 
-// String adalah fungsi untuk string.
-func (l Level) String() string {
-	if l {
+func (level Level) String() string {
+	if level {
 		return "1"
 	}
 	return "0"
 }
 
-// LevelFromString adalah fungsi untuk level from string.
 func LevelFromString(value string) Level {
 	switch strings.ToLower(strings.TrimSpace(value)) {
 	case "1", "high", "true", "on":
@@ -54,7 +52,6 @@ var (
 	hwDriver driver = newNoopDriver()
 )
 
-// SetDriver adalah fungsi untuk mengatur driver.
 func SetDriver(d driver) {
 	driverMu.Lock()
 	defer driverMu.Unlock()
@@ -63,7 +60,6 @@ func SetDriver(d driver) {
 	}
 }
 
-// WritePin adalah fungsi untuk menulis pin.
 func WritePin(pin string, level Level) error {
 	driverMu.RLock()
 	defer driverMu.RUnlock()
@@ -73,7 +69,6 @@ func WritePin(pin string, level Level) error {
 	return hwDriver.Write(pin, level)
 }
 
-// ReadPin adalah fungsi untuk membaca pin.
 func ReadPin(pin string) (Level, error) {
 	driverMu.RLock()
 	defer driverMu.RUnlock()
@@ -83,7 +78,6 @@ func ReadPin(pin string) (Level, error) {
 	return hwDriver.Read(pin)
 }
 
-// SetPinMode adalah fungsi untuk mengatur pin mode.
 func SetPinMode(pin string, mode PinMode) error {
 	driverMu.RLock()
 	defer driverMu.RUnlock()
@@ -98,12 +92,10 @@ type noopDriver struct {
 	states map[string]Level
 }
 
-// newNoopDriver adalah fungsi untuk baru noop driver.
 func newNoopDriver() *noopDriver {
 	return &noopDriver{states: make(map[string]Level)}
 }
 
-// Write adalah fungsi untuk menulis.
 func (d *noopDriver) Write(pin string, level Level) error {
 	d.mu.Lock()
 	defer d.mu.Unlock()
@@ -111,7 +103,6 @@ func (d *noopDriver) Write(pin string, level Level) error {
 	return nil
 }
 
-// Read adalah fungsi untuk membaca.
 func (d *noopDriver) Read(pin string) (Level, error) {
 	d.mu.Lock()
 	defer d.mu.Unlock()
@@ -121,7 +112,6 @@ func (d *noopDriver) Read(pin string) (Level, error) {
 	return LevelLow, nil
 }
 
-// SetMode adalah fungsi untuk mengatur mode.
 func (d *noopDriver) SetMode(pin string, mode PinMode) error {
 	return nil
 }

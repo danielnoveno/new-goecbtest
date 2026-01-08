@@ -150,8 +150,8 @@ INSERT INTO `comprefgs` (ctype, barcode, status, created_at, updated_at) VALUES
   ('PWM2', 'PW11', 'OK', NOW(), NOW());
 
 INSERT INTO `ecbstations` (ipaddress, location, mode, linetype, lineids, lineactive, ecbstate, theme, tacktime, workcenters, status, created_at, updated_at) VALUES
-  ('192.168.10.10', 'REF Remote Cluster', 'LIVE', 'refrig-po-double', 'REF A,REF B', 0, 'READY', 'Minimal Night', 55, 'WC-REF-A,WC-REF-B', 'ACTIVE', NOW(), NOW()),
-  ('192.168.10.20', 'PWM Remote', 'LIVE', 'sn-only-single', 'PWM 1', 0, 'READY', 'Minimal Night', 60, 'WC-PWM', 'ACTIVE', NOW(), NOW());
+  ('192.168.10.10', 'REF Remote Cluster', 'LIVE', 'refrig-po-double', 'REF A,REF B', 0, 'READY', 'Dark', 55, 'WC-REF-A,WC-REF-B', 'ACTIVE', NOW(), NOW()),
+  ('192.168.10.20', 'PWM Remote', 'LIVE', 'sn-only-single', 'PWM 1', 0, 'READY', 'Dark', 60, 'WC-PWM', 'ACTIVE', NOW(), NOW());
 
 INSERT INTO `ecbpos` (workcenter, po, sn, ctype, updated_by, status, created_at, updated_at) VALUES
   ('REF A', 'PO-REMOTE-REF-A', 'RF1100009999', 'RFA1', 9, 'OPEN', NOW(), NOW()),

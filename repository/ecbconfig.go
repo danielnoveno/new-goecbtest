@@ -6,11 +6,13 @@
 
 package repository
 
+
 import (
 	"database/sql"
 	"fmt"
 	"go-ecb/app/types"
-	"log"
+	"go-ecb/pkg/logging"
+	"github.com/go-gorp/gorp"
 )
 
 type EcbConfigStore interface {
@@ -21,84 +23,47 @@ type EcbConfigStore interface {
 }
 
 type EcbConfigRepository struct {
-	db *sql.DB
+	dbmap *gorp.DbMap
 }
 
-// NewEcbConfigRepository adalah fungsi untuk baru ecb konfigurasi repository.
-func NewEcbConfigRepository(db *sql.DB) *EcbConfigRepository {
-	return &EcbConfigRepository{db: db}
+func NewEcbConfigRepository(dbmap *gorp.DbMap) *EcbConfigRepository {
+	return &EcbConfigRepository{dbmap: dbmap}
 }
 
-// FindEcbConfigBySectionAndVariable adalah fungsi untuk menemukan ecb konfigurasi by section and variable.
 func (r *EcbConfigRepository) FindEcbConfigBySectionAndVariable(section, variable string) (*types.EcbConfig, error) {
-	query := `SELECT id, section, variable, value, ordering, created_at, updated_at FROM ecbconfigs WHERE section = ? AND variable = ?`
-	row := r.db.QueryRow(query, section, variable)
-
-	config := &types.EcbConfig{}
-	err := row.Scan(
-		&config.ID,
-		&config.Section,
-		&config.Variable,
-		&config.Value,
-		&config.Ordering,
-		&config.CreatedAt,
-		&config.UpdatedAt,
-	)
+	var config types.EcbConfig
+	err := r.dbmap.SelectOne(&config, "SELECT * FROM ecbconfigs WHERE section = ? AND variable = ?", section, variable)
 	if err != nil {
 		if err == sql.ErrNoRows {
 			return nil, fmt.Errorf("ecbconfig not found")
 		}
 		return nil, err
 	}
-	return config, nil
+	return &config, nil
 }
 
-// CreateEcbConfig adalah fungsi untuk membuat ecb konfigurasi.
 func (r *EcbConfigRepository) CreateEcbConfig(config *types.EcbConfig) error {
-	query := `INSERT INTO ecbconfigs (section, variable, value, ordering, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)`
-	_, err := r.db.Exec(query, config.Section, config.Variable, config.Value, config.Ordering, config.CreatedAt, config.UpdatedAt)
+	err := r.dbmap.Insert(config)
 	if err != nil {
 		return fmt.Errorf("error creating ecbconfig: %w", err)
 	}
 	return nil
 }
 
-// UpdateEcbConfig adalah fungsi untuk memperbarui ecb konfigurasi.
 func (r *EcbConfigRepository) UpdateEcbConfig(config *types.EcbConfig) error {
-	query := `UPDATE ecbconfigs SET value = ?, updated_at = ? WHERE id = ?`
-	_, err := r.db.Exec(query, config.Value, config.UpdatedAt, config.ID)
+	_, err := r.dbmap.Update(config)
 	if err != nil {
 		return fmt.Errorf("error updating ecbconfig: %w", err)
 	}
 	return nil
 }
 
-// FindEcbConfigsBySection adalah fungsi untuk menemukan ecb configs by section.
 func (r *EcbConfigRepository) FindEcbConfigsBySection(section string) ([]*types.EcbConfig, error) {
-	query := `SELECT id, section, variable, value, ordering, created_at, updated_at FROM ecbconfigs WHERE section = ?`
-	rows, err := r.db.Query(query, section)
-	if err != nil {
-		return nil, err
-	}
-	defer rows.Close()
-
 	var configs []*types.EcbConfig
-	for rows.Next() {
-		config := &types.EcbConfig{}
-		err := rows.Scan(
-			&config.ID,
-			&config.Section,
-			&config.Variable,
-			&config.Value,
-			&config.Ordering,
-			&config.CreatedAt,
-			&config.UpdatedAt,
-		)
-		if err != nil {
-			log.Printf("Error scanning EcbConfig row: %v", err)
-			continue
-		}
-		configs = append(configs, config)
+	_, err := r.dbmap.Select(&configs, "SELECT * FROM ecbconfigs WHERE section = ?", section)
+	if err != nil {
+		logging.Logger().Warnf("Error querying EcbConfigs: %v", err)
+		return nil, err
 	}
 	return configs, nil
 }

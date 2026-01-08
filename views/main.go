@@ -7,10 +7,9 @@
 package views
 
 import (
-	"errors"
+	// "errors"
 	"fmt"
 	"image/color"
-	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -22,9 +21,11 @@ import (
 
 	"go-ecb/app/types"
 	"go-ecb/configs"
+	"go-ecb/pkg/logging"
 	"go-ecb/repository"
 	"go-ecb/services/about"
-	flashsvc "go-ecb/services/flash"
+
+	// flashsvc "go-ecb/services/flash"
 	"go-ecb/services/maintenance"
 	"go-ecb/services/setting"
 	"go-ecb/services/system"
@@ -44,7 +45,6 @@ import (
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 
-	// Import Fyne X Layout
 	xlayout "fyne.io/x/fyne/layout"
 )
 
@@ -64,19 +64,19 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 		DbMap:   dbmap,
 		SetBody: func(obj fyne.CanvasObject) { setBody(obj) },
 	}
-	flashService := flashsvc.NewNotifier()
-	state.Flash = flashService
-	flashService.Subscribe(func(msg types.FlashMessage) {
-		if state.Window == nil {
-			return
-		}
-		switch msg.Level {
-		case types.FlashLevelError:
-			dialog.ShowError(errors.New(msg.Body), state.Window)
-		default:
-			dialog.ShowInformation(msg.Title, msg.Body, state.Window)
-		}
-	})
+	// flashService := flashsvc.NewNotifier()
+	// state.Flash = flashService
+	// flashService.Subscribe(func(msg types.FlashMessage) {
+	// 	if state.Window == nil {
+	// 		return
+	// 	}
+	// 	switch msg.Level {
+	// 	case types.FlashLevelError:
+	// 		dialog.ShowError(errors.New(msg.Body), state.Window)
+	// 	default:
+	// 		dialog.ShowInformation(msg.Title, msg.Body, state.Window)
+	// 	}
+	// })
 	var applyIndicator func()
 	var setMode func(string)
 
@@ -85,16 +85,16 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 
 	state.TryOpenWindow = func(title string, setup func(fyne.Window)) bool {
 		childMu.Lock()
-		if activeChild != nil {
-			current := activeChild
-			childMu.Unlock()
+		// if activeChild != nil {
+		// 	current := activeChild
+		// 	childMu.Unlock()
 
-			dialog.ShowInformation("Form masih terbuka, tutup terlebih dahulu",
-				"Selesaikan atau tutup form sekarang sebelum membuat halmman baru.", w)
+		// 	dialog.ShowInformation("Form masih terbuka, tutup terlebih dahulu",
+		// 		"Selesaikan atau tutup form sekarang sebelum membuat halmman baru.", w)
 
-			current.RequestFocus()
-			return false
-		}
+		// 	current.RequestFocus()
+		// 	return false
+		// }
 
 		childWin := a.NewWindow(title)
 		activeChild = childWin
@@ -123,7 +123,7 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 
 	modeBinding := binding.NewString()
 	if err := modeBinding.Set("Mode: -"); err != nil {
-		fmt.Printf("Warning: failed to initialize mode binding: %v\n", err)
+		logging.Logger().Warnf("Warning: failed to initialize mode binding: %v\n", err)
 	}
 	modeText := widget.NewLabelWithData(modeBinding)
 	modeText.TextStyle = fyne.TextStyle{Bold: true}
@@ -137,14 +137,14 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 	}
 	lineTypeBinding := binding.NewString()
 	if err := lineTypeBinding.Set(formatLineTypeValue("")); err != nil {
-		fmt.Printf("Warning: failed to initialize line type binding: %v\n", err)
+		logging.Logger().Warnf("Warning: failed to initialize line type binding: %v\n", err)
 	}
 	lineTypeText := widget.NewLabelWithData(lineTypeBinding)
 	lineTypeText.TextStyle = fyne.TextStyle{Bold: true}
 
 	clockBinding := binding.NewString()
 	if err := clockBinding.Set(time.Now().Format("15:04:05")); err != nil {
-		fmt.Printf("Warning: failed to initialize clock binding: %v\n", err)
+		logging.Logger().Warnf("Warning: failed to initialize clock binding: %v\n", err)
 	}
 	clockText := widget.NewLabelWithData(clockBinding)
 	clockText.Alignment = fyne.TextAlignTrailing
@@ -171,7 +171,7 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 		if err == nil {
 			return res
 		}
-		fmt.Printf("Warning: gagal memuat logo dari %s: %v\n", path, err)
+		logging.Logger().Warnf("Warning: gagal memuat logo dari %s: %v\n", path, err)
 		return theme.FyneLogo()
 	}
 	expandedLogoResource := loadLogoResource(filepath.Join("assets", "Logo-polytron.webp"))
@@ -204,7 +204,7 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 		}
 		state.Mode = mode
 		if err := modeBinding.Set(state.Mode); err != nil {
-			fmt.Printf("Warning: failed to set mode binding: %v\n", err)
+			logging.Logger().Warnf("Warning: failed to set mode binding: %v\n", err)
 		}
 	}
 	ecb.RegisterModeChangeHandler(setMode)
@@ -212,9 +212,10 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 	themeEntries := map[string]navThemeOption{}
 	var themeLabels []string
 
-	dbThemes, err := repository.GetThemes()
+	themeRepo := repository.NewThemeRepository(dbmap)
+	dbThemes, err := themeRepo.GetThemes()
 	if err != nil {
-		fmt.Printf("Warning: gagal memuat tema: %v\n", err)
+		logging.Logger().Warnf("Warning: gagal memuat tema: %v\n", err)
 	}
 
 	if len(dbThemes) == 0 {
@@ -268,14 +269,6 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 	themeSelect.PlaceHolder = "Theme"
 
 	headerBg := canvas.NewRectangle(defaultHeader.HeaderStart)
-	// Kita tidak set fixed min size disini agar bisa mengikuti layout responsive
-
-	// --- MODIFIKASI RESPONSIVE LAYOUT (FYNE-X) MULAI DARI SINI ---
-
-	// 1. Group Info: Lokasi, Mode, Line, Jam
-	//    Dibungkus dalam HBox agar tetap sebaris (jika muat).
-	//    Ditambah Scroll container jika layar terlalu kecil agar teks tidak terpotong parah,
-	//    atau kita biarkan flow. Disini kita pakai HBox basic.
 	infoRow := container.NewHBox(
 		locText,
 		sep(),
@@ -285,7 +278,6 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 		clockText,
 	)
 
-	// Wrapper Vertikal agar Info berada di tengah secara vertikal di dalam barisnya
 	infoWrapper := container.NewVBox(layout.NewSpacer(), container.NewHBox(infoRow), layout.NewSpacer())
 
 	responsiveInfoCenter := xlayout.NewResponsiveLayout(
@@ -297,9 +289,6 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 		layout.NewSpacer(),
 	)
 
-	// 4. Susun Header Utama
-	//    Left: Toggle Button
-	//    Center: Responsive Layout (Info & Tools)
 	headerContent := container.NewBorder(
 		nil,
 		nil,
@@ -312,20 +301,19 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 		headerBg,
 		container.NewPadded(headerContent),
 	)
-	// --- AKHIR MODIFIKASI RESPONSIVE ---
 
 	ticker := time.NewTicker(time.Second)
 	go func() {
 		for t := range ticker.C {
 			if err := clockBinding.Set(t.Format("15:04:05")); err != nil {
-				fmt.Printf("Warning: gagal memperbarui jam (%v)\n", err)
+				logging.Logger().Warnf("Warning: gagal memperbarui jam (%v)\n", err)
 			}
 		}
 	}()
 
 	simoConfig := configs.LoadSimoConfig()
 	if err := lineTypeBinding.Set(formatLineTypeValue(simoConfig.EcbLineType)); err != nil {
-		fmt.Printf("Warning: failed to update line type binding: %v\n", err)
+		logging.Logger().Warnf("Warning: failed to update line type binding: %v\n", err)
 	}
 	envConfig := configs.LoadConfig()
 	adminMenuPassword := configs.GetAdminPassword()
@@ -439,7 +427,7 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 		"maintenance": {},
 	}
 
-	navigationRepo := repository.NewNavigationRepository(dbmap.Db)
+	navigationRepo := repository.NewNavigationRepository(dbmap)
 	rootNavigations, err := navigationRepo.FindRootNavigations()
 	if err != nil {
 		dialog.ShowError(err, w)
@@ -703,10 +691,10 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 	}
 	setMode(initialMode)
 
-	locText.SetText(state.Location) // Cleaner
+	locText.SetText(state.Location)
 
 	w.SetContent(mainStack)
-	w.Resize(fyne.NewSize(1024, 700)) // Slightly larger default for modern view
+	w.Resize(fyne.NewSize(1024, 700))
 	startWindowSizeLogger(w)
 
 	var closeDialogVisible bool
@@ -758,7 +746,6 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 	return state
 }
 
-// buildMenuFromNavigationItems adalah fungsi untuk menyusun menu from navigasi items.
 func buildMenuFromNavigationItems(items []*types.Navigation, renderers map[string]func() fyne.CanvasObject) []types.MenuItem {
 	menus := make([]types.MenuItem, 0, len(items))
 	for _, nav := range items {
@@ -788,7 +775,6 @@ func buildMenuFromNavigationItems(items []*types.Navigation, renderers map[strin
 	return menus
 }
 
-// resolveMenuIcon adalah fungsi untuk resolve menu icon.
 func resolveMenuIcon(name string, tint color.Color) fyne.Resource {
 	switch strings.ToLower(name) {
 
@@ -802,7 +788,7 @@ func resolveMenuIcon(name string, tint color.Color) fyne.Resource {
 		return theme.ListIcon()
 
 	case "performance":
-		return loadCustomMenuIcon(filepath.Join("assets", "icons", "maintenance.svg"), tint)
+		return loadCustomMenuIcon(filepath.Join("assets", "maintenance.svg"), tint)
 
 	case "shutdown":
 		return theme.CancelIcon()
@@ -811,10 +797,10 @@ func resolveMenuIcon(name string, tint color.Color) fyne.Resource {
 		return theme.ViewRefreshIcon()
 
 	case "bolt":
-		return loadCustomMenuIcon(filepath.Join("assets", "icons", "bolt.svg"), tint)
+		return loadCustomMenuIcon(filepath.Join("assets", "bolt.svg"), tint)
 
 	case "power-off":
-		return loadCustomMenuIcon(filepath.Join("assets", "icons", "power-off.svg"), tint)
+		return loadCustomMenuIcon(filepath.Join("assets", "power-off.svg"), tint)
 
 	default:
 		return theme.MenuIcon()
@@ -831,13 +817,13 @@ func loadCustomMenuIcon(relPath string, tint color.Color) fyne.Resource {
 	cacheKey := fmt.Sprintf("%s|%s", relPath, hexColor)
 	resolvedPath := utils.ResolvePath(relPath)
 	if res, ok := tintedMenuIconCache[cacheKey]; ok {
-		fmt.Printf("Debug: menu icon %s (tint %s) diambil dari cache [%s]\n", relPath, hexColor, resolvedPath)
+		logging.Logger().Debugf("Debug: menu icon %s (tint %s) diambil dari cache [%s]\n", relPath, hexColor, resolvedPath)
 		return res
 	}
 
 	data, err := os.ReadFile(resolvedPath)
 	if err != nil {
-		fmt.Printf("Warning: gagal memuat menu icon %s (%s): %v\n", relPath, resolvedPath, err)
+		logging.Logger().Warnf("Warning: gagal memuat menu icon %s (%s): %v\n", relPath, resolvedPath, err)
 		res := theme.MenuIcon()
 		tintedMenuIconCache[cacheKey] = res
 		return res
@@ -848,7 +834,7 @@ func loadCustomMenuIcon(relPath string, tint color.Color) fyne.Resource {
 
 	resourceName := fmt.Sprintf("%s-%s", filepath.Base(relPath), hexColor)
 	res := fyne.NewStaticResource(resourceName, []byte(svgContent))
-	fmt.Printf("Info: menu icon %s dimuat (%d bytes) dengan tint %s dari %s\n", relPath, len(svgContent), hexColor, resolvedPath)
+	logging.Logger().Infof("Info: menu icon %s dimuat (%d bytes) dengan tint %s dari %s\n", relPath, len(svgContent), hexColor, resolvedPath)
 	tintedMenuIconCache[cacheKey] = res
 	return res
 }
@@ -883,13 +869,13 @@ func startWindowSizeLogger(w fyne.Window) {
 		defer ticker.Stop()
 
 		last := canvas.Size()
-		log.Printf("[window] size initial %.0fx%.0f", last.Width, last.Height)
+		logging.Logger().Infof("[window] size initial %.0fx%.0f", last.Width, last.Height)
 
 		for range ticker.C {
 			current := canvas.Size()
 			if current.Width != last.Width || current.Height != last.Height {
 				last = current
-				log.Printf("[window] size changed %.0fx%.0f", current.Width, current.Height)
+				logging.Logger().Infof("[window] size changed %.0fx%.0f", current.Width, current.Height)
 			}
 		}
 	}()

@@ -8,14 +8,15 @@ package main
 
 import (
 	"database/sql"
-	"go-ecb/configs"
 	"log"
 	"os"
-
+	
 	mysqlDriver "github.com/go-sql-driver/mysql"
 	"github.com/golang-migrate/migrate/v4"
 	mysqlMigrate "github.com/golang-migrate/migrate/v4/database/mysql"
-	_ "github.com/golang-migrate/migrate/v4/source/file"
+	_"github.com/golang-migrate/migrate/v4/source/file"
+	
+	"go-ecb/configs"
 )
 
 // main adalah fungsi untuk utama.
@@ -27,20 +28,20 @@ func main() {
 		Addr:                 envCfg.DBAddress,
 		DBName:               envCfg.DBName,
 		Net:                  "tcp",
-		AllowNativePasswords: true,
+		// AllowNativePasswords: true,
 		MultiStatements:      true,
 		ParseTime:            true,
 	}
 
-	sqlDB, err := sql.Open("mysql", cfg.FormatDSN())
+	db, err := sql.Open("mysql", cfg.FormatDSN())
 	if err != nil {
 		log.Fatal(err)
 	}
-	if err := sqlDB.Ping(); err != nil {
+	if err := db.Ping(); err != nil {
 		log.Fatal(err)
 	}
 
-	driver, err := mysqlMigrate.WithInstance(sqlDB, &mysqlMigrate.Config{})
+	driver, err := mysqlMigrate.WithInstance(db, &mysqlMigrate.Config{})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -55,7 +56,7 @@ func main() {
 	}
 
 	if len(os.Args) < 2 {
-		log.Fatal("Missing command argument (up, down, down-all, force <version>)")
+		log.Fatal("Missing command argument (up, down)")
 	}
 
 	cmd := os.Args[1]
@@ -69,7 +70,6 @@ func main() {
 		if err := m.Down(); err != nil && err != migrate.ErrNoChange {
 			log.Fatal(err)
 		}
-		log.Println("Rolled back last migration.")
 	default:
 		log.Fatalf("Unknown command: %s", cmd)
 	}

@@ -9,27 +9,27 @@ package types
 import "time"
 
 type Theme struct {
-	ID                   int       `db:"id" json:"id"`
-	Nama                 string    `db:"nama" json:"nama"`
-	Keterangan           string    `db:"keterangan" json:"keterangan"`
-	ColorBackground      string    `db:"color_background" json:"colorBackground"`
-	ColorForeground      string    `db:"color_foreground" json:"colorForeground"`
-	ColorText            string    `db:"color_text" json:"colorText"`
-	ColorButton          string    `db:"color_button" json:"colorButton"`
-	ColorDisabled        string    `db:"color_disabled" json:"colorDisabled"`
-	ColorError           string    `db:"color_error" json:"colorError"`
-	ColorFocus           string    `db:"color_focus" json:"colorFocus"`
-	ColorHover           string    `db:"color_hover" json:"colorHover"`
-	HeaderStart          string    `db:"header_start" json:"headerStart"`
-	HeaderEnd            string    `db:"header_end" json:"headerEnd"`
-	Accent               string    `db:"accent" json:"accent"`
-	ColorInputBackground string    `db:"color_input_background" json:"colorInputBackground"`
-	ColorPlaceholder     string    `db:"color_placeholder" json:"colorPlaceholder"`
-	ColorPrimary         string    `db:"color_primary" json:"colorPrimary"`
-	ColorScrollbar       string    `db:"color_scrollbar" json:"colorScrollbar"`
-	ColorSelection       string    `db:"color_selection" json:"colorSelection"`
-	ColorNavbar          string    `db:"color_navbar" json:"colorNavbar"`
-	ColorFooter          string    `db:"color_footer" json:"colorFooter"`
-	CreatedAt            time.Time `db:"created_at" json:"createdAt"`
-	UpdatedAt            time.Time `db:"updated_at" json:"updatedAt"`
+	ID                   int       `db:"id"`
+	Nama                 string    `db:"nama"`
+	Keterangan           string    `db:"keterangan"`
+	ColorBackground      string    `db:"color_background"`
+	ColorForeground      string    `db:"color_foreground"`
+	ColorText            string    `db:"color_text"`
+	ColorButton          string    `db:"color_button"`
+	ColorDisabled        string    `db:"color_disabled"`
+	ColorError           string    `db:"color_error"`
+	ColorFocus           string    `db:"color_focus"`
+	ColorHover           string    `db:"color_hover"`
+	HeaderStart          string    `db:"header_start"`
+	HeaderEnd            string    `db:"header_end"`
+	Accent               string    `db:"accent"`
+	ColorInputBackground string    `db:"color_input_background"`
+	ColorPlaceholder     string    `db:"color_placeholder"`
+	ColorPrimary         string    `db:"color_primary"`
+	ColorScrollbar       string    `db:"color_scrollbar"`
+	ColorSelection       string    `db:"color_selection"`
+	ColorNavbar          string    `db:"color_navbar"`
+	ColorFooter          string    `db:"color_footer"`
+	CreatedAt            time.Time `db:"created_at"`
+	UpdatedAt            time.Time `db:"updated_at"`
 }

@@ -9,7 +9,6 @@ require (
 	fyne.io/fyne/v2 v2.7.1
 	fyne.io/x/fyne v0.0.0-20251207215151-082633745b25
 	github.com/go-gorp/gorp v2.2.0+incompatible
-	github.com/go-playground/validator/v10 v10.28.0
 	github.com/go-sql-driver/mysql v1.9.3
 	github.com/gofrs/flock v0.13.0
 	github.com/golang-migrate/migrate/v4 v4.19.0
@@ -30,11 +29,8 @@ require (
 	github.com/fyne-io/glfw-js v0.3.0 // indirect
 	github.com/fyne-io/image v0.1.1 // indirect
 	github.com/fyne-io/oksvg v0.2.0 // indirect
-	github.com/gabriel-vasile/mimetype v1.4.10 // indirect
 	github.com/go-gl/gl v0.0.0-20231021071112-07e5d0ea2e71 // indirect
 	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20240506104042-037f3cc74f2a // indirect
-	github.com/go-playground/locales v0.14.1 // indirect
-	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-text/render v0.2.0 // indirect
 	github.com/go-text/typesetting v0.2.1 // indirect
 	github.com/godbus/dbus/v5 v5.1.0 // indirect
@@ -46,7 +42,6 @@ require (
 	github.com/jsummers/gobmp v0.0.0-20230614200233-a9de23ed2e25 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/kr/text v0.2.0 // indirect
-	github.com/leodido/go-urn v1.4.0 // indirect
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 // indirect
 	github.com/nicksnyder/go-i18n/v2 v2.5.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
@@ -59,7 +54,6 @@ require (
 	github.com/yuin/goldmark v1.7.8 // indirect
 	github.com/ziutek/mymysql v1.5.4 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
-	golang.org/x/crypto v0.43.0 // indirect
 	golang.org/x/net v0.45.0 // indirect
 	golang.org/x/sys v0.37.0 // indirect
 	golang.org/x/text v0.30.0 // indirect

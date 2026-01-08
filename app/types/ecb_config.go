@@ -12,11 +12,11 @@ import (
 )
 
 type EcbConfig struct {
-	ID        int 		`gorm:"primaryKey;autoIncrement" json:"id"`
-	Section   string	`gorm:"section" json:"section"`
-	Variable  string	`gorm:"variable" json:"variable"`
-	Value     string	`gorm:"value" json:"value"`
-	Ordering  string	`gorm:"ordering" json:"ordering"`
-	CreatedAt time.Time	`gorm:"created_at" json:"createdAt"`
-	UpdatedAt time.Time	`gorm:"updated_at" json:"updatedAt"`
+	ID        int 		`db:"id"`
+	Section   string	`db:"section"`
+	Variable  string	`db:"variable"`
+	Value     string	`db:"value"`
+	Ordering  string	`db:"ordering"`
+	CreatedAt time.Time	`db:"created_at"`
+	UpdatedAt time.Time	`db:"updated_at"`
 }

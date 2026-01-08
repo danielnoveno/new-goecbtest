@@ -1,14 +1,13 @@
 /*
-    file:           services/setting/service.go
-    description:    Layanan pengaturan untuk service
-    created:        220711663@students.uajy.ac.id 04-11-2025
+   file:           services/setting/service.go
+   description:    Layanan pengaturan untuk service
+   created:        220711663@students.uajy.ac.id 04-11-2025
 */
 
 package setting
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"path/filepath"
 	"time"
@@ -17,6 +16,7 @@ import (
 
 	"go-ecb/app/types"
 	"go-ecb/configs"
+	"go-ecb/pkg/logging"
 	"go-ecb/repository"
 	controllers "go-ecb/services/core"
 
@@ -32,7 +32,7 @@ type SettingController struct {
 func NewSettingController(db *gorp.DbMap, simoConfig configs.SimoConfig, envConfig configs.Config, app fyne.App, w fyne.Window) *SettingController {
 	return &SettingController{
 		Controller:     controllers.NewController(db, simoConfig, envConfig, app, w),
-		ecbConfigStore: repository.NewEcbConfigRepository(db.Db),
+		ecbConfigStore: repository.NewEcbConfigRepository(db),
 	}
 }
 
@@ -56,7 +56,7 @@ func (c *SettingController) GetSettingPageData() SettingPageData {
 
 	configs, err := c.ecbConfigStore.FindEcbConfigsBySection("settings")
 	if err != nil {
-		log.Printf("Error finding EcbConfigs for section 'settings': %v", err)
+		logging.Logger().Warnf("Error finding EcbConfigs for section 'settings': %v", err)
 	} else {
 		for _, config := range configs {
 			switch config.Variable {
@@ -107,15 +107,15 @@ func (c *SettingController) saveConfigVariable(section, variable, value string) 
 			UpdatedAt: time.Now(),
 		}
 		if createErr := c.ecbConfigStore.CreateEcbConfig(newConfig); createErr != nil {
-			log.Printf("Error creating EcbConfig %s/%s: %v", section, variable, createErr)
+			logging.Logger().Errorf("Error creating EcbConfig %s/%s: %v", section, variable, createErr)
 		}
 	} else if err != nil {
-		log.Printf("Error finding EcbConfig %s/%s: %v", section, variable, err)
+		logging.Logger().Errorf("Error finding EcbConfig %s/%s: %v", section, variable, err)
 	} else {
 		config.Value = value
 		config.UpdatedAt = time.Now()
 		if updateErr := c.ecbConfigStore.UpdateEcbConfig(config); updateErr != nil {
-			log.Printf("Error updating EcbConfig %s/%s: %v", section, variable, updateErr)
+			logging.Logger().Errorf("Error updating EcbConfig %s/%s: %v", section, variable, updateErr)
 		}
 	}
 }
@@ -136,12 +136,12 @@ func (c *SettingController) touchSettingFile(iplocal, ipsimo3, usewlan string) e
 	if err != nil {
 		return fmt.Errorf("failed to write to file %s: %w", filePath, err)
 	}
-	log.Printf("Simulated file touch: %s with content: %s", filePath, string(content))
+	logging.Logger().Infof("Simulated file touch: %s with content: %s", filePath, string(content))
 	return nil
 }
 
 // UpdateMasterData adalah fungsi untuk memperbarui master data.
 func (c *SettingController) UpdateMasterData() error {
-	log.Println("Master data update initiated (placeholder).")
+	logging.Logger().Infof("Master data update initiated (placeholder).")
 	return nil
 }

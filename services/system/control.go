@@ -9,7 +9,6 @@ package system
 import (
 	"context"
 	"fmt"
-	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -18,6 +17,7 @@ import (
 	"time"
 
 	"go-ecb/configs"
+	"go-ecb/pkg/logging"
 )
 
 const (
@@ -93,24 +93,23 @@ func runCommandFromEnv(envKey, fallback string) error {
 }
 
 func logSystemEvent(format string, args ...interface{}) {
-	msg := fmt.Sprintf(format, args...)
-	log.Println(msg)
+	logging.Logger().Infof(format, args...)
 
 	dir := filepath.Join("storage", "logs")
 	if err := os.MkdirAll(dir, 0o755); err != nil {
-		log.Printf("[system] failed creating log dir: %v", err)
+		logging.Logger().Errorf("[system] failed creating log dir: %v", err)
 		return
 	}
 
-	line := fmt.Sprintf("%s %s\n", time.Now().Format(time.RFC3339), msg)
+	line := fmt.Sprintf("%s %s\n", time.Now().Format(time.RFC3339), fmt.Sprintf(format, args...))
 	logPath := filepath.Join(dir, "system.log")
 	f, err := os.OpenFile(logPath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0o644)
 	if err != nil {
-		log.Printf("[system] failed opening log file: %v", err)
+		logging.Logger().Errorf("[system] failed opening log file: %v", err)
 		return
 	}
 	defer f.Close()
 	if _, err := f.WriteString(line); err != nil {
-		log.Printf("[system] failed writing log append: %v", err)
+		logging.Logger().Errorf("[system] failed writing log append: %v", err)
 	}
 }

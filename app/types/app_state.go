@@ -19,12 +19,11 @@ type MenuItem struct {
 	Show  func() fyne.CanvasObject
 }
 
-type AppState struct {
+type AppState struct { //buat untuk build tampilan fyne
 	fyne.App
 	fyne.Window
 	*gorp.DbMap
 	SetBody       func(fyne.CanvasObject)
-	Flash         FlashNotifier
 	Menu          []MenuItem
 	Location      string
 	Mode          string

@@ -11,9 +11,6 @@ import (
 	"sync"
 )
 
-// PinLayout menjelaskan penugasan pin wiringPi yang digunakan UI maintenance
-// ECB dan driver GPIO. Struktur ini memungkinkan nilai di-load ulang atau
-// dioverride saat aplikasi berjalan.
 type PinLayout struct {
 	UnderTest  string
 	Fail       string
@@ -30,8 +27,6 @@ var (
 	pinLayoutValue = DefaultPinLayout()
 )
 
-// DefaultPinLayout mengembalikan nilai default wiringPi sesuai tabel referensi
-// agar penyebaran baru memiliki perilaku yang sama.
 func DefaultPinLayout() PinLayout {
 	return PinLayout{
 		UnderTest:  "22",
@@ -45,8 +40,6 @@ func DefaultPinLayout() PinLayout {
 	}
 }
 
-// NormalizePinLayout ensures every field has a non-empty value by falling back
-// to the defaults and trimming whitespace.
 func NormalizePinLayout(layout PinLayout) PinLayout {
 	def := DefaultPinLayout()
 	layout.UnderTest = normalizeOrDefault(layout.UnderTest, def.UnderTest)
@@ -60,7 +53,6 @@ func NormalizePinLayout(layout PinLayout) PinLayout {
 	return layout
 }
 
-// normalizeOrDefault adalah fungsi untuk normalize or default.
 func normalizeOrDefault(value, fallback string) string {
 	if trimmed := strings.TrimSpace(value); trimmed != "" {
 		return trimmed
@@ -68,15 +60,12 @@ func normalizeOrDefault(value, fallback string) string {
 	return fallback
 }
 
-// SetPinLayout menimpa layout saat ini dan menyimpan versi ter-normalisasi agar
-// helper GPIO lain bisa membacanya dengan aman.
 func SetPinLayout(layout PinLayout) {
 	pinLayoutMu.Lock()
 	pinLayoutValue = NormalizePinLayout(layout)
 	pinLayoutMu.Unlock()
 }
 
-// GetPinLayout mengembalikan snapshot dari layout aktif.
 func GetPinLayout() PinLayout {
 	pinLayoutMu.RLock()
 	defer pinLayoutMu.RUnlock()

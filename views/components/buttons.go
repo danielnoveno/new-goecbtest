@@ -1,7 +1,7 @@
 /*
-    file:           views/components/buttons.go
-    description:    Komponen UI umum untuk buttons
-    created:        220711663@students.uajy.ac.id 04-11-2025
+   file:           views/components/buttons.go
+   description:    Komponen UI umum untuk buttons
+   created:        220711663@students.uajy.ac.id 04-11-2025
 */
 
 package components
@@ -18,35 +18,30 @@ const (
 	defaultButtonWidth float32 = 140
 )
 
-// PrimaryButton adalah fungsi untuk primary button.
 func PrimaryButton(label string, tapped func()) *widget.Button {
 	btn := widget.NewButton(label, tapped)
 	btn.Importance = widget.HighImportance
 	return btn
 }
 
-// SecondaryButton adalah fungsi untuk secondary button.
 func SecondaryButton(label string, tapped func()) *widget.Button {
 	btn := widget.NewButton(label, tapped)
 	btn.Importance = widget.MediumImportance
 	return btn
 }
 
-// TextButton adalah fungsi untuk text button.
 func TextButton(label string, tapped func()) *widget.Button {
 	btn := widget.NewButton(label, tapped)
 	btn.Importance = widget.LowImportance
 	return btn
 }
 
-// DangerButton adalah fungsi untuk danger button.
 func DangerButton(label string, tapped func()) *widget.Button {
 	btn := widget.NewButtonWithIcon(label, theme.CancelIcon(), tapped)
 	btn.Importance = widget.HighImportance
 	return btn
 }
 
-// ButtonGroup adalah fungsi untuk button group.
 func ButtonGroup(buttons ...*widget.Button) fyne.CanvasObject {
 	if len(buttons) == 0 {
 		return widget.NewLabel("")
@@ -72,7 +67,6 @@ func ButtonGroup(buttons ...*widget.Button) fyne.CanvasObject {
 	return container.NewHBox(layout.NewSpacer(), row)
 }
 
-// ActionButtonRow adalah fungsi untuk action button row.
 func ActionButtonRow(buttons ...*widget.Button) fyne.CanvasObject {
 	row := container.NewHBox()
 	for _, btn := range buttons {

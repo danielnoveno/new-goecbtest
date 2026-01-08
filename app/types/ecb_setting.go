@@ -7,7 +7,7 @@
 package types
 
 type ECBSetting struct {
-	ServerIPAddress string `json:"server_ip_address"`
-	Simo3IPAddress  string `json:"simo3_ip_address"`
-	UseWLAN         string `json:"use_wlan"`
+	ServerIPAddress string 
+	Simo3IPAddress  string 
+	UseWLAN         string 
 }
