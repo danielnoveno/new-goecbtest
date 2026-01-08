@@ -49,7 +49,7 @@ func (l queryLogger) Printf(format string, v ...interface{}) {
 
 func InitDb() (*gorp.DbMap, error) {
 	cfg := configs.LoadConfig()
-	dsn := cfg.DBUser + ":" + cfg.DBPassword + "@tcp(" + cfg.DBAddress + ")/" + cfg.DBName + "?parseTime=true"
+	dsn := cfg.DBUser + ":" + cfg.DBPassword + "@tcp(" + cfg.DBAddress + ")/" + cfg.DBName + "?parseTime=true&allowNativePasswords=true"
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		return nil, err

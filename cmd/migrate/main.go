@@ -1,7 +1,7 @@
 /*
-    file:           cmd/migrate/main.go
-    description:    Runner migrasi database untuk main
-    created:        220711663@students.uajy.ac.id 04-11-2025
+   file:           cmd/migrate/main.go
+   description:    Runner migrasi database untuk main
+   created:        220711663@students.uajy.ac.id 04-11-2025
 */
 
 package main
@@ -10,12 +10,12 @@ import (
 	"database/sql"
 	"log"
 	"os"
-	
+
 	mysqlDriver "github.com/go-sql-driver/mysql"
 	"github.com/golang-migrate/migrate/v4"
 	mysqlMigrate "github.com/golang-migrate/migrate/v4/database/mysql"
-	_"github.com/golang-migrate/migrate/v4/source/file"
-	
+	_ "github.com/golang-migrate/migrate/v4/source/file"
+
 	"go-ecb/configs"
 )
 
@@ -28,7 +28,7 @@ func main() {
 		Addr:                 envCfg.DBAddress,
 		DBName:               envCfg.DBName,
 		Net:                  "tcp",
-		// AllowNativePasswords: true,
+		AllowNativePasswords: true,
 		MultiStatements:      true,
 		ParseTime:            true,
 	}
