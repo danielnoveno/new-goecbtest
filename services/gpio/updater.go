@@ -94,7 +94,7 @@ func readEcbStateString() string {
 	fail := readLevel(layout.Fail)
 	undertest := readLevel(layout.UnderTest)
 	line := readLevel(layout.LineSelect)
-	return fmt.Sprintf("%s.%s.%s.%s", pass, fail, undertest, line)
+	return fmt.Sprintf("%s.%s.%s.%s", undertest, pass, fail, line)
 }
 
 func insertEcbState(dbmap *gorp.DbMap, value string) error {

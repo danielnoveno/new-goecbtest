@@ -134,34 +134,45 @@ chmod +x bin/ecom-rpi
 
 ---
 
-## 6. Akses Localhost dan Auto-Start
+## 6. Akses Localhost dan Auto-Start (Kiosk Mode)
 
-### Akses Localhost
-Aplikasi ini adalah aplikasi GUI berbasis Fyne. Untuk mengakses "localhost" artinya Anda harus menjalankan aplikasi ini langsung di lingkungan Desktop Raspberry Pi (menggunakan monitor yang terhubung ke HDMI RPi atau via VNC).
+Jika ingin aplikasi langsung terbuka otomatis saat Raspberry Pi menyala (seperti mesin ATM):
 
-### Menjalankan Otomatis saat Boot (Autostart GUI)
-Jika ingin aplikasi langsung terbuka saat Raspberry Pi menyala (masuk ke desktop):
+### A. Buat Launcher Script
+Buat file `/home/pi/start_ecb.sh`:
+```bash
+#!/bin/bash
+sleep 5
+cd /home/pi/projects/new-goecbtest
+export FYNE_RENDER=software
+./bin/ecom-rpi
+```
+Jangan lupa berikan izin: `chmod +x /home/pi/start_ecb.sh`
 
-1. Buat folder autostart:
-   ```bash
-   mkdir -p ~/.config/autostart
-   ```
-2. Buat file desktop:
-   ```bash
-   nano ~/.config/autostart/ecbtest.desktop
-   ```
-3. Isi dengan konfigurasi berikut:
-   ```ini
-   [Desktop Entry]
-   Type=Application
-   Name=ECB Test
-   Exec=/home/pi/V2go-ecbtest/bin/ecom-rpi
-   WorkingDirectory=/home/pi/V2go-ecbtest
-   ```
+### B. Konfigurasi Autostart
+Buat file `~/.config/autostart/ecb_kiosk.desktop`:
+```ini
+[Desktop Entry]
+Type=Application
+Name=ECB Test Kiosk
+Exec=/home/pi/start_ecb.sh
+Terminal=false
+```
+
+### C. Matikan Screen Sleep
+Gunakan `sudo raspi-config` -> **Display Options** -> **Screen Blanking** -> **No**.
+Pastikan juga **Desktop Autologin** aktif di menu **System Options**.
 
 ---
 
 ## Troubleshooting Tips
 - **Gagal Connect DB**: Cek status database dengan `sudo systemctl status mariadb`.
 - **Error Auth Plugin**: Jika muncul error `plugin 'mysql_native_password' is not loaded`, pastikan saat CREATE USER menggunakan `IDENTIFIED VIA mysql_native_password`.
+- **X11: The DISPLAY environment variable is missing**:
+  Aplikasi ini membutuhkan GUI. Jika Anda menjalankan via SSH, gunakan perintah:
+  ```bash
+  export DISPLAY=:0
+  ./bin/ecom-rpi
+  ```
+  Atau jalankan langsung melalui terminal di dalam desktop Raspberry Pi (bukan remote SSH).
 - **Layar Putih/Blank**: Pastikan driver GPU Raspberry Pi aktif (cek `raspi-config` -> Advanced -> GL Driver).

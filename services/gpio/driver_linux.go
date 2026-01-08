@@ -8,6 +8,7 @@ import (
 	"sync"
 
 	"go-ecb/pkg/logging"
+
 	"periph.io/x/periph/conn/gpio"
 	"periph.io/x/periph/conn/gpio/gpioreg"
 	"periph.io/x/periph/host"
@@ -75,7 +76,8 @@ func (d *periphDriver) Read(pin string) (Level, error) {
 	if err != nil {
 		return LevelLow, err
 	}
-	if err := p.In(gpio.PullNoChange, gpio.NoEdge); err != nil {
+	// Enable internal pull-up for buttons (active low logic)
+	if err := p.In(gpio.PullUp, gpio.NoEdge); err != nil {
 		return LevelLow, err
 	}
 	return p.Read() == gpio.High, nil
@@ -89,7 +91,8 @@ func (d *periphDriver) SetMode(pin string, mode PinMode) error {
 	if mode == ModeOutput {
 		return p.Out(gpio.Low)
 	}
-	return p.In(gpio.PullNoChange, gpio.NoEdge)
+	// Use internal pull-up for all input modes to simplify demo wiring
+	return p.In(gpio.PullUp, gpio.NoEdge)
 }
 
 func levelToPeriph(level Level) gpio.Level {

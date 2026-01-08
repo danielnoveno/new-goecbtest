@@ -65,17 +65,12 @@ func StartTest(line *int) {
 		return
 	}
 	layout := GetPinLayout()
-	writeLevel(layout.Reset, LevelHigh)
-	writeLevel(layout.ResetAlt, LevelLow)
-	time.Sleep(20 * time.Millisecond)
+	// Turn OFF Reset LED, Turn ON Start LED
 	writeLevel(layout.Reset, LevelLow)
 	writeLevel(layout.ResetAlt, LevelHigh)
-	time.Sleep(500 * time.Millisecond)
+	
 	writeLevel(layout.Start, LevelHigh)
 	writeLevel(layout.StartAlt, LevelLow)
-	time.Sleep(100 * time.Millisecond)
-	writeLevel(layout.Start, LevelLow)
-	writeLevel(layout.StartAlt, LevelHigh)
 }
 
 func ResetTest(line *int) {
@@ -86,14 +81,12 @@ func ResetTest(line *int) {
 		return
 	}
 	layout := GetPinLayout()
-	for i := 0; i < 2; i++ {
-		writeLevel(layout.Reset, LevelHigh)
-		writeLevel(layout.ResetAlt, LevelLow)
-		time.Sleep(20 * time.Millisecond)
-		writeLevel(layout.Reset, LevelLow)
-		writeLevel(layout.ResetAlt, LevelHigh)
-		time.Sleep(500 * time.Millisecond)
-	}
+	// Turn OFF Start LED, Turn ON Reset LED
+	writeLevel(layout.Start, LevelLow)
+	writeLevel(layout.StartAlt, LevelHigh)
+
+	writeLevel(layout.Reset, LevelHigh)
+	writeLevel(layout.ResetAlt, LevelLow)
 }
 
 func LineToggle() int {
