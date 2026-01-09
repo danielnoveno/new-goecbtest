@@ -2,11 +2,11 @@ package gpio
 
 import (
 	"fmt"
-	"log"
-
 	"strconv"
 	"strings"
 	"sync"
+
+	"go-ecb/pkg/logging"
 
 	"periph.io/x/periph/conn/gpio"
 	"periph.io/x/periph/conn/gpio/gpioreg"
@@ -20,11 +20,11 @@ type periphDriver struct {
 
 func init() {
 	if _, err := host.Init(); err != nil {
-		log.Printf("periph host initialization failed (%v), falling back to noop driver", err)
+		logging.Logger().Errorf("periph host initialization failed (%v), falling back to noop driver", err)
 		SetDriver(newNoopDriver())
 		return
 	}
-	log.Printf("GPIO hardware driver (periph) initialized successfully")
+	logging.Logger().Infof("GPIO hardware driver (periph) initialized successfully")
 	SetDriver(&periphDriver{pins: make(map[string]gpio.PinIO)})
 }
 

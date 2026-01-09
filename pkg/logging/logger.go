@@ -9,9 +9,16 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-var zapLogger *zap.Logger = zap.NewNop()
-var sugaredLogger *zap.SugaredLogger = zapLogger.Sugar()
-var initialized bool
+var (
+	zapLogger     *zap.Logger
+	sugaredLogger *zap.SugaredLogger
+	initialized   bool
+)
+
+func init() {
+	zapLogger = zap.NewNop()
+	sugaredLogger = zapLogger.Sugar()
+}
 
 // Init configures the global logger once per process.
 func Init(appDebug bool) *zap.SugaredLogger {
@@ -68,6 +75,9 @@ func Init(appDebug bool) *zap.SugaredLogger {
 }
 
 func Logger() *zap.SugaredLogger {
+	if sugaredLogger == nil {
+		return zap.NewNop().Sugar()
+	}
 	return sugaredLogger
 }
 
