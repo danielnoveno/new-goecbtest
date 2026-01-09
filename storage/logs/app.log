@@ -1183,3 +1183,73 @@ main.main
 	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/cmd/main.go:55
 runtime.main
 	C:/Program Files/Go/src/runtime/proc.go:285
+2026-01-09T10:17:11.212+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-09T10:17:11.227+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-09T10:17:11.567+0700	[31mFATAL[0m	Failed to initialize database: Error 1046 (3D000): No database selected
+main.main
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/cmd/main.go:55
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:285
+2026-01-09T10:20:09.383+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-09T10:20:09.388+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-09T10:20:09.512+0700	[31mFATAL[0m	Failed to initialize database: Error 1046 (3D000): No database selected
+main.main
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/cmd/main.go:55
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:285
+2026-01-09T10:20:27.955+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-09T10:20:27.956+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-09T10:20:27.990+0700	[31mFATAL[0m	Failed to initialize database: Error 1046 (3D000): No database selected
+main.main
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/cmd/main.go:55
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:285
+2026-01-09T10:20:57.248+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-09T10:20:57.249+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-09T10:20:57.536+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-09T10:20:57.559+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-09T10:20:57.624+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-09T10:20:57.637+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-09T10:20:57.653+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-09T10:20:57.657+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-09T10:20:57.670+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.213
+2026-01-09T10:20:57.955+0700	[34mINFO[0m	[Station] New machine detected! Auto-registering from ENV...
+2026-01-09T10:20:57.967+0700	[34mINFO[0m	[Station] Registration success. ID: 5
+2026-01-09T10:20:59.185+0700	[34mINFO[0m	Info: menu icon assets\bolt.svg dimuat (1061 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg
+
+2026-01-09T10:20:59.188+0700	[34mINFO[0m	Info: menu icon assets\maintenance.svg dimuat (1756 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg
+
+2026-01-09T10:20:59.197+0700	[34mINFO[0m	Info: menu icon assets\power-off.svg dimuat (889 bytes) dengan tint #E4E7EC dari D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg
+
+2026-01-09T10:20:59.199+0700	[35mDEBUG[0m	Debug: menu icon assets\bolt.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\bolt.svg]
+
+2026-01-09T10:20:59.200+0700	[35mDEBUG[0m	Debug: menu icon assets\maintenance.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\maintenance.svg]
+
+2026-01-09T10:20:59.201+0700	[35mDEBUG[0m	Debug: menu icon assets\power-off.svg (tint #E4E7EC) diambil dari cache [D:\MAGANG POLYTRON - Semester 7\V2go-ecbtest\assets\power-off.svg]
+
+2026-01-09T10:20:59.202+0700	[34mINFO[0m	[Line - REF A] showInstruction step=0 label="SCAN NOMOR SERI"
+2026-01-09T10:20:59.219+0700	[34mINFO[0m	[Line - REF A] refocusInput request
+2026-01-09T10:20:59.221+0700	[34mINFO[0m	[Line - REF A] focus skipped inputEntry not on canvas (retry 0)
+2026-01-09T10:20:59.308+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-09T10:20:59.308+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-09T10:20:59.308+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-09T10:20:59.325+0700	[34mINFO[0m	[GetAllMasters] Starting master data sync...
+2026-01-09T10:20:59.326+0700	[34mINFO[0m	[SyncEcbPo] Start syncing ecbpos...
+2026-01-09T10:20:59.326+0700	[34mINFO[0m	[syncEcbstation] Syncing ecbstations...
+2026-01-09T10:20:59.336+0700	[34mINFO[0m	[syncEcbPoRecords] Syncing ecbpos...
+2026-01-09T10:20:59.403+0700	[34mINFO[0m	[syncEcbstation] Done.
+2026-01-09T10:20:59.403+0700	[34mINFO[0m	[syncMasterfg] Syncing masterfgs...
+2026-01-09T10:20:59.422+0700	[34mINFO[0m	[Line - REF A] refocusInput request
+2026-01-09T10:20:59.484+0700	[34mINFO[0m	[syncMasterfg] Done.
+2026-01-09T10:20:59.484+0700	[34mINFO[0m	[syncMastersfg] Syncing mastersfgs...
+2026-01-09T10:20:59.559+0700	[34mINFO[0m	[syncEcbPoRecords] Done. imported=0 pushedScanned=0
+2026-01-09T10:20:59.560+0700	[34mINFO[0m	[PostEcbData] skip id=1: compressor  not found
+2026-01-09T10:20:59.608+0700	[34mINFO[0m	[syncMastersfg] Done.
+2026-01-09T10:20:59.608+0700	[34mINFO[0m	[syncCompressor] Syncing compressors...
+2026-01-09T10:20:59.670+0700	[34mINFO[0m	[syncCompressor] Done.
+2026-01-09T10:20:59.670+0700	[34mINFO[0m	[syncComprefg] Syncing comprefgs...
+2026-01-09T10:20:59.736+0700	[34mINFO[0m	[syncComprefg] Done.
+2026-01-09T10:20:59.736+0700	[34mINFO[0m	[GetAllMasters] All master data synced in 0s.
+2026-01-09T10:21:01.192+0700	[34mINFO[0m	[Line - REF A] focus attempt
+2026-01-09T10:21:01.308+0700	[34mINFO[0m	[window] size changed 1025x700
+2026-01-09T10:21:02.309+0700	[34mINFO[0m	[window] size changed 1026x700
