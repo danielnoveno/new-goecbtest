@@ -20,7 +20,6 @@ import (
 	"github.com/go-gorp/gorp"
 )
 
-// RefrigSingleScreen adalah fungsi untuk refrigerator single screen.
 func RefrigSingleScreen(w fyne.Window, db *gorp.DbMap, simoConfig configs.SimoConfig) fyne.CanvasObject {
 	lineName := ecb.FirstNonEmpty(strings.Split(simoConfig.EcbLineIds, ","))
 	if lineName == "" {

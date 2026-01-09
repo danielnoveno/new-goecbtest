@@ -20,7 +20,6 @@ import (
 	"github.com/go-gorp/gorp"
 )
 
-// SnOnlyDoubleScreen adalah fungsi untuk sn only double screen.
 func SnOnlyDoubleScreen(w fyne.Window, db *gorp.DbMap, simoConfig configs.SimoConfig) fyne.CanvasObject {
 	lineIDs := strings.Split(simoConfig.EcbLineIds, ",")
 	lineA := ecb.FirstNonEmpty(lineIDs)

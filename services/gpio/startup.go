@@ -16,7 +16,7 @@ import (
 func InitializeHardware() {
 	simoCfg := configs.LoadSimoConfig()
 	ecbMode := simoCfg.EcbMode
-	if ecbMode == "simulateAll" || ecbMode == "simulateHW" {
+	if ecbMode == "simulateAll" || ecbMode == "simulateHW" || ecbMode == "simulate db" {
 		return
 	}
 
@@ -29,10 +29,10 @@ func InitializeHardware() {
 		{layout.ResetAlt, ModeOutput},
 		{layout.Start, ModeOutput},
 		{layout.StartAlt, ModeOutput},
-		{layout.LineSelect, ModeInput}, // Changed to input for demo
+		{layout.LineSelect, ModeInput},
 		{layout.Pass, ModeInput},
 		{layout.Fail, ModeInput},
-		{layout.UnderTest, ModeOutput}, // Changed to output for LED demo
+		{layout.UnderTest, ModeOutput},
 	} {
 		if strings.TrimSpace(pin.name) == "" {
 			continue

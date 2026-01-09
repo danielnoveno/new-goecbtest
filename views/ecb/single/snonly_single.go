@@ -20,7 +20,6 @@ import (
 	"github.com/go-gorp/gorp"
 )
 
-// SnOnlySingleScreen adalah fungsi untuk sn only single screen.
 func SnOnlySingleScreen(w fyne.Window, db *gorp.DbMap, simoConfig configs.SimoConfig) fyne.CanvasObject {
 	lineName := ecb.FirstNonEmpty(strings.Split(simoConfig.EcbLineIds, ","))
 	if lineName == "" {

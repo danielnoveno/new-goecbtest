@@ -1,7 +1,7 @@
 /*
-    file:           services/gpio/line_state.go
-    description:    Driver GPIO untuk line state
-    created:        220711663@students.uajy.ac.id 04-11-2025
+   file:           services/gpio/line_state.go
+   description:    Driver GPIO untuk line state
+   created:        220711663@students.uajy.ac.id 04-11-2025
 */
 
 package gpio
@@ -20,14 +20,12 @@ var (
 	lineActiveInit  bool
 )
 
-// getLineActive adalah fungsi untuk mengambil jalur active.
 func getLineActive() int {
 	lineActiveMu.RLock()
 	defer lineActiveMu.RUnlock()
 	return lineActiveValue
 }
 
-// setLineActive adalah fungsi untuk mengatur jalur active.
 func setLineActive(line int) {
 	normalized := clampLine(line)
 	lineActiveMu.Lock()
@@ -43,7 +41,6 @@ func setLineActive(line int) {
 	}
 }
 
-// toggleLineValue adalah fungsi untuk mengubah jalur value.
 func toggleLineValue(line int) int {
 	if line == 1 {
 		return 0
@@ -51,7 +48,6 @@ func toggleLineValue(line int) int {
 	return 1
 }
 
-// parseLineValue adalah fungsi untuk parse jalur value.
 func parseLineValue(value string, fallback int) int {
 	if strings.TrimSpace(value) == "" {
 		return clampLine(fallback)
@@ -63,7 +59,6 @@ func parseLineValue(value string, fallback int) int {
 	return clampLine(line)
 }
 
-// clampLine adalah fungsi untuk clamp jalur.
 func clampLine(line int) int {
 	if line <= 0 {
 		return 0
@@ -74,7 +69,6 @@ func clampLine(line int) int {
 	return line
 }
 
-// levelFromLine adalah fungsi untuk level from jalur.
 func levelFromLine(line int) Level {
 	if line == 1 {
 		return LevelHigh
@@ -82,23 +76,19 @@ func levelFromLine(line int) Level {
 	return LevelLow
 }
 
-// shouldInteractWithHardware adalah fungsi untuk should interact with hardware.
 func shouldInteractWithHardware() bool {
 	mode := configs.LoadSimoConfig().EcbMode
-	return mode != "simulateAll" && mode != "simulateHW"
+	return mode != "simulateAll" && mode != "simulateHW" && mode != "simulate db"
 }
 
-// GetLineActive adalah fungsi untuk mengambil jalur active.
 func GetLineActive() int {
 	return getLineActive()
 }
 
-// SetLineActive adalah fungsi untuk mengatur jalur active.
 func SetLineActive(line int) {
 	setLineActive(line)
 }
 
-// ToggleLineActive adalah fungsi untuk mengubah jalur active.
 func ToggleLineActive() int {
 	next := toggleLineValue(getLineActive())
 	setLineActive(next)

@@ -19,7 +19,6 @@ import (
 	"github.com/go-gorp/gorp"
 )
 
-// RefrigPoDoubleScreen adalah fungsi untuk refrigerator PO double screen.
 func RefrigPoDoubleScreen(w fyne.Window, db *gorp.DbMap, simoConfig configs.SimoConfig) fyne.CanvasObject {
 	lineIDs := strings.Split(simoConfig.EcbLineIds, ",")
 	lineA := ecb.FirstNonEmpty(lineIDs)

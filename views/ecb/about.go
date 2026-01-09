@@ -1,7 +1,7 @@
 /*
-    file:           views/ecb/about.go
-    description:    Layar ECB untuk about
-    created:        220711663@students.uajy.ac.id 04-11-2025
+   file:           views/ecb/about.go
+   description:    Layar ECB untuk about
+   created:        220711663@students.uajy.ac.id 04-11-2025
 */
 
 package ecb
@@ -13,7 +13,6 @@ import (
 	"fyne.io/fyne/v2/widget"
 )
 
-// AboutPage adalah fungsi untuk tentang page.
 func AboutPage(iconName, appName, version, author string) fyne.CanvasObject {
 	var iconWidget fyne.CanvasObject
 	if iconName != "" {

@@ -30,10 +30,10 @@ func InitializeControl() {
 		{layout.ResetAlt, ModeOutput},
 		{layout.Start, ModeOutput},
 		{layout.StartAlt, ModeOutput},
-		{layout.LineSelect, ModeInput}, // Changed for demo
+		{layout.LineSelect, ModeInput},
 		{layout.Pass, ModeInput},
 		{layout.Fail, ModeInput},
-		{layout.UnderTest, ModeOutput}, // Changed for LED demo
+		{layout.UnderTest, ModeOutput},
 	} {
 		if strings.TrimSpace(pin.name) == "" {
 			continue
@@ -67,6 +67,7 @@ func StartTest(line *int) {
 	
 	writeLevel(layout.Start, LevelHigh)
 	writeLevel(layout.StartAlt, LevelLow)
+	writeLevel(layout.UnderTest, LevelLow)
 }
 
 func ResetTest(line *int) {
@@ -82,6 +83,7 @@ func ResetTest(line *int) {
 
 	writeLevel(layout.Reset, LevelHigh)
 	writeLevel(layout.ResetAlt, LevelLow)
+	writeLevel(layout.UnderTest, LevelHigh)
 }
 
 func LineToggle() int {

@@ -123,7 +123,7 @@ func logStateChange(oldState, newState string) {
 	layout := GetPinLayout()
 	pins := []string{layout.UnderTest, layout.Pass, layout.Fail, layout.LineSelect}
 
-	for i := 0; i < 3; i++ { // Only log for buttons (0-2)
+	for i := 0; i < 3; i++ {
 		if oldParts[i] != newParts[i] {
 			action := "RELEASED (HIGH)"
 			if newParts[i] == "0" {

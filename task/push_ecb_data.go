@@ -86,32 +86,12 @@ func PostEcbData() {
 	}
 	defer rows.Close()
 
-	lineconvs := map[string]int{
-		"REF A":         1,
-		"REF B":         2,
-		"REF C":         3,
-		"REF D":         4,
-		"REF E":         5,
-		"REF F":         6,
-		"REF G":         7,
-		"REF H":         8,
-		"REF I":         9,
-		"REF J":         10,
-		"PWM":           11,
-		"PWM 1":         11,
-		"PAW":           12,
-		"DISPENSER":     14,
-		"DISPENSER 1":   14,
-		"PAC":           15,
-		"AC_INDOOR":     15,
-		"AC_INDOOR 1":   15,
-		"SAP":           16,
-		"PWM 2":         17,
-		"AC_INDOOR 2":   18,
-		"AC_OUTDOOR 1":  19,
-		"AC_OUTDOOR 2":  20,
-		"CHEST_FREEZER": 21,
+	lineconvs, err := fetchLineMappings(localDB)
+	if err != nil {
+		log.Println("[PostEcbData] fetch line mappings:", err)
+		return
 	}
+
 
 	type bservRow struct {
 		mfgpoststs string
@@ -293,6 +273,30 @@ func PostEcbData() {
 
 	fmt.Printf("[PostEcbData] Done. inserted simo=%d bserv=%d in %s\n", len(simoInserts), len(bservInserts), time.Since(start).Round(time.Millisecond))
 }
+
+func fetchLineMappings(db *sql.DB) (map[string]int, error) {
+	rows, err := db.Query("SELECT variable, value FROM ecbconfigs WHERE section = 'line_mapping'")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	mappings := make(map[string]int)
+	for rows.Next() {
+		var variable, valueStr string
+		if err := rows.Scan(&variable, &valueStr); err != nil {
+			return nil, err
+		}
+		val, err := strconv.Atoi(valueStr)
+		if err != nil {
+			log.Printf("[fetchLineMappings] skip %s: non-integer value %q", variable, valueStr)
+			continue
+		}
+		mappings[variable] = val
+	}
+	return mappings, nil
+}
+
 
 func parseTimeOnly(raw string) (time.Time, error) {
 	raw = strings.TrimSpace(raw)

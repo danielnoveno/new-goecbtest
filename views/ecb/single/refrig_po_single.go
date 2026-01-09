@@ -19,7 +19,6 @@ import (
 	"github.com/go-gorp/gorp"
 )
 
-// RefrigPoSingleScreen adalah fungsi untuk refrigerator PO single screen.
 func RefrigPoSingleScreen(w fyne.Window, db *gorp.DbMap, simoConfig configs.SimoConfig) fyne.CanvasObject {
 	lineIDs := strings.Split(simoConfig.EcbLineIds, ",")
 	lineA := ecb.FirstNonEmpty(lineIDs)

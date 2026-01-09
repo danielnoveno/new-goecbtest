@@ -498,7 +498,6 @@ func entryWithValue(value string) *widget.Entry {
 	return entry
 }
 
-// update adalah fungsi untuk memperbarui.
 func (f *pinConfigForm) update(layout gpio.PinLayout) {
 	if f == nil {
 		return

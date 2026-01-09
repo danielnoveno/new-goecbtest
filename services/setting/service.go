@@ -28,7 +28,6 @@ type SettingController struct {
 	ecbConfigStore repository.EcbConfigStore
 }
 
-// NewSettingController adalah fungsi untuk baru pengaturan pengendali.
 func NewSettingController(db *gorp.DbMap, simoConfig configs.SimoConfig, envConfig configs.Config, app fyne.App, w fyne.Window) *SettingController {
 	return &SettingController{
 		Controller:     controllers.NewController(db, simoConfig, envConfig, app, w),
@@ -45,12 +44,9 @@ type SettingPageData struct {
 	UseWLAN                string
 }
 
-// GetSettingPageData adalah fungsi untuk mengambil pengaturan page data.
 func (c *SettingController) GetSettingPageData() SettingPageData {
 	serverIPAddress := c.Controller.GetIPAddress()
 
-	// Initialize with default/fallback values.
-	// These values will be used only if they are not found in the database.
 	simo3IPAddress := "10.30.1.5"
 	useWLAN := "no"
 
@@ -81,7 +77,6 @@ func (c *SettingController) GetSettingPageData() SettingPageData {
 	}
 }
 
-// UpdateECBSettings adalah fungsi untuk memperbarui ecb pengaturan.
 func (c *SettingController) UpdateECBSettings(settings types.ECBSetting) error {
 	c.saveConfigVariable("settings", "ipsimo3", settings.Simo3IPAddress)
 	c.saveConfigVariable("settings", "iplocal", settings.ServerIPAddress)
@@ -94,7 +89,6 @@ func (c *SettingController) UpdateECBSettings(settings types.ECBSetting) error {
 	return nil
 }
 
-// saveConfigVariable adalah fungsi untuk menyimpan konfigurasi variable.
 func (c *SettingController) saveConfigVariable(section, variable, value string) {
 	config, err := c.ecbConfigStore.FindEcbConfigBySectionAndVariable(section, variable)
 	if err != nil && err.Error() == "ecbconfig not found" {
@@ -120,7 +114,6 @@ func (c *SettingController) saveConfigVariable(section, variable, value string) 
 	}
 }
 
-// touchSettingFile adalah fungsi untuk touch pengaturan file.
 func (c *SettingController) touchSettingFile(iplocal, ipsimo3, usewlan string) error {
 	filePath := filepath.Join("storage", "app", "files", "changesetting")
 	content := []byte(iplocal + "-" + ipsimo3 + "-" + usewlan)
@@ -140,7 +133,6 @@ func (c *SettingController) touchSettingFile(iplocal, ipsimo3, usewlan string) e
 	return nil
 }
 
-// UpdateMasterData adalah fungsi untuk memperbarui master data.
 func (c *SettingController) UpdateMasterData() error {
 	logging.Logger().Infof("Master data update initiated (placeholder).")
 	return nil

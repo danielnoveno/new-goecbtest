@@ -62,12 +62,10 @@ var fallbackPalette = Palette{
 	Accent:          color.RGBA{R: 0x38, G: 0xB4, B: 0xF5, A: 0xFF},
 }
 
-// DefaultPalette adalah fungsi untuk default palette.
 func DefaultPalette() Palette {
 	return fallbackPalette
 }
 
-// PaletteFromRecord adalah fungsi untuk palette from record.
 func PaletteFromRecord(rec types.Theme) Palette {
 	return Palette{
 		Name:            rec.Nama,
