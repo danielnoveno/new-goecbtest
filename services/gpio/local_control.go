@@ -30,10 +30,10 @@ func InitializeControl() {
 		{layout.ResetAlt, ModeOutput},
 		{layout.Start, ModeOutput},
 		{layout.StartAlt, ModeOutput},
-		{layout.LineSelect, ModeOutput},
+		{layout.LineSelect, ModeInput}, // Changed for demo
 		{layout.Pass, ModeInput},
 		{layout.Fail, ModeInput},
-		{layout.UnderTest, ModeInput},
+		{layout.UnderTest, ModeOutput}, // Changed for LED demo
 	} {
 		if strings.TrimSpace(pin.name) == "" {
 			continue
@@ -62,7 +62,6 @@ func StartTest(line *int) {
 		return
 	}
 	layout := GetPinLayout()
-	// Turn OFF Reset LED, Turn ON Start LED
 	writeLevel(layout.Reset, LevelLow)
 	writeLevel(layout.ResetAlt, LevelHigh)
 	
@@ -78,7 +77,6 @@ func ResetTest(line *int) {
 		return
 	}
 	layout := GetPinLayout()
-	// Turn OFF Start LED, Turn ON Reset LED
 	writeLevel(layout.Start, LevelLow)
 	writeLevel(layout.StartAlt, LevelHigh)
 

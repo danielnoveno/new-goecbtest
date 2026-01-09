@@ -27,7 +27,6 @@ type FormPageConfig struct {
 	Fluid       bool
 }
 
-// FormPage adalah fungsi untuk form page.
 func FormPage(cfg FormPageConfig) fyne.CanvasObject {
 	if cfg.Content == nil {
 		cfg.Content = widget.NewLabel("")

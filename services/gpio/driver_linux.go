@@ -50,6 +50,10 @@ func normalizePinName(pin string) string {
 	if trimmed == "" {
 		return trimmed
 	}
+
+	if bcm, err := WiringPiToBCM(trimmed); err == nil {
+		return bcm
+	}
 	
 	if strings.HasPrefix(strings.ToUpper(trimmed), "GPIO") {
 		return trimmed
@@ -62,6 +66,9 @@ func normalizePinName(pin string) string {
 }
 
 func (d *periphDriver) Write(pin string, level Level) error {
+	if err := ValidatePinAccess(pin); err != nil {
+		return err
+	}
 	p, err := d.pin(pin)
 	if err != nil {
 		return err
@@ -70,6 +77,9 @@ func (d *periphDriver) Write(pin string, level Level) error {
 }
 
 func (d *periphDriver) Read(pin string) (Level, error) {
+	if err := ValidatePinAccess(pin); err != nil {
+		return LevelLow, err
+	}
 	p, err := d.pin(pin)
 	if err != nil {
 		return LevelLow, err
@@ -81,6 +91,9 @@ func (d *periphDriver) Read(pin string) (Level, error) {
 }
 
 func (d *periphDriver) SetMode(pin string, mode PinMode) error {
+	if err := ValidatePinAccess(pin); err != nil {
+		return err
+	}
 	p, err := d.pin(pin)
 	if err != nil {
 		return err

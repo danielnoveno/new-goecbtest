@@ -16,6 +16,8 @@ import (
 
 	"runtime/debug"
 
+	"go-ecb/configs"
+	"go-ecb/services/gpio"
 	"go-ecb/services/system"
 	navigation "go-ecb/views/ecb/navigation"
 
@@ -45,7 +47,6 @@ const (
 	stepCompressorCode
 )
 
-// StepKind adalah alias yang dapat digunakan di luar paket untuk merujuk langkah input.
 type StepKind = lineStepKind
 
 const (
@@ -55,7 +56,6 @@ const (
 	StepCompressorCode StepKind = stepCompressorCode
 )
 
-// FirstNonEmpty returns the first non-empty string from the supplied slice.
 func FirstNonEmpty(items []string) string {
 	for _, item := range items {
 		trimmed := strings.TrimSpace(item)
@@ -93,7 +93,6 @@ type sizedButton struct {
 	minSize fyne.Size
 }
 
-// newSizedButton adalah fungsi untuk baru sized button.
 func newSizedButton(label string, icon fyne.Resource, tapped func(), minSize fyne.Size) *sizedButton {
 	btn := &sizedButton{
 		Button:  *widget.NewButtonWithIcon(label, icon, tapped),
@@ -103,7 +102,6 @@ func newSizedButton(label string, icon fyne.Resource, tapped func(), minSize fyn
 	return btn
 }
 
-// MinSize adalah fungsi untuk min size.
 func (b *sizedButton) MinSize() fyne.Size {
 	base := b.Button.MinSize()
 	if b.minSize.Width > base.Width {
@@ -121,7 +119,6 @@ type responsiveWidthSpec struct {
 	max      float32
 }
 
-// availableCanvasWidth adalah fungsi untuk available canvas width.
 func availableCanvasWidth(w fyne.Window) float32 {
 	if w == nil || w.Canvas() == nil {
 		return 0
@@ -133,7 +130,6 @@ func availableCanvasWidth(w fyne.Window) float32 {
 	return width
 }
 
-// DeriveLineCardWidth adalah fungsi untuk derive jalur card width.
 func DeriveLineCardWidth(w fyne.Window, columns int, fallback, maxWidth float32) float32 {
 	if fallback <= 0 {
 		fallback = 640
@@ -157,7 +153,6 @@ func DeriveLineCardWidth(w fyne.Window, columns int, fallback, maxWidth float32)
 	return width
 }
 
-// newHistoryTable adalah fungsi untuk baru history tabel.
 func newHistoryTable(maxRows int) *historyTable {
 	h := &historyTable{
 		headers: []string{"Date", "Hour", "S/N", "Type"},
@@ -211,7 +206,6 @@ func newHistoryTable(maxRows int) *historyTable {
 	return h
 }
 
-// adjustColumnWidths adalah fungsi untuk adjust column widths.
 func (h *historyTable) adjustColumnWidths(total float32) {
 	if len(h.headers) == 0 || h.table == nil {
 		return
@@ -228,7 +222,6 @@ func (h *historyTable) adjustColumnWidths(total float32) {
 	}
 }
 
-// append adalah fungsi untuk append.
 func (h *historyTable) append(row historyRow) {
 	h.mu.Lock()
 	defer h.mu.Unlock()
@@ -285,12 +278,10 @@ type LineState struct {
 	autoFocus              bool
 }
 
-// newRefrigLine adalah fungsi untuk baru refrigerator jalur.
 func NewRefrigLine(name string, w fyne.Window, width ...float32) *LineState {
 	return NewRefrigLineWithAutoFocus(name, w, true, width...)
 }
 
-// newRefrigLineWithAutoFocus adalah fungsi untuk baru refrigerator jalur with auto focus.
 func NewRefrigLineWithAutoFocus(name string, w fyne.Window, autoFocus bool, width ...float32) *LineState {
 	cardWidth := float32(0)
 	if len(width) > 0 {
@@ -316,12 +307,10 @@ func NewRefrigLineWithAutoFocus(name string, w fyne.Window, autoFocus bool, widt
 	return line
 }
 
-// newSnOnlyLine adalah fungsi untuk baru sn only jalur.
 func NewSnOnlyLine(name string, w fyne.Window, width ...float32) *LineState {
 	return NewSnOnlyLineWithAutoFocus(name, w, true, width...)
 }
 
-// NewSnOnlyLineWithAutoFocus returns a sn-only line builder that can opt out of initial focus.
 func NewSnOnlyLineWithAutoFocus(name string, w fyne.Window, autoFocus bool, width ...float32) *LineState {
 	cardWidth := float32(0)
 	if len(width) > 0 {
@@ -505,7 +494,6 @@ func (l *LineState) buildUI() {
 	}
 }
 
-// SetResponsiveWidth allows the card to recompute its ideal width per breakpoint.
 func (l *LineState) SetResponsiveWidth(columns int, fallback, max float32) {
 	if columns <= 0 {
 		columns = 1
@@ -740,7 +728,6 @@ func (l *LineState) handleInput(raw string) {
 	l.advanceStep()
 }
 
-// applyInput adalah fungsi untuk apply input.
 func (l *LineState) applyInput(kind lineStepKind, input string) bool {
 	log.Printf("[%s] applyInput kind=%v input=%q", l.name, kind, input)
 	trimmed := strings.TrimSpace(input)
@@ -808,7 +795,6 @@ func (l *LineState) applyInput(kind lineStepKind, input string) bool {
 	return true
 }
 
-// startHardware adalah fungsi untuk menjalankan hardware.
 func (l *LineState) startHardware(step lineStep) {
 	l.mu.Lock()
 	if l.testRunning {
@@ -824,8 +810,46 @@ func (l *LineState) startHardware(step lineStep) {
 	l.flashStatus("WAIT FOR TEST", color.RGBA{R: 0xFF, G: 0xD7, B: 0x00, A: 0xFF}, 0)
 
 	go func(stepIdx int, completes bool) {
-		// Hardware simulator: always pass to avoid random false-fail during scans.
-		pass := true
+		layout := gpio.GetPinLayout()
+		simoCfg := configs.LoadSimoConfig()
+		isSim := simoCfg.EcbMode == "simulateAll" || simoCfg.EcbMode == "simulateHW"
+
+		var pass bool = true
+		if !isSim {
+			gpio.WritePin(layout.UnderTest, gpio.LevelLow)
+
+			for {
+				l.mu.Lock()
+				if !l.testRunning || l.currentStep != stepIdx {
+					l.mu.Unlock()
+					gpio.WritePin(layout.UnderTest, gpio.LevelHigh)
+					return
+				}
+				l.mu.Unlock()
+
+				if pLevel, _ := gpio.ReadPin(layout.Pass); pLevel == gpio.LevelLow {
+					pass = true
+					break
+				}
+
+				if fLevel, _ := gpio.ReadPin(layout.Fail); fLevel == gpio.LevelLow {
+					pass = false
+					break
+				}
+				
+				if lLevel, _ := gpio.ReadPin(layout.LineSelect); lLevel == gpio.LevelLow {
+					pass = true
+					break
+				}
+
+				time.Sleep(50 * time.Millisecond)
+			}
+
+			gpio.WritePin(layout.UnderTest, gpio.LevelHigh)
+		} else {
+			time.Sleep(1 * time.Second)
+		}
+
 		runOnMain(func() {
 			l.mu.Lock()
 			if l.currentStep != stepIdx {
@@ -851,7 +875,6 @@ func (l *LineState) startHardware(step lineStep) {
 	}(stepIdx, step.completesFlow)
 }
 
-// advanceStep adalah fungsi untuk advance step.
 func (l *LineState) advanceStep() {
 	log.Printf("[%s] advanceStep from=%d", l.name, l.currentStep)
 	l.mu.Lock()
@@ -865,7 +888,6 @@ func (l *LineState) advanceStep() {
 	l.showInstruction()
 }
 
-// completeFlow adalah fungsi untuk complete flow.
 func (l *LineState) completeFlow() {
 	l.mu.Lock()
 	serial := l.serialValue
@@ -909,14 +931,12 @@ func (l *LineState) completeFlow() {
 	}
 }
 
-// showInstruction adalah fungsi untuk show instruction.
 func (l *LineState) showInstruction() {
 	log.Printf("[%s] showInstruction step=%d label=%q", l.name, l.currentStep, l.steps[l.currentStep].label)
 	step := l.steps[l.currentStep]
 	l.updateJumboText(l.buildJumboLines(step.label), color.RGBA{R: 0x00, G: 0xFF, B: 0x00, A: 0xFF})
 }
 
-// flashStatus adalah fungsi untuk flash status.
 func (l *LineState) flashStatus(msg string, clr color.Color, revertDuration time.Duration) {
 	log.Printf("[%s] flashStatus msg=%q revert=%s", l.name, msg, revertDuration)
 	l.updateJumboText(l.buildJumboLines(msg), clr)
@@ -934,7 +954,6 @@ func (l *LineState) flashStatus(msg string, clr color.Color, revertDuration time
 	}
 }
 
-// Reset adalah fungsi untuk reset.
 func (l *LineState) Reset(showInfo bool) {
 	log.Printf("[%s] Reset called showInfo=%v", l.name, showInfo)
 	l.mu.Lock()
@@ -942,7 +961,6 @@ func (l *LineState) Reset(showInfo bool) {
 	l.resetLocked(showInfo, true)
 }
 
-// resetLocked adalah fungsi untuk reset locked.
 func (l *LineState) resetLocked(showInfo bool, focusSelf bool) {
 	l.currentStep = 0
 	l.testRunning = false
@@ -976,7 +994,6 @@ func (l *LineState) resetLocked(showInfo bool, focusSelf bool) {
 	}
 }
 
-// handleKeyword adalah fungsi untuk menangani keyword.
 func (l *LineState) handleKeyword(text string, skipRefocus *bool) bool {
 	log.Printf("[%s] handleKeyword text=%q", l.name, text)
 	cmd := strings.ToUpper(text)
@@ -1040,7 +1057,6 @@ func (l *LineState) handleKeyword(text string, skipRefocus *bool) bool {
 	}
 }
 
-// applySimulationMode adalah fungsi untuk apply simulation mode.
 func (l *LineState) applySimulationMode(mode string) {
 	show := getMaintenanceState().renderMode(mode)
 	applyMode(mode, l.window)
@@ -1048,13 +1064,11 @@ func (l *LineState) applySimulationMode(mode string) {
 	log.Printf("[%s] keyword handled MODE=%s", l.name, show)
 }
 
-// setPeerFocus adalah fungsi untuk mengatur peer focus.
 func (l *LineState) SetPeerFocus(fn func(), autoSwitch bool) {
 	l.otherFocus = fn
 	l.focusPeerAfterComplete = autoSwitch
 }
 
-// focus adalah fungsi untuk focus.
 func (l *LineState) Focus() {
 	if l.inputEntry == nil || l.window == nil {
 		log.Printf("[%s] focus skipped inputEntry or window nil", l.name)
@@ -1086,7 +1100,6 @@ func (l *LineState) Focus() {
 	l.window.Canvas().Focus(l.inputEntry)
 }
 
-// refocusInput adalah fungsi untuk refocus input.
 func (l *LineState) refocusInput() {
 	log.Printf("[%s] refocusInput request", l.name)
 	runOnMain(func() {
@@ -1094,7 +1107,6 @@ func (l *LineState) refocusInput() {
 	})
 }
 
-// setLastInput adalah fungsi untuk mengatur last input.
 func (l *LineState) setLastInput(val string) {
 	l.mu.Lock()
 	defer l.mu.Unlock()
@@ -1103,12 +1115,10 @@ func (l *LineState) setLastInput(val string) {
 	}
 }
 
-// setSerialValidator adalah fungsi untuk mengatur serial validator.
 func (l *LineState) SetSerialValidator(fn func(string) (string, error)) {
 	l.customSerialValidator = fn
 }
 
-// SetStepValidator menambahkan validator sebelum nilai diset untuk langkah tertentu.
 func (l *LineState) SetStepValidator(kind StepKind, fn func(string) error) {
 	if l.stepValidators == nil {
 		l.stepValidators = make(map[lineStepKind]func(string) error)
@@ -1116,24 +1126,20 @@ func (l *LineState) SetStepValidator(kind StepKind, fn func(string) error) {
 	l.stepValidators[lineStepKind(kind)] = fn
 }
 
-// setSaveHandler adalah fungsi untuk mengatur menyimpan handler.
 func (l *LineState) SetSaveHandler(fn func() error) {
 	l.customSaveFlow = fn
 }
 
-// setSuccessMessage adalah fungsi untuk mengatur success message.
 func (l *LineState) SetSuccessMessage(msg string) {
 	l.successMessage = msg
 }
 
-// values adalah fungsi untuk values.
 func (l *LineState) Values() (serial, fg, spc, compType, compCode string) {
 	l.mu.Lock()
 	defer l.mu.Unlock()
 	return l.serialValue, l.fgTypeValue, l.spcValue, l.compTypeValue, l.compCodeValue
 }
 
-// DeriveFgType adalah fungsi untuk derive fg type.
 func DeriveFgType(sn string) string {
 	if sn == "" {
 		return "-"
@@ -1144,7 +1150,6 @@ func DeriveFgType(sn string) string {
 	return fmt.Sprintf("FG-%s", sn)
 }
 
-// deriveCompressorTitle adalah fungsi untuk derive kompresor title.
 func deriveCompressorTitle(code string) string {
 	if code == "" {
 		return "-"
@@ -1155,7 +1160,6 @@ func deriveCompressorTitle(code string) string {
 	return fmt.Sprintf("COMP %s", code)
 }
 
-// runOnMain adalah fungsi untuk menjalankan on utama.
 func runOnMain(fn func()) {
 	if fn == nil {
 		return
@@ -1167,7 +1171,6 @@ func runOnMain(fn func()) {
 	fn()
 }
 
-// runSystemCommandAsync adalah fungsi untuk menjalankan system command async.
 func runSystemCommandAsync(w fyne.Window, action func() error) {
 	if action == nil {
 		return
@@ -1181,7 +1184,6 @@ func runSystemCommandAsync(w fyne.Window, action func() error) {
 	}()
 }
 
-// NewResponsiveLineLayout arranges line cards so they wrap responsively on small screens.
 func NewResponsiveLineLayout(objects ...fyne.CanvasObject) fyne.CanvasObject {
 	config := make([]fyne.CanvasObject, 0, len(objects))
 	for _, obj := range objects {

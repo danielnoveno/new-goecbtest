@@ -53,7 +53,6 @@ type headerPalette struct {
 	HeaderEnd   color.Color
 	Accent      color.Color
 }
-
 // BuildMainWindow adalah fungsi untuk menyusun utama window.
 func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController maintenance.PinController) *types.AppState {
 
@@ -731,10 +730,10 @@ func BuildMainWindow(a fyne.App, w fyne.Window, dbmap *gorp.DbMap, pinController
 					if !entryFocused && activateDialogActionByLabel(w, "yes") {
 						return
 					}
-				case fyne.KeyB:
-					if !entryFocused && activateDialogActionByLabel(w, "buka") {
-						return
-					}
+				// case fyne.KeyB:
+				// 	if !entryFocused && activateDialogActionByLabel(w, "buka") {
+				// 		return
+				// 	}
 				}
 			}
 			if prevTyped != nil {

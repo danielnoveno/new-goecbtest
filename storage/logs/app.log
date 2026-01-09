@@ -1101,3 +1101,85 @@ main.main()
 2026-01-08T16:02:24.030+0700	[34mINFO[0m	[Line: REF A] refocusInput request
 2026-01-08T16:02:24.355+0700	[34mINFO[0m	[Line: REF A] focus attempt
 2026-01-08T16:02:24.886+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-09T07:59:58.640+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-09T07:59:58.641+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-09T07:59:58.746+0700	[34mINFO[0m	DB: Successfully connected!
+2026-01-09T07:59:58.747+0700	[34mINFO[0m	[Monitor] System Info:
+2026-01-09T07:59:58.747+0700	[34mINFO[0m	[Monitor]   - OS/Arch: windows/amd64
+2026-01-09T07:59:58.747+0700	[34mINFO[0m	[Monitor]   - CPUs: 8
+2026-01-09T07:59:58.748+0700	[34mINFO[0m	[Monitor]   - Go Version: go1.25.1
+2026-01-09T07:59:58.748+0700	[34mINFO[0m	[Monitor]   - Platform: Desktop/Server
+2026-01-09T07:59:58.748+0700	[34mINFO[0m	[Station] Detecting machine identity... IP: 172.16.86.213
+2026-01-09T08:00:05.535+0700	[31mERROR[0m	Failed to initialize station: failed to check station identity: invalid connection
+main.main
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/cmd/main.go:66
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:285
+2026-01-09T08:00:05.667+0700	[33mWARN[0m	Error querying EcbConfigs: dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+2026-01-09T08:00:05.667+0700	[31mERROR[0m	Failed to load maintenance pins: failed to load maintenance pins: dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+main.main
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/cmd/main.go:107
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:285
+2026-01-09T08:00:05.672+0700	[33mWARN[0m	Error querying themes: dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+2026-01-09T08:00:05.672+0700	[33mWARN[0m	Warning: gagal memuat tema: dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+
+2026-01-09T08:00:05.686+0700	[33mWARN[0m	Error querying Ecbstation: dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+2026-01-09T08:00:05.690+0700	[31mERROR[0m	[navigation] load failed: dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+go-ecb/services/core.(*Controller).init
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/services/core/service.go:132
+go-ecb/services/core.NewController
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/services/core/service.go:71
+go-ecb/services/about.NewController
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/services/about/service.go:25
+go-ecb/views.BuildMainWindow
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/views/main.go:327
+main.main
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/cmd/main.go:113
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:285
+2026-01-09T08:00:05.706+0700	[33mWARN[0m	Error querying Ecbstation: dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+2026-01-09T08:00:05.710+0700	[31mERROR[0m	[navigation] load failed: dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+go-ecb/services/core.(*Controller).init
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/services/core/service.go:132
+go-ecb/services/core.NewController
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/services/core/service.go:71
+go-ecb/services/setting.NewSettingController
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/services/setting/service.go:34
+go-ecb/views.BuildMainWindow
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/views/main.go:328
+main.main
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/cmd/main.go:113
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:285
+2026-01-09T08:00:05.920+0700	[31mERROR[0m	failed to insert ecbstate "0.0.0.0": dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+go-ecb/services/gpio.runEcbStateUpdater
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/services/gpio/updater.go:91
+go-ecb/services/gpio.StartEcbStateUpdater.func1.1
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/services/gpio/updater.go:36
+2026-01-09T08:00:06.256+0700	[34mINFO[0m	ECB Test Desktop Scheduler Running...
+2026-01-09T08:00:06.256+0700	[34mINFO[0m	[Scheduler] Configured intervals - CleanMutex: 10m0s, PostData: 5m0s, SyncPo: 10m0s
+2026-01-09T08:00:06.256+0700	[34mINFO[0m	[window] size initial 1024x700
+2026-01-09T08:00:06.258+0700	[34mINFO[0m	[scheduler] disable SIMO/BServ jobs: simoprd ping failed: dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+2026-01-09T08:00:07.256+0700	[34mINFO[0m	[window] size changed 1026x700
+2026-01-09T08:01:19.426+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-09T08:01:19.427+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-09T08:01:19.448+0700	[31mFATAL[0m	Failed to initialize database: dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+main.main
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/cmd/main.go:55
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:285
+2026-01-09T08:08:37.898+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-09T08:08:37.901+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-09T08:08:37.937+0700	[31mFATAL[0m	Failed to initialize database: dial tcp [::1]:3306: connectex: No connection could be made because the target machine actively refused it.
+main.main
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/cmd/main.go:55
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:285
+2026-01-09T09:04:13.945+0700	[35mDEBUG[0m	logger initialized for debugging	{"debug": true}
+2026-01-09T09:04:13.945+0700	[34mINFO[0m	DB: Desktop mode, using standard connection pool (max:5, idle:2)
+2026-01-09T09:04:14.019+0700	[31mFATAL[0m	Failed to initialize database: Error 1046 (3D000): No database selected
+main.main
+	D:/MAGANG POLYTRON - Semester 7/V2go-ecbtest/cmd/main.go:55
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:285

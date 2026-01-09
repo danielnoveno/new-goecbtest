@@ -29,7 +29,6 @@ type SurfaceConfig struct {
 	Content      fyne.CanvasObject
 }
 
-// Surface adalah fungsi untuk surface.
 func Surface(cfg SurfaceConfig) fyne.CanvasObject {
 	background := cfg.Background
 	if background == nil {

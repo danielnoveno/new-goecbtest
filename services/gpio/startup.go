@@ -1,7 +1,7 @@
 /*
-    file:           services/gpio/startup.go
-    description:    Driver GPIO untuk startup
-    created:        220711663@students.uajy.ac.id 04-11-2025
+   file:           services/gpio/startup.go
+   description:    Driver GPIO untuk startup
+   created:        220711663@students.uajy.ac.id 04-11-2025
 */
 
 package gpio
@@ -29,10 +29,10 @@ func InitializeHardware() {
 		{layout.ResetAlt, ModeOutput},
 		{layout.Start, ModeOutput},
 		{layout.StartAlt, ModeOutput},
-		{layout.LineSelect, ModeOutput},
+		{layout.LineSelect, ModeInput}, // Changed to input for demo
 		{layout.Pass, ModeInput},
 		{layout.Fail, ModeInput},
-		{layout.UnderTest, ModeInput},
+		{layout.UnderTest, ModeOutput}, // Changed to output for LED demo
 	} {
 		if strings.TrimSpace(pin.name) == "" {
 			continue

@@ -1,7 +1,7 @@
 /*
-    file:           services/gpio/pins.go
-    description:    Driver GPIO untuk pins
-    created:        220711663@students.uajy.ac.id 04-11-2025
+   file:           services/gpio/pins.go
+   description:    Driver GPIO untuk pins
+   created:        220711663@students.uajy.ac.id 04-11-2025
 */
 
 package gpio

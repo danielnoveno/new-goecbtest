@@ -51,12 +51,10 @@ var (
 	modeChangeHandler func(string)
 )
 
-// RegisterModeChangeHandler adalah fungsi untuk mendaftarkan mode change handler.
 func RegisterModeChangeHandler(fn func(string)) {
 	modeChangeHandler = fn
 }
 
-// getMaintenanceState adalah fungsi untuk mengambil pemeliharaan status.
 func getMaintenanceState() *maintenanceState {
 	maintenanceOnce.Do(func() {
 		simoCfg := configs.LoadSimoConfig()
@@ -83,7 +81,6 @@ func getMaintenanceState() *maintenanceState {
 	return sharedState
 }
 
-// deriveLineCount adalah fungsi untuk derive jalur count.
 func deriveLineCount(lineType string) int {
 	switch strings.ToLower(strings.TrimSpace(lineType)) {
 	case "sn-only-single", "refrig-single", "refrig-po-single":
@@ -106,7 +103,6 @@ func (s *maintenanceState) setString(target binding.String, value string) {
 	}
 }
 
-// setMode adalah fungsi untuk mengatur mode.
 func (s *maintenanceState) setMode(mode string, onModeChange func(string), w fyne.Window) {
 	mode = strings.TrimSpace(mode)
 	if mode == "" {
@@ -131,7 +127,6 @@ func (s *maintenanceState) setMode(mode string, onModeChange func(string), w fyn
 	}
 }
 
-// renderMode adalah fungsi untuk render mode.
 func (s *maintenanceState) renderMode(mode string) string {
 	switch strings.ToLower(mode) {
 	case "live":
@@ -147,7 +142,6 @@ func (s *maintenanceState) renderMode(mode string) string {
 	}
 }
 
-// restartWatcher adalah fungsi untuk restart watcher.
 func (s *maintenanceState) restartWatcher() {
 	s.mu.Lock()
 	if s.cancel != nil {
@@ -168,7 +162,6 @@ func (s *maintenanceState) restartWatcher() {
 	}()
 }
 
-// watchLocal polls GPIO directly; this avoids reliance on the HTTP API to prevent 404 errors.
 func (s *maintenanceState) watchLocal(ctx context.Context) {
 	ticker := time.NewTicker(250 * time.Millisecond)
 	defer ticker.Stop()
@@ -186,7 +179,6 @@ func (s *maintenanceState) watchLocal(ctx context.Context) {
 	}
 }
 
-// applyStateString adalah fungsi untuk apply status string.
 func (s *maintenanceState) applyStateString(value string) {
 	parts := strings.Split(value, ".")
 	if len(parts) < 4 {
@@ -203,9 +195,13 @@ func (s *maintenanceState) applyStateString(value string) {
 	}
 	result := deriveHasil(value)
 	s.setString(s.hasil, result)
+	if result == "RUSAK" {
+		s.setString(s.pesan, fmt.Sprintf("Logika Error: Kombinasi Pin %s tidak valid", value))
+	} else {
+		s.setString(s.pesan, "Status: OK")
+	}
 }
 
-// deriveHasil adalah fungsi untuk derive hasil.
 func deriveHasil(state string) string {
 	if strings.HasPrefix(state, "1.1.1") {
 		return "IDLE"
@@ -222,7 +218,6 @@ func deriveHasil(state string) string {
 	return "RUSAK"
 }
 
-// clampLine adalah fungsi untuk clamp jalur.
 func clampLine(line int) int {
 	if line <= 0 {
 		return 0
@@ -233,7 +228,6 @@ func clampLine(line int) int {
 	return line
 }
 
-// runCommand adalah fungsi untuk menjalankan command.
 func (s *maintenanceState) runCommand(action func(), successMessage string) {
 	go func() {
 		action()
@@ -243,16 +237,13 @@ func (s *maintenanceState) runCommand(action func(), successMessage string) {
 	}()
 }
 
-// applyMode adalah fungsi untuk apply mode.
 func applyMode(mode string, w fyne.Window) {
 	getMaintenanceState().setMode(mode, modeChangeHandler, w)
 }
 
-// MaintenanceUI builds the maintenance screen with GPIO polling (no website dependency).
 func MaintenanceUI(onModeChange func(string), currentMode string, w fyne.Window, pinController maintenanceSvc.PinController) fyne.CanvasObject {
 	state := getMaintenanceState()
 
-	// re-sync mode with caller and start the local polling watcher
 	if strings.TrimSpace(currentMode) != "" {
 		state.setMode(currentMode, onModeChange, w)
 	} else {
@@ -473,7 +464,6 @@ func MaintenanceUI(onModeChange func(string), currentMode string, w fyne.Window,
 	return container.NewVScroll(container.NewPadded(content))
 }
 
-// physicalReference is a function to get physical reference.
 func physicalReference(wiringPiPin string) string {
 	return gpio.WiringPiToPhysical(wiringPiPin)
 }
@@ -489,7 +479,6 @@ type pinConfigForm struct {
 	startAltEntry   *widget.Entry
 }
 
-// newPinConfigForm adalah fungsi untuk baru pin konfigurasi form.
 func newPinConfigForm(layout gpio.PinLayout) *pinConfigForm {
 	return &pinConfigForm{
 		underTestEntry:  entryWithValue(layout.UnderTest),
@@ -503,7 +492,6 @@ func newPinConfigForm(layout gpio.PinLayout) *pinConfigForm {
 	}
 }
 
-// entryWithValue adalah fungsi untuk entry with value.
 func entryWithValue(value string) *widget.Entry {
 	entry := widget.NewEntry()
 	entry.SetText(value)
@@ -525,7 +513,6 @@ func (f *pinConfigForm) update(layout gpio.PinLayout) {
 	f.startAltEntry.SetText(layout.StartAlt)
 }
 
-// toLayout adalah fungsi untuk to layout.
 func (f *pinConfigForm) toLayout() gpio.PinLayout {
 	if f == nil {
 		return gpio.DefaultPinLayout()
