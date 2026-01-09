@@ -159,3 +159,9 @@ Saat aplikasi jalan, scheduler (`task.Start`) otomatis:
 - `task/*`            : scheduler sync & push data.
 - `db/demo_data.sql`  : seed dummy.
 - `configs/environment_loader.go`    : loader env var `.env`.
+
+
+chmod +x /home/pi/V2go-ecbtest/scripts/start-app.sh
+
+mkdir -p ~/.config/autostart
+cp /home/pi/V2go-ecbtest/scripts/ecb-test.desktop ~/.config/autostart/

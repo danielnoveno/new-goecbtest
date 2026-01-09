@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=ECB Test
+Comment=Auto-start ECB Test Application
+Exec=/home/pi/V2go-ecbtest/scripts/start-app.sh
+Terminal=false
+Categories=Utility;Development;
